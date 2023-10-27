@@ -1,9 +1,10 @@
 package org.br.ufpb.dcx.carlos.personalLibrary.model;
 
+import java.io.Serializable;
 import java.util.Objects;
 import java.util.List;
 
-public class Book implements Comparable<Book> {
+public class Book implements Comparable<Book>, Serializable {
 
     private String title;
     private List<Author> author;

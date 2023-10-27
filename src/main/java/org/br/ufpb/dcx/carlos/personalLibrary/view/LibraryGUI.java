@@ -27,7 +27,6 @@ public class LibraryGUI extends JFrame {
         add(line1);
         add(new JLabel());
         createMainMenu(createDisplaySection(), createManagementSection(), createSearchSection());
-
     }
 
     public JMenu createDisplaySection() {
