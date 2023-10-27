@@ -120,10 +120,17 @@ public class LibrarySystem implements LibrarySystemInterface {
     }
 
     @Override
-    public List<Book> findBooksByPageCount(int pageCount, int searchType) {
+    public List<Book> findBooksByMorePageCount(int pageCount) {
         return bookList.stream()
-                .filter(book -> (searchType == 1 && book.getPageCount() > pageCount) || (searchType == 2 && book.getPageCount() < pageCount))
-                .collect(ArrayList::new, ArrayList::add, ArrayList::addAll);
+                .filter(book -> book.getPageCount() > pageCount)
+                .toList();
+    }
+
+    @Override
+    public List<Book> findBooksByLessPageCount(int pageCount) {
+        return bookList.stream()
+                .filter(book -> book.getPageCount() < pageCount)
+                .toList();
     }
 
     @Override

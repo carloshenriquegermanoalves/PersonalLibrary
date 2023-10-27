@@ -36,7 +36,9 @@ public interface LibrarySystemInterface {
 
     List<Book> findBooksByGenre(String genreToSearch);
 
-    List<Book> findBooksByPageCount(int pageCount, int searchType);
+    List<Book> findBooksByLessPageCount(int pageCount);
+
+    List<Book> findBooksByMorePageCount(int pageCount);
 
     List<Book> findBooksByYearOfReading(int yearOfReading);
 
