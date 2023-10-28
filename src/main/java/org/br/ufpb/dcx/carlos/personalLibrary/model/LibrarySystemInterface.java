@@ -55,14 +55,4 @@ public interface LibrarySystemInterface {
     List<String> genreBooksList();
 
     int totalPageCount();
-
-    void displayAllBooks();
-
-    void displayBookList(List<Book> bookList);
-
-    void displayAllAuthors();
-
-    void displayAuthorList(List<Author> authorList);
-
-    void displayAllGenres();
 }

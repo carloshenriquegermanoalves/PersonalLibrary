@@ -4,11 +4,22 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="09c854cf-8a0d-4328-b383-29b0bb14ec4a" name="Changes" comment="View Implementation!" />
+    <list default="true" id="09c854cf-8a0d-4328-b383-29b0bb14ec4a" name="Changes" comment="Starting the control implementation!">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/br/ufpb/dcx/carlos/personalLibrary/model/LibrarySystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/br/ufpb/dcx/carlos/personalLibrary/model/LibrarySystem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/br/ufpb/dcx/carlos/personalLibrary/model/LibrarySystemInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/br/ufpb/dcx/carlos/personalLibrary/model/LibrarySystemInterface.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -22,21 +33,21 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "main",
-    "last_opened_file_path": "C:/Users/Trabalho/Desktop/Personal Library",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "onboarding.tips.debug.path": "C:/Users/Trabalho/Desktop/Personal Library/src/main/java/org/example/Main.java",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Trabalho/Desktop/Personal Library&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;onboarding.tips.debug.path&quot;: &quot;C:/Users/Trabalho/Desktop/Personal Library/src/main/java/org/example/Main.java&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.br.ufpb.dcx.carlos.personalLibrary.Main" />
@@ -67,6 +78,8 @@
       <updated>1698409373948</updated>
       <workItem from="1698409375526" duration="14000" />
       <workItem from="1698416267475" duration="4790000" />
+      <workItem from="1698439774937" duration="2708000" />
+      <workItem from="1698445030509" duration="84000" />
     </task>
     <task id="LOCAL-00001" summary="View Implementation!">
       <option name="closed" value="true" />
@@ -76,7 +89,15 @@
       <option name="project" value="LOCAL" />
       <updated>1698421519061</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Starting the control implementation!">
+      <option name="closed" value="true" />
+      <created>1698443330287</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1698443330287</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -84,7 +105,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="View Implementation!" />
-    <option name="LAST_COMMIT_MESSAGE" value="View Implementation!" />
+    <MESSAGE value="Starting the control implementation!" />
+    <option name="LAST_COMMIT_MESSAGE" value="Starting the control implementation!" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

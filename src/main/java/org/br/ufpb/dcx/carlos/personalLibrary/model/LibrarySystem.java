@@ -5,7 +5,6 @@ import org.br.ufpb.dcx.carlos.personalLibrary.model.exceptions.BookNotFoundExcep
 import java.io.IOException;
 import java.util.*;
 
-import javax.swing.JOptionPane;
 
 public class LibrarySystem implements LibrarySystemInterface {
 
@@ -188,31 +187,6 @@ public class LibrarySystem implements LibrarySystemInterface {
     @Override
     public int totalPageCount() {
         return bookList.stream().mapToInt(Book::getPageCount).sum();
-    }
-
-    @Override
-    public void displayAllBooks() {
-        bookList.forEach(book -> JOptionPane.showMessageDialog(null, book.getTitle()));
-    }
-
-    @Override
-    public void displayBookList(List<Book> booksToDisplay) {
-        booksToDisplay.forEach(book -> JOptionPane.showMessageDialog(null, book.getTitle()));
-    }
-
-    @Override
-    public void displayAllAuthors() {
-        authorList().forEach(author -> JOptionPane.showMessageDialog(null, author.getName()));
-    }
-
-    @Override
-    public void displayAuthorList(List<Author> authorList) {
-        authorList.forEach(author -> JOptionPane.showMessageDialog(null, author.getName()));
-    }
-
-    @Override
-    public void displayAllGenres() {
-        genreBooksList().forEach(genre -> JOptionPane.showMessageDialog(null, genre));
     }
 
 }

@@ -1,5 +1,13 @@
 package org.br.ufpb.dcx.carlos.personalLibrary.view;
 
+import org.br.ufpb.dcx.carlos.personalLibrary.control.display.DisplayAllBookGenresController;
+import org.br.ufpb.dcx.carlos.personalLibrary.control.display.DisplayAllBooksController;
+import org.br.ufpb.dcx.carlos.personalLibrary.control.display.DisplayBooksSortedAlphabetically;
+import org.br.ufpb.dcx.carlos.personalLibrary.control.display.DisplayDataOfAllAuthorsController;
+import org.br.ufpb.dcx.carlos.personalLibrary.control.management.RegisterBookController;
+import org.br.ufpb.dcx.carlos.personalLibrary.control.search.SearchAuthorController;
+import org.br.ufpb.dcx.carlos.personalLibrary.control.search.SearchBookController;
+import org.br.ufpb.dcx.carlos.personalLibrary.control.search.SearchByDateControll;
 import org.br.ufpb.dcx.carlos.personalLibrary.model.LibrarySystem;
 
 import javax.swing.*;
@@ -33,15 +41,24 @@ public class LibraryGUI extends JFrame {
         JMenu menuDisplay = new JMenu("Área de Exibição");
 
         JMenuItem acquisitionOrder = new JMenuItem("Ordem de Aquisição");
+        acquisitionOrder.addActionListener(new DisplayAllBooksController(librarySystem));
+        
         JMenuItem alphabeticalOrder = new JMenuItem("Ordem Alfabética");
+        alphabeticalOrder.addActionListener(new DisplayBooksSortedAlphabetically(librarySystem));
+
         JMenuItem genreList = new JMenuItem("Gêneros dos Livros");
-        JMenuItem authorList = new JMenuItem("Autores dos Livros");
+        genreList.addActionListener(new DisplayAllBookGenresController(librarySystem));
+
+        JMenuItem authorsList = new JMenuItem("Lista de Autores dos Livros");
+        authorsList.addActionListener(new DisplayDataOfAllAuthorsController(librarySystem));
+
         JMenuItem alphabeticallySortedByGenres = new JMenuItem("Ordenados Alfabeticamente por Gêneros");
+        alphabeticallySortedByGenres.addActionListener(new DisplayBooksSortedAlphabetically(librarySystem));
 
         menuDisplay.add(acquisitionOrder);
         menuDisplay.add(alphabeticalOrder);
         menuDisplay.add(genreList);
-        menuDisplay.add(authorList);
+        menuDisplay.add(authorsList);
         menuDisplay.add(alphabeticallySortedByGenres);
 
         return menuDisplay;
@@ -51,6 +68,8 @@ public class LibraryGUI extends JFrame {
         JMenu menuManagement = new JMenu("Área de Gerenciamento");
 
         JMenuItem registerBook = new JMenuItem("Cadastrar Livro");
+        registerBook.addActionListener(new RegisterBookController(librarySystem.getBookList()));
+
         JMenuItem removeBook = new JMenuItem("Remover Livro");
         JMenuItem setBook = new JMenuItem("Alterar Livro");
 
@@ -65,8 +84,13 @@ public class LibraryGUI extends JFrame {
         JMenu searchMenu = new JMenu("Área de Pesquisa");
 
         JMenuItem searchBook = new JMenuItem("Pesquisar Livro");
+        searchBook.addActionListener(new SearchBookController(librarySystem));
+
         JMenuItem searchAuthor = new JMenuItem("Pesquisar Autor");
+        searchAuthor.addActionListener(new SearchAuthorController(librarySystem));
+
         JMenuItem searchYear = new JMenuItem("Pesquisar por data");
+        searchYear.addActionListener(new SearchByDateControll(librarySystem));
 
         searchMenu.add(searchBook);
         searchMenu.add(searchAuthor);
