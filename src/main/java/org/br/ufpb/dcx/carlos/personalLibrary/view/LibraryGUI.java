@@ -4,7 +4,9 @@ import org.br.ufpb.dcx.carlos.personalLibrary.control.display.DisplayAllBookGenr
 import org.br.ufpb.dcx.carlos.personalLibrary.control.display.DisplayAllBooksController;
 import org.br.ufpb.dcx.carlos.personalLibrary.control.display.DisplayBooksSortedAlphabetically;
 import org.br.ufpb.dcx.carlos.personalLibrary.control.display.DisplayDataOfAllAuthorsController;
+import org.br.ufpb.dcx.carlos.personalLibrary.control.management.EditBookController;
 import org.br.ufpb.dcx.carlos.personalLibrary.control.management.RegisterBookController;
+import org.br.ufpb.dcx.carlos.personalLibrary.control.management.RemoveBookController;
 import org.br.ufpb.dcx.carlos.personalLibrary.control.search.SearchAuthorController;
 import org.br.ufpb.dcx.carlos.personalLibrary.control.search.SearchBookController;
 import org.br.ufpb.dcx.carlos.personalLibrary.control.search.SearchByDateControll;
@@ -71,11 +73,14 @@ public class LibraryGUI extends JFrame {
         registerBook.addActionListener(new RegisterBookController(librarySystem.getBookList()));
 
         JMenuItem removeBook = new JMenuItem("Remover Livro");
-        JMenuItem setBook = new JMenuItem("Alterar Livro");
+        removeBook.addActionListener(new RemoveBookController(librarySystem));
+
+        JMenuItem editBook = new JMenuItem("Alterar Livro");
+        editBook.addActionListener(new EditBookController(librarySystem));
 
         menuManagement.add(registerBook);
         menuManagement.add(removeBook);
-        menuManagement.add(setBook);
+        menuManagement.add(editBook);
 
         return menuManagement;
     }

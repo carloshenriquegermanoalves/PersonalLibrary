@@ -18,6 +18,9 @@ public interface LibrarySystemInterface {
 
     Book findBookInList(String titleToSearch) throws BookNotFoundException;
 
+    Book findBookByTitleAndAuthor(String titleToSearch, String authorNameToSearch) throws BookNotFoundException;
+
+
     List<Book> sortBooksAlphabetically();
 
     List<Book> sortBooksByAuthorsAlphabetically();

@@ -44,6 +44,22 @@ public class LibrarySystem implements LibrarySystemInterface {
     }
 
     @Override
+    public Book findBookByTitleAndAuthor(String title, String authorName) throws BookNotFoundException {
+        Book foundBook = bookList.stream()
+                .filter(book -> book.getTitle().equalsIgnoreCase(title) && book.getAuthor().getClass().getName().equalsIgnoreCase(authorName))
+                .findFirst()
+                .orElse(null);
+
+        if (foundBook == null) {
+            throw new BookNotFoundException("Livro não encontrado com título: " + title + " e autor: " + authorName);
+        }
+
+        return foundBook;
+    }
+
+
+
+    @Override
     public boolean addBookToList(Book book) {
         return bookList.add(book);
     }

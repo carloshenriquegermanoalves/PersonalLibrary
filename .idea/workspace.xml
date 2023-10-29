@@ -4,11 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="09c854cf-8a0d-4328-b383-29b0bb14ec4a" name="Changes" comment="Starting the control implementation!">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/br/ufpb/dcx/carlos/personalLibrary/model/LibrarySystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/br/ufpb/dcx/carlos/personalLibrary/model/LibrarySystem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/br/ufpb/dcx/carlos/personalLibrary/model/LibrarySystemInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/br/ufpb/dcx/carlos/personalLibrary/model/LibrarySystemInterface.java" afterDir="false" />
-    </list>
+    <list default="true" id="09c854cf-8a0d-4328-b383-29b0bb14ec4a" name="Changes" comment="Control implementation is almost functional now!" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -80,6 +76,7 @@
       <workItem from="1698416267475" duration="4790000" />
       <workItem from="1698439774937" duration="2708000" />
       <workItem from="1698445030509" duration="84000" />
+      <workItem from="1698448177180" duration="12577000" />
     </task>
     <task id="LOCAL-00001" summary="View Implementation!">
       <option name="closed" value="true" />
@@ -97,7 +94,15 @@
       <option name="project" value="LOCAL" />
       <updated>1698443330287</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Control implementation is almost functional now!">
+      <option name="closed" value="true" />
+      <created>1698460827501</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1698460827501</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -106,7 +111,9 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="View Implementation!" />
     <MESSAGE value="Starting the control implementation!" />
-    <option name="LAST_COMMIT_MESSAGE" value="Starting the control implementation!" />
+    <MESSAGE value="Control implementation is functional now!" />
+    <MESSAGE value="Control implementation is almost functional now!" />
+    <option name="LAST_COMMIT_MESSAGE" value="Control implementation is almost functional now!" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
