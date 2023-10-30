@@ -1,6 +1,8 @@
 package org.br.ufpb.dcx.carlos.personalLibrary.control.display;
 
-import org.br.ufpb.dcx.carlos.personalLibrary.control.display.useful.*;
+import org.br.ufpb.dcx.carlos.personalLibrary.control.display.useful.UsefulDisplayAuthorList;
+import org.br.ufpb.dcx.carlos.personalLibrary.control.display.useful.UsefulForDisplayAllAuthors;
+import org.br.ufpb.dcx.carlos.personalLibrary.control.display.useful.UsefulForDisplayBooksList;
 import org.br.ufpb.dcx.carlos.personalLibrary.model.Author;
 import org.br.ufpb.dcx.carlos.personalLibrary.model.Book;
 import org.br.ufpb.dcx.carlos.personalLibrary.model.LibrarySystem;
@@ -18,16 +20,15 @@ public class DisplayDataOfAllAuthorsController implements ActionListener {
     }
 
     private void displayAuthors() {
-        String authorDisplayMenuOption = JOptionPane.showInputDialog(
-                """
-                        1. Exibir Todos os Autores
-                        2. Exibir Autores
-                        3. Exibir Autoras
-                        4. Exibir Autores de Outros Gêneros
-                        5. Número de Livros por Autores
-                        6. Número de Livros por Autoras
-                        7. Número de Livros por Autores de Outros Gêneros
-                        """);
+        String authorDisplayMenuOption = JOptionPane.showInputDialog("""
+                1. Exibir Todos os Autores
+                2. Exibir Autores
+                3. Exibir Autoras
+                4. Exibir Autores de Outros Gêneros
+                5. Número de Livros por Autores
+                6. Número de Livros por Autoras
+                7. Número de Livros por Autores de Outros Gêneros
+                """);
 
         switch (authorDisplayMenuOption) {
             case "1" -> displayAllAuthors();

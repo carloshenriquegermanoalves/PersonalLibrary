@@ -18,13 +18,12 @@ public class SearchByDateControll implements ActionListener {
     }
 
     public void searchBooksByDate() {
-        String dateSearchMenuOption = JOptionPane.showInputDialog(
-                "1. Search for books read in a given year\n2. Search for unread books");
+        String dateSearchMenuOption = JOptionPane.showInputDialog("1. Pesquisar por Livros lidos em um determinado ano\n2. Pesquisar por Livros não lidos");
 
         switch (dateSearchMenuOption) {
             case "1" -> searchBooksReadInYear();
             case "2" -> searchUnreadBooks();
-            default -> JOptionPane.showMessageDialog(null, "Please enter only the available options!");
+            default -> JOptionPane.showMessageDialog(null, "Digite apenas opções válidas!");
         }
     }
 
@@ -34,11 +33,11 @@ public class SearchByDateControll implements ActionListener {
 
         while (!yearOfReadingIsNumeric) {
             try {
-                String yearOfReadingString = JOptionPane.showInputDialog("Enter the year of reading: ");
+                String yearOfReadingString = JOptionPane.showInputDialog("Digite o ano de leitura: ");
                 yearOfReadingToSearch = Integer.parseInt(yearOfReadingString);
                 yearOfReadingIsNumeric = true;
             } catch (NumberFormatException exception) {
-                JOptionPane.showMessageDialog(null, "Please enter only numeric values for the year of reading.");
+                JOptionPane.showMessageDialog(null, "Digite apenas valores numéricos para o ano de leitura.");
             }
         }
 

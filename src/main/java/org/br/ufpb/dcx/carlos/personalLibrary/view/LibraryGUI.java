@@ -26,7 +26,7 @@ public class LibraryGUI extends JFrame {
     public LibraryGUI() {
         librarySystem.loadAllBooks();
         setTitle("Biblioteca Pessoal");
-        setSize(800,800);
+        setSize(800, 800);
         setLocationRelativeTo(null);
         setResizable(false);
         setBackground(WHITE);
@@ -45,7 +45,7 @@ public class LibraryGUI extends JFrame {
 
         JMenuItem acquisitionOrder = new JMenuItem("Ordem de Aquisição");
         acquisitionOrder.addActionListener(new DisplayAllBooksController(librarySystem));
-        
+
         JMenuItem alphabeticalOrder = new JMenuItem("Ordem Alfabética");
         alphabeticalOrder.addActionListener(new DisplayBooksSortedAlphabetically(librarySystem));
 

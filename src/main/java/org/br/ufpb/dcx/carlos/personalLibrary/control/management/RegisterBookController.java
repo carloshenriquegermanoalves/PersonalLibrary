@@ -14,11 +14,11 @@ import java.io.IOException;
 import java.util.List;
 
 public class RegisterBookController implements ActionListener {
+    private final List<Book> bookList;
+    private final DataRecorder dataRecorder;
     UsefulForRegisterAuthor registerAuthor = new UsefulForRegisterAuthor();
     UsefulForRegisterPages registerPages = new UsefulForRegisterPages();
     UsefulForYearOfReading registerYearOfReading = new UsefulForYearOfReading();
-    private final List<Book> bookList;
-    private final DataRecorder dataRecorder;
 
     public RegisterBookController(List<Book> bookList, DataRecorder dataRecorder) {
         this.bookList = bookList;

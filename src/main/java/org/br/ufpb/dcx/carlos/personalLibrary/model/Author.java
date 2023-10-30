@@ -41,8 +41,7 @@ public class Author implements Comparable<Author>, Serializable {
 
     @Override
     public String toString() {
-        return "O nome do autor é: " + name + "\nO gênero do autor é: " + gender + "\nO país de nascimento do autor é: "
-                + countryOfBirth;
+        return "O nome do autor é: " + name + "\nO gênero do autor é: " + gender + "\nO país de nascimento do autor é: " + countryOfBirth;
     }
 
     @Override
@@ -52,15 +51,11 @@ public class Author implements Comparable<Author>, Serializable {
 
     @Override
     public boolean equals(Object obj) {
-        if (this == obj)
-            return true;
-        if (obj == null)
-            return false;
-        if (getClass() != obj.getClass())
-            return false;
+        if (this == obj) return true;
+        if (obj == null) return false;
+        if (getClass() != obj.getClass()) return false;
         Author other = (Author) obj;
-        return Objects.equals(name, other.name) && Objects.equals(countryOfBirth, other.countryOfBirth)
-                && Objects.equals(gender, other.gender);
+        return Objects.equals(name, other.name) && Objects.equals(countryOfBirth, other.countryOfBirth) && Objects.equals(gender, other.gender);
     }
 
     @Override

@@ -2,16 +2,17 @@ package org.br.ufpb.dcx.carlos.personalLibrary.model;
 
 import org.br.ufpb.dcx.carlos.personalLibrary.model.exceptions.BookNotFoundException;
 
-import java.util.*;
+import java.util.List;
 
 public interface LibrarySystemInterface {
 
     List<Book> getBookList();
 
     void setBookList(List<Book> bookList);
-    public DataRecorder getBookRecorder();
 
-    List<Book> loadAllBooks();
+    DataRecorder getBookRecorder();
+
+    void loadAllBooks();
 
     boolean addBookToList(Book book);
 

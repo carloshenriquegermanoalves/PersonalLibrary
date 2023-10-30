@@ -15,17 +15,14 @@ public class UsefulForSearchByAuthorCountry {
     }
 
     public void searchBooksByAuthorNationality() {
-        String authorNationalityForSearch = JOptionPane
-                .showInputDialog("Digite o País de Nascimento do Autor: ");
+        String authorNationalityForSearch = JOptionPane.showInputDialog("Digite o País de Nascimento do Autor: ");
         List<Book> booksByNationality = LIBRARYSYSTEM.findBooksByAuthorCountry(authorNationalityForSearch);
         if (!booksByNationality.isEmpty()) {
             UsefulForDisplayBooksList displayBooksList = new UsefulForDisplayBooksList(booksByNationality);
-            JOptionPane.showMessageDialog(null, "Os livros escritos por autores que nasceram em: "
-                    + authorNationalityForSearch + " sao: ");
+            JOptionPane.showMessageDialog(null, "Os livros escritos por autores que nasceram em: " + authorNationalityForSearch + " sao: ");
             displayBooksList.displayBooksList();
         } else {
-            JOptionPane.showMessageDialog(null,
-                    "Não há livros escritos por autores que nasceram em: " + authorNationalityForSearch);
+            JOptionPane.showMessageDialog(null, "Não há livros escritos por autores que nasceram em: " + authorNationalityForSearch);
         }
     }
 }

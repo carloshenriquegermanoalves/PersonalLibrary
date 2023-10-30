@@ -26,8 +26,7 @@ public class SearchBookController implements ActionListener {
         UsefulForSearchByPages usefulForSearchByPages = new UsefulForSearchByPages(librarySystem);
         UsefulForSearchByGenre usefulForSearchByGenre = new UsefulForSearchByGenre(librarySystem);
 
-        String searchMenuOption = JOptionPane.showInputDialog(
-                "1. Pesquisa por Título do Livro\n2. Pesquisa por Gênero do Livro\n3. Pesquisa por Quantidade de Páginas");
+        String searchMenuOption = JOptionPane.showInputDialog("1. Pesquisa por Título do Livro\n2. Pesquisa por Gênero do Livro\n3. Pesquisa por Quantidade de Páginas");
 
         switch (searchMenuOption) {
             case "1" -> usefulForSearchByTitle.searchByBookTitle();
@@ -36,10 +35,6 @@ public class SearchBookController implements ActionListener {
             default -> JOptionPane.showMessageDialog(null, "Digite apenas opções válidas!");
         }
     }
-
-
-
-
 
 
 }

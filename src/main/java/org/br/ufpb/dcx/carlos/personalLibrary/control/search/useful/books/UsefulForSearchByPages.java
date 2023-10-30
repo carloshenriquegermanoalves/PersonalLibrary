@@ -15,9 +15,7 @@ public class UsefulForSearchByPages {
     }
 
     public void searchByPageCount() {
-        String pageCountSearchOption = JOptionPane.showInputDialog(
-                "1. Pesquisar Livros com ou mais Páginas do que o informado\n"
-                        + "2. Pesquisar Livros com ou menos páginas do que o informado");
+        String pageCountSearchOption = JOptionPane.showInputDialog("1. Pesquisar Livros com ou mais Páginas do que o informado\n" + "2. Pesquisar Livros com ou menos páginas do que o informado");
         switch (pageCountSearchOption) {
             case "1", "2" -> {
                 int pageCountForSearch = getInputForPageCount();
@@ -36,8 +34,7 @@ public class UsefulForSearchByPages {
         boolean pageCountIsNumeric = false;
         while (!pageCountIsNumeric) {
             try {
-                String pageCountString = JOptionPane
-                        .showInputDialog("Digite a Quantidade de Páginas para Pesquisa:");
+                String pageCountString = JOptionPane.showInputDialog("Digite a Quantidade de Páginas para Pesquisa:");
                 pageCountForSearch = Integer.parseInt(pageCountString);
                 pageCountIsNumeric = true;
             } catch (NumberFormatException exception) {
@@ -48,9 +45,7 @@ public class UsefulForSearchByPages {
     }
 
     public void searchBooksByPageCount(int pageCountForSearch, int searchType) {
-        List<Book> foundBooks = (searchType == 1) ?
-                librarySystem.findBooksByMorePageCount(pageCountForSearch) :
-                librarySystem.findBooksByLessPageCount(pageCountForSearch);
+        List<Book> foundBooks = (searchType == 1) ? librarySystem.findBooksByMorePageCount(pageCountForSearch) : librarySystem.findBooksByLessPageCount(pageCountForSearch);
 
         if (!foundBooks.isEmpty()) {
             UsefulForDisplayBooksList listBooksController = new UsefulForDisplayBooksList(foundBooks);

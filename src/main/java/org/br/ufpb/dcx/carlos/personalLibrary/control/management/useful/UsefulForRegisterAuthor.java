@@ -8,6 +8,19 @@ import java.util.List;
 
 public class UsefulForRegisterAuthor {
 
+    private static int getAuthorsNumber(boolean authorsNumberIsNumeric, int authorsNumber) {
+        while (!authorsNumberIsNumeric) {
+            try {
+                String authorsNumberString = JOptionPane.showInputDialog("Digite a quantidade de autores do livro: ");
+                authorsNumber = Integer.parseInt(authorsNumberString);
+                authorsNumberIsNumeric = true;
+            } catch (NumberFormatException exception) {
+                JOptionPane.showMessageDialog(null, "Digite um número válido para a quantidade de autores: ");
+            }
+        }
+        return authorsNumber;
+    }
+
     public List<Author> registerAuthor() {
         int authorsNumber = 0;
         boolean authorsNumberIsNumeric = false;
@@ -20,27 +33,13 @@ public class UsefulForRegisterAuthor {
 
             String authorCountry;
             String knowNationality = getAuthorsNationalityChoice();
-            authorCountry = knowNationality.equals("1") ?
-                    JOptionPane.showInputDialog("Digite o país de nascimento do autor: ") : "Desconhecida";
+            authorCountry = knowNationality.equals("1") ? JOptionPane.showInputDialog("Digite o país de nascimento do autor: ") : "Desconhecida";
 
             Author author = new Author(authorName, authorGenre, authorCountry);
             authors.add(author);
         }
 
         return authors;
-    }
-
-    private static int getAuthorsNumber(boolean authorsNumberIsNumeric, int authorsNumber) {
-        while (!authorsNumberIsNumeric) {
-            try {
-                String authorsNumberString = JOptionPane.showInputDialog("Digite a quantidade de autores do livro: ");
-                authorsNumber = Integer.parseInt(authorsNumberString);
-                authorsNumberIsNumeric = true;
-            } catch (NumberFormatException exception) {
-                JOptionPane.showMessageDialog(null, "Digite um número válido para a quantidade de autores: ");
-            }
-        }
-        return authorsNumber;
     }
 
     private String getAuthorsNationalityChoice() {

@@ -17,7 +17,7 @@ public class DataRecorder {
         File file = new File(MEMBER_FILE);
         if (!file.exists()) {
             try {
-                file.createNewFile();
+                boolean newFile = file.createNewFile();
             } catch (IOException e) {
                 JOptionPane.showMessageDialog(null, "Erro ao criar o arquivo de dados: " + e.getMessage());
             }

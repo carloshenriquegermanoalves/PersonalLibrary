@@ -1,8 +1,8 @@
 package org.br.ufpb.dcx.carlos.personalLibrary.model;
 
 import java.io.Serializable;
-import java.util.Objects;
 import java.util.List;
+import java.util.Objects;
 
 public class Book implements Comparable<Book>, Serializable {
 
@@ -72,9 +72,7 @@ public class Book implements Comparable<Book>, Serializable {
 
     @Override
     public String toString() {
-        return "O Título do Livro é: " + this.title + "\nO(s) Autor(es) do Livro é: " + this.author.get(0).getName() +
-                "\nO Gênero do Livro é: " + this.bookGenre + "\nO Número de Páginas é: "
-                + this.pageCount;
+        return "O Título do Livro é: " + this.title + "\nO(s) Autor(es) do Livro é: " + this.author.get(0).getName() + "\nO Gênero do Livro é: " + this.bookGenre + "\nO Número de Páginas é: " + this.pageCount;
     }
 
     @Override
@@ -84,15 +82,11 @@ public class Book implements Comparable<Book>, Serializable {
 
     @Override
     public boolean equals(Object obj) {
-        if (this == obj)
-            return true;
-        if (obj == null)
-            return false;
-        if (getClass() != obj.getClass())
-            return false;
+        if (this == obj) return true;
+        if (obj == null) return false;
+        if (getClass() != obj.getClass()) return false;
         Book other = (Book) obj;
-        return Objects.equals(author, other.author) && Objects.equals(bookGenre, other.bookGenre)
-                && pageCount == other.pageCount && Objects.equals(title, other.title);
+        return Objects.equals(author, other.author) && Objects.equals(bookGenre, other.bookGenre) && pageCount == other.pageCount && Objects.equals(title, other.title);
     }
 
     @Override

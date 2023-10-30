@@ -16,17 +16,14 @@ public class UsefulForSearchByAuthorName {
     }
 
     public void searchBooksByAuthorName() {
-        String authorNameForSearch = JOptionPane
-                .showInputDialog("Digite o Nome do Autor para a Busca: ");
+        String authorNameForSearch = JOptionPane.showInputDialog("Digite o Nome do Autor para a Busca: ");
         List<Book> booksByAuthor = LIBRARYSYSTEM.findBooksByAuthorName(authorNameForSearch);
         if (!booksByAuthor.isEmpty()) {
             UsefulForDisplayBooksList displayBooksList = new UsefulForDisplayBooksList(LIBRARYSYSTEM.findBooksByAuthorName(authorNameForSearch));
-            JOptionPane.showMessageDialog(null,
-                    "Os livros escritos por " + authorNameForSearch + " são: ");
+            JOptionPane.showMessageDialog(null, "Os livros escritos por " + authorNameForSearch + " são: ");
             displayBooksList.displayBooksList();
         } else {
-            JOptionPane.showMessageDialog(null,
-                    "Não foram encontrados livros escritos por " + authorNameForSearch);
+            JOptionPane.showMessageDialog(null, "Não foram encontrados livros escritos por " + authorNameForSearch);
         }
     }
 }
