@@ -23,6 +23,11 @@ public class EditBookController implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
+        if (librarySystem.getBookList().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Ainda não há livros na biblioteca para serem removidos!");
+            return;
+        }
+
         try {
             String titleToEdit = JOptionPane.showInputDialog("Digite o título do livro que você quer editar: ");
             String authorNameToEdit = JOptionPane.showInputDialog("Digite o nome do autor do livro que você quer editar: ");

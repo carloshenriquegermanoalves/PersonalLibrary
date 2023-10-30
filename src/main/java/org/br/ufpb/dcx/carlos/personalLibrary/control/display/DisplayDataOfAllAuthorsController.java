@@ -19,7 +19,13 @@ public class DisplayDataOfAllAuthorsController implements ActionListener {
         this.librarySystem = librarySystem;
     }
 
-    private void displayAuthors() {
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        if (!isThereAnyAuthorsInLibrary()) {
+            JOptionPane.showMessageDialog(null, "Ainda não há autores cadastrados na biblioteca!");
+            return;
+        }
+
         String authorDisplayMenuOption = JOptionPane.showInputDialog("""
                 1. Exibir Todos os Autores
                 2. Exibir Autores
@@ -42,7 +48,6 @@ public class DisplayDataOfAllAuthorsController implements ActionListener {
         }
     }
 
-
     private void displayAllAuthors() {
         UsefulForDisplayAllAuthors allAuthorsDisplayer = new UsefulForDisplayAllAuthors(librarySystem);
         allAuthorsDisplayer.displayAllAuthors();
@@ -55,7 +60,7 @@ public class DisplayDataOfAllAuthorsController implements ActionListener {
 
     private void displayNumberOfBooksByAuthorGender(String gender) {
         int numberOfBooks = librarySystem.findBooksByAuthorGender(gender).size();
-        JOptionPane.showMessageDialog(null, "Número de livros por autores do gênero " + gender + " são: " + numberOfBooks);
+        JOptionPane.showMessageDialog(null, "O número de livros por autores do gênero " + gender + " são: " + numberOfBooks);
     }
 
     private void displayBooksByAuthorsWithDifferentGenders() {
@@ -64,9 +69,7 @@ public class DisplayDataOfAllAuthorsController implements ActionListener {
         booksDisplayer.displayBooksList();
     }
 
-    @Override
-    public void actionPerformed(ActionEvent e) {
-        displayAuthors();
+    private boolean isThereAnyAuthorsInLibrary() {
+        return !librarySystem.getBookList().isEmpty();
     }
-
 }

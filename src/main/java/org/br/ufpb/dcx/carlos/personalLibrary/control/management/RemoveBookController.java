@@ -19,17 +19,25 @@ public class RemoveBookController implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
+        if (librarySystem.getBookList().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Ainda não há livros na biblioteca para serem removidos!");
+            return;
+        }
+
         String titleToRemove = JOptionPane.showInputDialog("Digite o Título do Livro para Remover: ");
 
-        if (librarySystem.removeBookFromList(titleToRemove)) {
-            JOptionPane.showMessageDialog(null, "Livro Removido com Sucesso.");
-            try {
-                bookRecorder.saveBookList(librarySystem.getBookList());
-            } catch (IOException ex) {
-                JOptionPane.showMessageDialog(null, "Não foi possível salvar os dados!");
+        if (titleToRemove != null) {
+            boolean removed = librarySystem.removeBookFromList(titleToRemove);
+            if (removed) {
+                try {
+                    bookRecorder.saveBookList(librarySystem.getBookList());
+                    JOptionPane.showMessageDialog(null, "Livro Removido com Sucesso.");
+                } catch (IOException ex) {
+                    JOptionPane.showMessageDialog(null, "Não foi possível salvar os dados!");
+                }
+            } else {
+                JOptionPane.showMessageDialog(null, "O Livro '" + titleToRemove + "' Não Foi Encontrado na Biblioteca.");
             }
-        } else {
-            JOptionPane.showMessageDialog(null, "O Livro '" + titleToRemove + "' Não Foi Encontrado na Biblioteca.");
         }
     }
 }

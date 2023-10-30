@@ -19,7 +19,16 @@ public class DisplayAllBooksController implements ActionListener {
     }
 
     public void displayAllBooks() {
-        librarySystem.getBookList().forEach(book -> JOptionPane.showMessageDialog(null, book.getTitle()));
+        if (isThereAnyBooksInLibrary()) {
+            JOptionPane.showMessageDialog(null, "Os livros cadastrados na biblioteca são: ");
+            librarySystem.getBookList().forEach(book -> JOptionPane.showMessageDialog(null, book.getTitle()));
+        } else {
+            JOptionPane.showMessageDialog(null, "Ainda não há livros cadastrados na biblioteca!");
+        }
+    }
+
+    private boolean isThereAnyBooksInLibrary() {
+        return !librarySystem.getBookList().isEmpty();
     }
 
 }

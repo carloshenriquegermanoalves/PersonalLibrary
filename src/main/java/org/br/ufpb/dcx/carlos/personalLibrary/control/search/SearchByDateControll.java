@@ -18,6 +18,11 @@ public class SearchByDateControll implements ActionListener {
     }
 
     public void searchBooksByDate() {
+        if (LIBRARYSYSTEM.getBookList().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Ainda não há livros na biblioteca para pesquisa!");
+            return;
+        }
+
         String dateSearchMenuOption = JOptionPane.showInputDialog("1. Pesquisar por Livros lidos em um determinado ano\n2. Pesquisar por Livros não lidos");
 
         switch (dateSearchMenuOption) {

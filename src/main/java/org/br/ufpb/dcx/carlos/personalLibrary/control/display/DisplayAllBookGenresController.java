@@ -19,7 +19,16 @@ public class DisplayAllBookGenresController implements ActionListener {
     }
 
     public void displayAllGenres() {
-        librarySystem.genreBooksList().forEach(genre -> JOptionPane.showMessageDialog(null, genre));
+        if (isThereGenresInLibrary()) {
+            JOptionPane.showMessageDialog(null, "Os gêneros dos livros cadastrados na biblioteca são: ");
+            librarySystem.genreBooksList().forEach(genre -> JOptionPane.showMessageDialog(null, genre));
+        } else {
+            JOptionPane.showMessageDialog(null, "Ainda não há gêneros de livros cadastrados na biblioteca!");
+        }
+    }
+
+    private boolean isThereGenresInLibrary() {
+        return !librarySystem.genreBooksList().isEmpty();
     }
 
 
