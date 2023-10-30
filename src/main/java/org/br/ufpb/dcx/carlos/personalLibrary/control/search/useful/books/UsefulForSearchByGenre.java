@@ -16,14 +16,14 @@ public class UsefulForSearchByGenre {
     }
 
     public void searchByBookGenre() {
-        String genreForSearch = JOptionPane.showInputDialog("Enter the genre for search: ");
+        String genreForSearch = JOptionPane.showInputDialog("Digite o Gênero do Livro para Pesquisa: ");
         List<Book> foundBooksByGenre = LIBRARYSYSTEM.findBooksByGenre(genreForSearch);
         if (!foundBooksByGenre.isEmpty()) {
             UsefulForDisplayBooksList listBooksController = new UsefulForDisplayBooksList(foundBooksByGenre);
-            JOptionPane.showMessageDialog(null, "Books in the genre " + genreForSearch + " are: ");
+            JOptionPane.showMessageDialog(null, "Os Livros do Gênero " + genreForSearch + " são: ");
             listBooksController.displayBooksList();
         } else {
-            JOptionPane.showMessageDialog(null, "There are no books in the genre " + genreForSearch + " in the library!");
+            JOptionPane.showMessageDialog(null, "Não Há Livros do Gênero " + genreForSearch + " na Biblioteca!");
         }
     }
 

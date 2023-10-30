@@ -33,7 +33,7 @@ public class SearchBookController implements ActionListener {
             case "1" -> usefulForSearchByTitle.searchByBookTitle();
             case "2" -> usefulForSearchByGenre.searchByBookGenre();
             case "3" -> usefulForSearchByPages.searchByPageCount();
-            default -> JOptionPane.showMessageDialog(null, "Please enter only the available options!");
+            default -> JOptionPane.showMessageDialog(null, "Digite apenas opções válidas!");
         }
     }
 

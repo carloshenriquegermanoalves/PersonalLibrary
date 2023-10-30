@@ -72,7 +72,8 @@ public class Book implements Comparable<Book>, Serializable {
 
     @Override
     public String toString() {
-        return "The title of the book is: " + this.title + "\nThe author of the book is: " + this.author.get(0).getName() + "\nThe genre of the book is: " + this.bookGenre + "\nThe number of pages is: "
+        return "O Título do Livro é: " + this.title + "\nO(s) Autor(es) do Livro é: " + this.author.get(0).getName() +
+                "\nO Gênero do Livro é: " + this.bookGenre + "\nO Número de Páginas é: "
                 + this.pageCount;
     }
 

@@ -4,6 +4,7 @@ import org.br.ufpb.dcx.carlos.personalLibrary.model.exceptions.BookNotFoundExcep
 
 import java.io.IOException;
 import java.util.*;
+import java.util.stream.Collectors;
 
 
 public class LibrarySystem implements LibrarySystemInterface {
@@ -51,17 +52,18 @@ public class LibrarySystem implements LibrarySystemInterface {
 
     @Override
     public Book findBookByTitleAndAuthor(String title, String authorName) throws BookNotFoundException {
-        Book foundBook = bookList.stream()
-                .filter(book -> book.getTitle().equalsIgnoreCase(title) && book.getAuthor().getClass().getName().equalsIgnoreCase(authorName))
-                .findFirst()
-                .orElse(null);
+        List<Book> foundBooks = bookList.stream()
+                .filter(book -> book.getTitle().equalsIgnoreCase(title))
+                .filter(book -> book.getAuthor().stream().anyMatch(author -> author.getName().equalsIgnoreCase(authorName)))
+                .toList();
 
-        if (foundBook == null) {
+        if (foundBooks.isEmpty()) {
             throw new BookNotFoundException("Livro não encontrado com título: " + title + " e autor: " + authorName);
         }
 
-        return foundBook;
+        return foundBooks.get(0);
     }
+
 
 
 
@@ -122,7 +124,8 @@ public class LibrarySystem implements LibrarySystemInterface {
     public List<Book> findBooksByAuthorsWithDifferentGenders() {
         return bookList.stream()
                 .filter(book -> book.getAuthor().stream().anyMatch(author ->
-                        !author.getAuthorGender().equalsIgnoreCase("Male") && !author.getAuthorGender().equalsIgnoreCase("Female")))
+                        !author.getAuthorGender().equalsIgnoreCase("Masculino") &&
+                                !author.getAuthorGender().equalsIgnoreCase("Feminino")))
                 .collect(ArrayList::new, ArrayList::add, ArrayList::addAll);
     }
 

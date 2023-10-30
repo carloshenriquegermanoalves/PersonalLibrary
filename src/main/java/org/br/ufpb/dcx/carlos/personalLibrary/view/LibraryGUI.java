@@ -24,6 +24,7 @@ public class LibraryGUI extends JFrame {
     JMenuBar menuBar = new JMenuBar();
 
     public LibraryGUI() {
+        librarySystem.loadAllBooks();
         setTitle("Biblioteca Pessoal");
         setSize(800,800);
         setLocationRelativeTo(null);
@@ -73,7 +74,7 @@ public class LibraryGUI extends JFrame {
         registerBook.addActionListener(new RegisterBookController(librarySystem.getBookList(), librarySystem.getBookRecorder()));
 
         JMenuItem removeBook = new JMenuItem("Remover Livro");
-        removeBook.addActionListener(new RemoveBookController(librarySystem));
+        removeBook.addActionListener(new RemoveBookController(librarySystem, librarySystem.getBookRecorder()));
 
         JMenuItem editBook = new JMenuItem("Alterar Livro");
         editBook.addActionListener(new EditBookController(librarySystem, librarySystem.getBookRecorder()));

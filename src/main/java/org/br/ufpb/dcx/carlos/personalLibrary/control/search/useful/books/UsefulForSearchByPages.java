@@ -16,8 +16,8 @@ public class UsefulForSearchByPages {
 
     public void searchByPageCount() {
         String pageCountSearchOption = JOptionPane.showInputDialog(
-                "1. Search books with more pages than specified\n"
-                        + "2. Search books with fewer pages than specified");
+                "1. Pesquisar Livros com ou mais Páginas do que o informado\n"
+                        + "2. Pesquisar Livros com ou menos páginas do que o informado");
         switch (pageCountSearchOption) {
             case "1", "2" -> {
                 int pageCountForSearch = getInputForPageCount();
@@ -27,7 +27,7 @@ public class UsefulForSearchByPages {
                     searchBooksByPageCount(pageCountForSearch, 2);
                 }
             }
-            default -> JOptionPane.showMessageDialog(null, "Please enter only the available options!");
+            default -> JOptionPane.showMessageDialog(null, "Por favor! Digite apenas opções válidas!");
         }
     }
 
@@ -37,11 +37,11 @@ public class UsefulForSearchByPages {
         while (!pageCountIsNumeric) {
             try {
                 String pageCountString = JOptionPane
-                        .showInputDialog("Enter the page count for search:");
+                        .showInputDialog("Digite a Quantidade de Páginas para Pesquisa:");
                 pageCountForSearch = Integer.parseInt(pageCountString);
                 pageCountIsNumeric = true;
             } catch (NumberFormatException exception) {
-                JOptionPane.showMessageDialog(null, "Please enter only numeric values for page count.");
+                JOptionPane.showMessageDialog(null, "Digite apenas números válidos para a pesquisa.");
             }
         }
         return pageCountForSearch;
@@ -54,12 +54,12 @@ public class UsefulForSearchByPages {
 
         if (!foundBooks.isEmpty()) {
             UsefulForDisplayBooksList listBooksController = new UsefulForDisplayBooksList(foundBooks);
-            String comparison = (searchType == 1) ? "or more" : "or fewer";
-            JOptionPane.showMessageDialog(null, "Books with " + pageCountForSearch + " " + comparison + " pages are: ");
+            String comparison = (searchType == 1) ? "ou mais" : "ou menos";
+            JOptionPane.showMessageDialog(null, "Livros com " + pageCountForSearch + " " + comparison + " páginas são: ");
             listBooksController.displayBooksList();
         } else {
-            String comparison = (searchType == 1) ? "or more" : "or fewer";
-            JOptionPane.showMessageDialog(null, "There are no books with " + pageCountForSearch + " " + comparison + " pages in the library!");
+            String comparison = (searchType == 1) ? "ou mais" : "ou menos";
+            JOptionPane.showMessageDialog(null, "Não há livros com " + pageCountForSearch + " " + comparison + " páginas na biblioteca!!");
         }
     }
 

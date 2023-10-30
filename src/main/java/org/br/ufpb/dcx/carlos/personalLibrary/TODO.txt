@@ -1,0 +1,6 @@
+1 - Melhorar a visualização do campo de edição
+2 - Resolver o bug de pesquisa por nome de autor
+3 - Colocar uma imagem no menu principal
+4 - Testar as demais funcionalidades
+5 - Criar classe de testes
+6 - Code review

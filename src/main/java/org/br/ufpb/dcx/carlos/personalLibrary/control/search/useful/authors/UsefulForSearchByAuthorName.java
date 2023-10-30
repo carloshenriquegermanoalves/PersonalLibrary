@@ -17,7 +17,7 @@ public class UsefulForSearchByAuthorName {
 
     public void searchBooksByAuthorName() {
         String authorNameForSearch = JOptionPane
-                .showInputDialog("Enter the author's name for search: ");
+                .showInputDialog("Digite o Nome do Autor para a Busca: ");
         List<Book> booksByAuthor = LIBRARYSYSTEM.findBooksByAuthorName(authorNameForSearch);
         if (!booksByAuthor.isEmpty()) {
             UsefulForDisplayBooksList displayBooksList = new UsefulForDisplayBooksList(LIBRARYSYSTEM.findBooksByAuthorName(authorNameForSearch));

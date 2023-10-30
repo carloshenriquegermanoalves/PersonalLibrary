@@ -14,16 +14,16 @@ public class UsefulForSearchByTitle {
     }
 
     public void searchByBookTitle() {
-        String bookTitleForSearch = JOptionPane.showInputDialog("Enter the book title for search: ");
+        String bookTitleForSearch = JOptionPane.showInputDialog("Digite o Título do Livro para Pesquisar: ");
         try {
             Book foundBook = librarySystem.findBookInList(bookTitleForSearch);
             if (foundBook != null) {
                 JOptionPane.showMessageDialog(null, foundBook.toString());
             } else {
-                JOptionPane.showMessageDialog(null, "The book " + bookTitleForSearch + " was not found!");
+                JOptionPane.showMessageDialog(null, "O Livro " + bookTitleForSearch + " Não foi encontrado!");
             }
         } catch (BookNotFoundException e) {
-            JOptionPane.showMessageDialog(null, "The searched book does not exist!");
+            JOptionPane.showMessageDialog(null, "O Livro Pesquisado não foi Encontrado!!");
         }
     }
 

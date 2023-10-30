@@ -133,7 +133,7 @@ public class EditBookController implements ActionListener {
     }
 
     private void showInvalidChoiceMessage() {
-        JOptionPane.showMessageDialog(null, "Escolha inválida. Tente novamente.");
+        JOptionPane.showMessageDialog(null, "Opção inválida! Tente novamente.");
     }
 
     private void showSuccessMessage() {

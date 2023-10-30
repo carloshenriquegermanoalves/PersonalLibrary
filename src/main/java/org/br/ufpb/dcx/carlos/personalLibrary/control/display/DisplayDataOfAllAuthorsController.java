@@ -20,13 +20,13 @@ public class DisplayDataOfAllAuthorsController implements ActionListener {
     private void displayAuthors() {
         String authorDisplayMenuOption = JOptionPane.showInputDialog(
                 """
-                        1. Display All Authors
-                        2. Display Male Authors
-                        3. Display Female Authors
-                        4. Display Authors of Other Genders
-                        5. Number of Books by Male Authors
-                        6. Number of Books by Female Authors
-                        7. Number of Books by Authors of Other Genders
+                        1. Exibir Todos os Autores
+                        2. Exibir Autores
+                        3. Exibir Autoras
+                        4. Exibir Autores de Outros Gêneros
+                        5. Número de Livros por Autores
+                        6. Número de Livros por Autoras
+                        7. Número de Livros por Autores de Outros Gêneros
                         """);
 
         switch (authorDisplayMenuOption) {
@@ -37,7 +37,7 @@ public class DisplayDataOfAllAuthorsController implements ActionListener {
             case "5" -> displayNumberOfBooksByAuthorGender("Masculino");
             case "6" -> displayNumberOfBooksByAuthorGender("Feminino");
             case "7" -> displayBooksByAuthorsWithDifferentGenders();
-            default -> JOptionPane.showMessageDialog(null, "Invalid option! Please try again.");
+            default -> JOptionPane.showMessageDialog(null, "Opção inválida! Tente novamente.");
         }
     }
 
@@ -54,7 +54,7 @@ public class DisplayDataOfAllAuthorsController implements ActionListener {
 
     private void displayNumberOfBooksByAuthorGender(String gender) {
         int numberOfBooks = librarySystem.findBooksByAuthorGender(gender).size();
-        JOptionPane.showMessageDialog(null, "Number of books by " + gender + " authors: " + numberOfBooks);
+        JOptionPane.showMessageDialog(null, "Número de livros por autores do gênero " + gender + " são: " + numberOfBooks);
     }
 
     private void displayBooksByAuthorsWithDifferentGenders() {

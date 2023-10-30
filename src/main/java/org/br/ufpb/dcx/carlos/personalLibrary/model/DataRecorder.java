@@ -34,7 +34,7 @@ public class DataRecorder {
                     if (obj instanceof Book book) {
                         books.add(book);
                     } else {
-                        System.err.println("O objeto não é uma instância de livro. Pulando. . ..");
+                        System.err.println("O objeto não é uma instância de livro. Pulando...");
                     }
                 } catch (EOFException e) {
                     break;
@@ -64,6 +64,17 @@ public class DataRecorder {
             JOptionPane.showMessageDialog(null, "Dados salvos com sucesso!");
         } catch (IOException e) {
             JOptionPane.showMessageDialog(null, "Erro ao salvar os dados do sistema: " + e.getMessage());
+        }
+    }
+
+    public void saveBookList(List<Book> bookList) throws IOException {
+        try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(MEMBER_FILE))) {
+            for (Book book : bookList) {
+                oos.writeObject(book);
+            }
+            JOptionPane.showMessageDialog(null, "Lista de livros salva com sucesso!");
+        } catch (IOException e) {
+            JOptionPane.showMessageDialog(null, "Erro ao salvar a lista de livros: " + e.getMessage());
         }
     }
 }
