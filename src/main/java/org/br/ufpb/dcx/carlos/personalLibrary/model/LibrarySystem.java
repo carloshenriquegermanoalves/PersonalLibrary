@@ -21,8 +21,14 @@ public class LibrarySystem implements LibrarySystemInterface {
         return this.bookList;
     }
 
+    @Override
     public void setBookList(List<Book> bookList) {
         this.bookList = bookList;
+    }
+
+    @Override
+    public DataRecorder getBookRecorder() {
+        return bookRecorder;
     }
 
     @Override

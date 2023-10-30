@@ -7,7 +7,22 @@ import java.util.List;
 
 public class DataRecorder {
 
-    private static final String MEMBER_FILE = "books.dat";
+    private static final String MEMBER_FILE = "livros.dat";
+
+    public DataRecorder() {
+        createDataFileIfNotExists();
+    }
+
+    private void createDataFileIfNotExists() {
+        File file = new File(MEMBER_FILE);
+        if (!file.exists()) {
+            try {
+                file.createNewFile();
+            } catch (IOException e) {
+                JOptionPane.showMessageDialog(null, "Erro ao criar o arquivo de dados: " + e.getMessage());
+            }
+        }
+    }
 
     public List<Book> retrieveBookData() throws IOException, ClassNotFoundException {
         List<Book> books = new ArrayList<>();
@@ -19,14 +34,14 @@ public class DataRecorder {
                     if (obj instanceof Book book) {
                         books.add(book);
                     } else {
-                        System.err.println("Object is not an instance of Book, skipping.");
+                        System.err.println("O objeto não é uma instância de livro. Pulando. . ..");
                     }
                 } catch (EOFException e) {
                     break;
                 }
             }
         } catch (IOException e) {
-            System.err.println("The data file has not been initialized yet, as this is the first time using the program or the file has been deleted.");
+            System.err.println("O arquivo de dados ainda não foi inicializado. Verifique se ele foi deletado.");
         }
         return books;
     }
@@ -46,9 +61,9 @@ public class DataRecorder {
             for (Book b : books) {
                 oos.writeObject(b);
             }
-            JOptionPane.showMessageDialog(null, "Data saved successfully!");
+            JOptionPane.showMessageDialog(null, "Dados salvos com sucesso!");
         } catch (IOException e) {
-            System.err.println("Error saving system data: " + e.getMessage());
+            JOptionPane.showMessageDialog(null, "Erro ao salvar os dados do sistema: " + e.getMessage());
         }
     }
 }

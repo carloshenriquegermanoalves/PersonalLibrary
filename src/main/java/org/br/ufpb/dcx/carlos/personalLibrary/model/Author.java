@@ -41,7 +41,7 @@ public class Author implements Comparable<Author>, Serializable {
 
     @Override
     public String toString() {
-        return "The author's name is: " + name + "\nThe author's gender is: " + gender + "\nThe author's country of birth is: "
+        return "O nome do autor é: " + name + "\nO gênero do autor é: " + gender + "\nO país de nascimento do autor é: "
                 + countryOfBirth;
     }
 

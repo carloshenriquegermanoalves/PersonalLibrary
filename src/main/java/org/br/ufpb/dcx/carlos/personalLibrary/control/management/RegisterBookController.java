@@ -5,10 +5,12 @@ import org.br.ufpb.dcx.carlos.personalLibrary.control.management.useful.UsefulFo
 import org.br.ufpb.dcx.carlos.personalLibrary.control.management.useful.UsefulForYearOfReading;
 import org.br.ufpb.dcx.carlos.personalLibrary.model.Author;
 import org.br.ufpb.dcx.carlos.personalLibrary.model.Book;
+import org.br.ufpb.dcx.carlos.personalLibrary.model.DataRecorder;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 import java.util.List;
 
 public class RegisterBookController implements ActionListener {
@@ -16,9 +18,11 @@ public class RegisterBookController implements ActionListener {
     UsefulForRegisterPages registerPages = new UsefulForRegisterPages();
     UsefulForYearOfReading registerYearOfReading = new UsefulForYearOfReading();
     private final List<Book> bookList;
+    private final DataRecorder dataRecorder;
 
-    public RegisterBookController(List<Book> bookList) {
+    public RegisterBookController(List<Book> bookList, DataRecorder dataRecorder) {
         this.bookList = bookList;
+        this.dataRecorder = dataRecorder;
     }
 
     public void registerBook(List<Book> bookList) {
@@ -28,11 +32,20 @@ public class RegisterBookController implements ActionListener {
         int pageCount = registerPages.enterPageCount();
         int yearOfReading = 0;
         String bookHasRead = registerYearOfReading.getYearOfReadingChoice();
-        if (bookHasRead.equals("1")) {yearOfReading = registerYearOfReading.enterYearOfReading();}
+        if (bookHasRead.equals("1")) {
+            yearOfReading = registerYearOfReading.enterYearOfReading();
+        }
 
         Book newBook = new Book(bookTitle, authors, bookGenre, pageCount, bookHasRead, yearOfReading);
         bookList.add(newBook);
+
         JOptionPane.showMessageDialog(null, "Livro registrado com sucesso!");
+
+        try {
+            dataRecorder.saveBookData(newBook);
+        } catch (IOException e) {
+            JOptionPane.showMessageDialog(null, "Erro ao salvar dados do livro: " + e.getMessage());
+        }
     }
 
     @Override

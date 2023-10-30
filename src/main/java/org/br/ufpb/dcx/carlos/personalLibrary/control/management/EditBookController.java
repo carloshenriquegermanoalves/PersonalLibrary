@@ -1,27 +1,31 @@
 package org.br.ufpb.dcx.carlos.personalLibrary.control.management;
 
 import org.br.ufpb.dcx.carlos.personalLibrary.model.Author;
-import org.br.ufpb.dcx.carlos.personalLibrary.model.LibrarySystem;
 import org.br.ufpb.dcx.carlos.personalLibrary.model.Book;
+import org.br.ufpb.dcx.carlos.personalLibrary.model.DataRecorder;
+import org.br.ufpb.dcx.carlos.personalLibrary.model.LibrarySystem;
 import org.br.ufpb.dcx.carlos.personalLibrary.model.exceptions.BookNotFoundException;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 import java.util.List;
 
 public class EditBookController implements ActionListener {
     private final LibrarySystem librarySystem;
+    private final DataRecorder bookRecorder;
 
-    public EditBookController(LibrarySystem librarySystem) {
+    public EditBookController(LibrarySystem librarySystem, DataRecorder bookRecorder) {
         this.librarySystem = librarySystem;
+        this.bookRecorder = bookRecorder;
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
         try {
-            String titleToEdit = JOptionPane.showInputDialog("Enter the title of the book to edit: ");
-            String authorNameToEdit = JOptionPane.showInputDialog("Enter the author's name of the book to edit: ");
+            String titleToEdit = JOptionPane.showInputDialog("Digite o título do livro que você quer editar: ");
+            String authorNameToEdit = JOptionPane.showInputDialog("Digite o nome do autor do livro que você quer editar: ");
 
             Book bookToEdit = findBookByTitleAndAuthor(titleToEdit, authorNameToEdit);
 
@@ -45,7 +49,7 @@ public class EditBookController implements ActionListener {
 
                 showSuccessMessage();
             } else {
-                throw new BookNotFoundException("The book was not found in the library.");
+                throw new BookNotFoundException("O livro informado não foi encontrado na biblioteca.");
             }
         } catch (BookNotFoundException e1) {
             showBookNotFoundMessage();
@@ -61,25 +65,15 @@ public class EditBookController implements ActionListener {
         }
     }
 
-
     private int chooseFieldToEdit() {
-        String[] options = {
-                "Title of the book",
-                "Author's name",
-                "Author's gender",
-                "Author's country of birth",
-                "Has the book been read?",
-                "Year of reading",
-                "Genre of the book",
-                "Number of pages"
-        };
-        return JOptionPane.showOptionDialog(null, "Choose the field to edit:", "Edit Book",
-                JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, options, options[0]);
+        String[] options = {"Título do livro", "Nome do autor", "Gênero do autor", "País de nascimento do autor", "Status do livro", "Ano de leitura", "Gênero do livro", "Número de Páginas"};
+        return JOptionPane.showOptionDialog(null, "Escolha o campo para editar:", "Edição:", JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, options, options[0]);
     }
 
     private void editTitle(Book book) {
-        String newTitle = JOptionPane.showInputDialog("Enter the new title of the book: ");
+        String newTitle = JOptionPane.showInputDialog("Digite o novo título do livro: ");
         book.setTitle(newTitle);
+        saveBookData(book);
     }
 
     private void editAuthorName(Book book, String authorNameToEdit) {
@@ -87,62 +81,74 @@ public class EditBookController implements ActionListener {
 
         for (Author author : authors) {
             if (author.getName().equalsIgnoreCase(authorNameToEdit)) {
-                String newAuthorName = JOptionPane.showInputDialog("Enter the new name for the author: ");
+                String newAuthorName = JOptionPane.showInputDialog("Digite o novo nome do autor: ");
                 author.setName(newAuthorName);
-                JOptionPane.showMessageDialog(null, "Author's name updated successfully.");
+                JOptionPane.showMessageDialog(null, "Nome do autor atualizado com sucesso.");
+                saveBookData(book);
                 return;
             }
         }
 
-        JOptionPane.showMessageDialog(null, "Author with the name " + authorNameToEdit + " not found.");
+        JOptionPane.showMessageDialog(null, "O autor com o nome " + authorNameToEdit + " não foi encontrado.");
     }
 
-
     private void editAuthorGender(Book book) {
-        String newAuthorGender = JOptionPane.showInputDialog("Enter the new author's gender: ");
+        String newAuthorGender = JOptionPane.showInputDialog("Digite o novo gênero do autor: ");
         List<Author> authors = book.getAuthor();
         authors.forEach(author -> author.setAuthorGender(newAuthorGender));
-        JOptionPane.showMessageDialog(null, "Author's gender updated successfully.");
+        JOptionPane.showMessageDialog(null, "Gênero do autor atualizado com sucesso.");
+        saveBookData(book);
     }
 
     private void editAuthorCountry(Book book) {
-        String newAuthorCountry = JOptionPane.showInputDialog("Enter the new author's country of birth: ");
+        String newAuthorCountry = JOptionPane.showInputDialog("Digite o novo país de nascimento do autor: ");
         List<Author> authors = book.getAuthor();
-
         authors.forEach(author -> author.setCountryOfBirth(newAuthorCountry));
-        JOptionPane.showMessageDialog(null, "Author's country of birth updated successfully.");
+        JOptionPane.showMessageDialog(null, "País de nascimento do autor atualizado com sucesso.");
+        saveBookData(book);
     }
 
-
     private void editReadStatus(Book book) {
-        String newReadStatus = JOptionPane.showInputDialog("Has the book been read? (Yes or No)");
-        book.setReadStatus(String.valueOf(newReadStatus.equalsIgnoreCase("Yes")));
+        String newReadStatus = JOptionPane.showInputDialog("Você já leu o livro? (Sim or Não)");
+        book.setReadStatus(String.valueOf(newReadStatus.equalsIgnoreCase("Sim")));
+        saveBookData(book);
     }
 
     private void editYearOfReading(Book book) {
-        int newYearOfReading = Integer.parseInt(JOptionPane.showInputDialog("Enter the new year of reading: "));
+        int newYearOfReading = Integer.parseInt(JOptionPane.showInputDialog("Digite o novo ano de leitura: "));
         book.setYearOfReading(newYearOfReading);
+        saveBookData(book);
     }
 
     private void editGenre(Book book) {
-        String newGenre = JOptionPane.showInputDialog("Enter the new genre of the book: ");
+        String newGenre = JOptionPane.showInputDialog("Digite o novo gênero do livro: ");
         book.setBookGenre(newGenre);
+        saveBookData(book);
     }
 
     private void editPageCount(Book book) {
-        int newPageCount = Integer.parseInt(JOptionPane.showInputDialog("Enter the new number of pages: "));
+        int newPageCount = Integer.parseInt(JOptionPane.showInputDialog("Digite o novo número de páginas: "));
         book.setPageCount(newPageCount);
+        saveBookData(book);
     }
 
     private void showInvalidChoiceMessage() {
-        JOptionPane.showMessageDialog(null, "Invalid choice. No changes were made.");
+        JOptionPane.showMessageDialog(null, "Escolha inválida. Tente novamente.");
     }
 
     private void showSuccessMessage() {
-        JOptionPane.showMessageDialog(null, "Book information updated successfully.");
+        JOptionPane.showMessageDialog(null, "Os dados do livro foram atualizados com sucesso.");
     }
 
     private void showBookNotFoundMessage() {
-        JOptionPane.showMessageDialog(null, "Book not found. Please check the title and author's name.");
+        JOptionPane.showMessageDialog(null, "Livro não encontrado. Por favor, verifique o título do livro e o nome do autor novamente.");
+    }
+
+    private void saveBookData(Book book) {
+        try {
+            bookRecorder.saveBookData(book);
+        } catch (IOException e) {
+            JOptionPane.showMessageDialog(null, "Erro ao salvar dados do livro: " + e.getMessage());
+        }
     }
 }

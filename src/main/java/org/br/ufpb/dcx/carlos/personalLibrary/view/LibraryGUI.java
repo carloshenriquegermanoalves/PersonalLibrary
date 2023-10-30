@@ -70,13 +70,13 @@ public class LibraryGUI extends JFrame {
         JMenu menuManagement = new JMenu("Área de Gerenciamento");
 
         JMenuItem registerBook = new JMenuItem("Cadastrar Livro");
-        registerBook.addActionListener(new RegisterBookController(librarySystem.getBookList()));
+        registerBook.addActionListener(new RegisterBookController(librarySystem.getBookList(), librarySystem.getBookRecorder()));
 
         JMenuItem removeBook = new JMenuItem("Remover Livro");
         removeBook.addActionListener(new RemoveBookController(librarySystem));
 
         JMenuItem editBook = new JMenuItem("Alterar Livro");
-        editBook.addActionListener(new EditBookController(librarySystem));
+        editBook.addActionListener(new EditBookController(librarySystem, librarySystem.getBookRecorder()));
 
         menuManagement.add(registerBook);
         menuManagement.add(removeBook);

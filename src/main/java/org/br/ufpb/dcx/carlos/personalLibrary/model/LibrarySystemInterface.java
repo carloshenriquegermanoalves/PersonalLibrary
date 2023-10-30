@@ -9,6 +9,7 @@ public interface LibrarySystemInterface {
     List<Book> getBookList();
 
     void setBookList(List<Book> bookList);
+    public DataRecorder getBookRecorder();
 
     List<Book> loadAllBooks();
 
