@@ -7,3 +7,4 @@
 7 - Adicionar campo de subgênero na classe Livro
 8 - Apagar códigos redundantes e métodos não usados
 9 - Gerar diagrama UML
+10 - Melhorar a exibição de livros com StringBuilder

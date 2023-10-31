@@ -4,10 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="09c854cf-8a0d-4328-b383-29b0bb14ec4a" name="Changes" comment="Improving the interface part.">
+    <list default="true" id="09c854cf-8a0d-4328-b383-29b0bb14ec4a" name="Changes" comment="Graphic interface implemented.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/br/ufpb/dcx/carlos/personalLibrary/TODO.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/br/ufpb/dcx/carlos/personalLibrary/TODO.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/br/ufpb/dcx/carlos/personalLibrary/view/LibraryGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/br/ufpb/dcx/carlos/personalLibrary/view/LibraryGUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/br/ufpb/dcx/carlos/personalLibrary/control/display/DisplayAllBooksController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/br/ufpb/dcx/carlos/personalLibrary/control/display/DisplayAllBooksController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/br/ufpb/dcx/carlos/personalLibrary/view/ImagePanel.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -161,7 +162,14 @@
       <option name="project" value="LOCAL" />
       <updated>1698756655663</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Graphic interface implemented.">
+      <created>1698760232920</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1698760232920</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -176,7 +184,8 @@
     <MESSAGE value="Cleaning up codes." />
     <MESSAGE value="Preventing unwanted routes and handling user errors." />
     <MESSAGE value="Improving the interface part." />
-    <option name="LAST_COMMIT_MESSAGE" value="Improving the interface part." />
+    <MESSAGE value="Graphic interface implemented." />
+    <option name="LAST_COMMIT_MESSAGE" value="Graphic interface implemented." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
