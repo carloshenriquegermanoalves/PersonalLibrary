@@ -4,14 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="09c854cf-8a0d-4328-b383-29b0bb14ec4a" name="Changes" comment="Graphic interface implemented.">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/br/ufpb/dcx/carlos/personalLibrary/view/images/CarlosTeca.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/br/ufpb/dcx/carlos/personalLibrary/model/DataRecorder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/br/ufpb/dcx/carlos/personalLibrary/model/DataRecorder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/br/ufpb/dcx/carlos/personalLibrary/view/LibraryGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/br/ufpb/dcx/carlos/personalLibrary/view/LibraryGUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/org/br/ufpb/dcx/carlos/personalLibrary/model/LibrarySystemTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/br/ufpb/dcx/carlos/personalLibrary/model/LibrarySystemTest.java" afterDir="false" />
-    </list>
+    <list default="true" id="09c854cf-8a0d-4328-b383-29b0bb14ec4a" name="Changes" comment="Implementing more tests." />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -178,7 +171,7 @@
       <workItem from="1698696022773" duration="2896000" />
       <workItem from="1698701967515" duration="178000" />
       <workItem from="1698706995125" duration="5469000" />
-      <workItem from="1698791446114" duration="4558000" />
+      <workItem from="1698791446114" duration="4984000" />
     </task>
     <task id="LOCAL-00001" summary="View Implementation!">
       <option name="closed" value="true" />
@@ -242,7 +235,15 @@
       <option name="project" value="LOCAL" />
       <updated>1698760232920</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Implementing more tests.">
+      <option name="closed" value="true" />
+      <created>1698796362181</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1698796362182</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -258,7 +259,8 @@
     <MESSAGE value="Preventing unwanted routes and handling user errors." />
     <MESSAGE value="Improving the interface part." />
     <MESSAGE value="Graphic interface implemented." />
-    <option name="LAST_COMMIT_MESSAGE" value="Graphic interface implemented." />
+    <MESSAGE value="Implementing more tests." />
+    <option name="LAST_COMMIT_MESSAGE" value="Implementing more tests." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
