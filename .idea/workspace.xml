@@ -4,12 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="09c854cf-8a0d-4328-b383-29b0bb14ec4a" name="Changes" comment="Preventing unwanted routes and handling user errors.">
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/br/ufpb/dcx/carlos/personalLibrary/view/ImagePanel.java" afterDir="false" />
+    <list default="true" id="09c854cf-8a0d-4328-b383-29b0bb14ec4a" name="Changes" comment="Improving the interface part.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/br/ufpb/dcx/carlos/personalLibrary/TODO.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/br/ufpb/dcx/carlos/personalLibrary/TODO.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/br/ufpb/dcx/carlos/personalLibrary/control/management/EditBookController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/br/ufpb/dcx/carlos/personalLibrary/control/management/EditBookController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/br/ufpb/dcx/carlos/personalLibrary/view/LibraryGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/br/ufpb/dcx/carlos/personalLibrary/view/LibraryGUI.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -53,23 +50,23 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "main",
-    "last_opened_file_path": "C:/Users/carlos.alves/Desktop/PersonalLibrary",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "onboarding.tips.debug.path": "C:/Users/Trabalho/Desktop/Personal Library/src/main/java/org/example/Main.java",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/carlos.alves/Desktop/PersonalLibrary&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;onboarding.tips.debug.path&quot;: &quot;C:/Users/Trabalho/Desktop/Personal Library/src/main/java/org/example/Main.java&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.br.ufpb.dcx.carlos.personalLibrary.Main" />
@@ -157,7 +154,14 @@
       <option name="project" value="LOCAL" />
       <updated>1698710073575</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Improving the interface part.">
+      <created>1698756655663</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1698756655663</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -171,7 +175,8 @@
     <MESSAGE value="Functional project and solving some bugs" />
     <MESSAGE value="Cleaning up codes." />
     <MESSAGE value="Preventing unwanted routes and handling user errors." />
-    <option name="LAST_COMMIT_MESSAGE" value="Preventing unwanted routes and handling user errors." />
+    <MESSAGE value="Improving the interface part." />
+    <option name="LAST_COMMIT_MESSAGE" value="Improving the interface part." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

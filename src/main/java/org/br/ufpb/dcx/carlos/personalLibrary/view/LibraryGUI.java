@@ -30,15 +30,16 @@ public class LibraryGUI extends JFrame {
         setLocationRelativeTo(null);
         setResizable(false);
 
-        ImageIcon imageIcon = new ImageIcon("images/CarlosTeca.png");
+        ImageIcon imageIcon = new ImageIcon("src/main/java/org/br/ufpb/dcx/carlos/personalLibrary/view/Images/CarlosTeca.png");
         JLabel backgroundLabel = new JLabel(imageIcon);
 
-        setLayout(new BorderLayout());
-        add(backgroundLabel, BorderLayout.CENTER);
-        backgroundLabel.setLayout(new GridLayout(30, 10));
+        backgroundLabel.setLayout(new BorderLayout());
+
+        this.setContentPane(backgroundLabel);
 
         createMainMenu(createDisplaySection(), createManagementSection(), createSearchSection());
     }
+
 
     public JMenu createDisplaySection() {
         JMenu menuDisplay = new JMenu("Área de Exibição");
