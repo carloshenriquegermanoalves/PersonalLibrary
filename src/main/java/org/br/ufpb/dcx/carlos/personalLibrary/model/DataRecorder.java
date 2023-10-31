@@ -41,7 +41,7 @@ public class DataRecorder {
                 }
             }
         } catch (IOException e) {
-            System.err.println("O arquivo de dados ainda não foi inicializado. Verifique se ele foi deletado.");
+            JOptionPane.showMessageDialog(null, "Seja bem-vindo à biblioteca! Ainda não há arquivos cadastrados!");
         }
         return books;
     }

@@ -18,8 +18,6 @@ import java.awt.*;
 import static java.awt.Color.*;
 
 public class LibraryGUI extends JFrame {
-
-    JLabel line1;
     LibrarySystem librarySystem = new LibrarySystem();
     JMenuBar menuBar = new JMenuBar();
 

@@ -5,10 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="09c854cf-8a0d-4328-b383-29b0bb14ec4a" name="Changes" comment="Graphic interface implemented.">
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/br/ufpb/dcx/carlos/personalLibrary/view/images/CarlosTeca.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/br/ufpb/dcx/carlos/personalLibrary/TODO.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/br/ufpb/dcx/carlos/personalLibrary/TODO.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/br/ufpb/dcx/carlos/personalLibrary/control/display/DisplayAllBooksController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/br/ufpb/dcx/carlos/personalLibrary/control/display/DisplayAllBooksController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/br/ufpb/dcx/carlos/personalLibrary/view/ImagePanel.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/br/ufpb/dcx/carlos/personalLibrary/model/DataRecorder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/br/ufpb/dcx/carlos/personalLibrary/model/DataRecorder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/br/ufpb/dcx/carlos/personalLibrary/view/LibraryGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/br/ufpb/dcx/carlos/personalLibrary/view/LibraryGUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/br/ufpb/dcx/carlos/personalLibrary/model/LibrarySystemTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/br/ufpb/dcx/carlos/personalLibrary/model/LibrarySystemTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,40 +53,110 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/carlos.alves/Desktop/PersonalLibrary&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;onboarding.tips.debug.path&quot;: &quot;C:/Users/Trabalho/Desktop/Personal Library/src/main/java/org/example/Main.java&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "C:/Users/Trabalho/PersonalLibrary",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "onboarding.tips.debug.path": "C:/Users/Trabalho/Desktop/Personal Library/src/main/java/org/example/Main.java",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
-  <component name="RunManager">
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="org.br.ufpb.dcx.carlos.personalLibrary.Main" />
+}]]></component>
+  <component name="RunManager" selected="JUnit.LibrarySystemTest">
+    <configuration name="LibrarySystemTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="PersonalLibrary" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="org.br.ufpb.dcx.carlos.personalLibrary.*" />
+          <option name="PATTERN" value="org.br.ufpb.dcx.carlos.personalLibrary.model.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <option name="PACKAGE_NAME" value="org.br.ufpb.dcx.carlos.personalLibrary.model" />
+      <option name="MAIN_CLASS_NAME" value="org.br.ufpb.dcx.carlos.personalLibrary.model.LibrarySystemTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="LibrarySystemTest.findBookByTitleAndAuthor" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="PersonalLibrary" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.br.ufpb.dcx.carlos.personalLibrary.model.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.br.ufpb.dcx.carlos.personalLibrary.model" />
+      <option name="MAIN_CLASS_NAME" value="org.br.ufpb.dcx.carlos.personalLibrary.model.LibrarySystemTest" />
+      <option name="METHOD_NAME" value="findBookByTitleAndAuthor" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="LibrarySystemTest.findBooksByAuthorsWithDifferentGenders" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="PersonalLibrary" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.br.ufpb.dcx.carlos.personalLibrary.model.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.br.ufpb.dcx.carlos.personalLibrary.model" />
+      <option name="MAIN_CLASS_NAME" value="org.br.ufpb.dcx.carlos.personalLibrary.model.LibrarySystemTest" />
+      <option name="METHOD_NAME" value="findBooksByAuthorsWithDifferentGenders" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="LibrarySystemTest.sortBooksByAuthorsAlphabetically" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="PersonalLibrary" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.br.ufpb.dcx.carlos.personalLibrary.model.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.br.ufpb.dcx.carlos.personalLibrary.model" />
+      <option name="MAIN_CLASS_NAME" value="org.br.ufpb.dcx.carlos.personalLibrary.model.LibrarySystemTest" />
+      <option name="METHOD_NAME" value="sortBooksByAuthorsAlphabetically" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="LibrarySystemTest.sortBooksByGenreAlphabetically" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="PersonalLibrary" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.br.ufpb.dcx.carlos.personalLibrary.model.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.br.ufpb.dcx.carlos.personalLibrary.model" />
+      <option name="MAIN_CLASS_NAME" value="org.br.ufpb.dcx.carlos.personalLibrary.model.LibrarySystemTest" />
+      <option name="METHOD_NAME" value="sortBooksByGenreAlphabetically" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Main" />
+        <item itemvalue="JUnit.LibrarySystemTest" />
+        <item itemvalue="JUnit.LibrarySystemTest.findBooksByAuthorsWithDifferentGenders" />
+        <item itemvalue="JUnit.LibrarySystemTest.sortBooksByGenreAlphabetically" />
+        <item itemvalue="JUnit.LibrarySystemTest.sortBooksByAuthorsAlphabetically" />
+        <item itemvalue="JUnit.LibrarySystemTest.findBookByTitleAndAuthor" />
       </list>
     </recent_temporary>
   </component>
@@ -106,6 +178,7 @@
       <workItem from="1698696022773" duration="2896000" />
       <workItem from="1698701967515" duration="178000" />
       <workItem from="1698706995125" duration="5469000" />
+      <workItem from="1698791446114" duration="4558000" />
     </task>
     <task id="LOCAL-00001" summary="View Implementation!">
       <option name="closed" value="true" />

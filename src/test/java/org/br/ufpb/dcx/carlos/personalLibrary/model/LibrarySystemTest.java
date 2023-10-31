@@ -1,7 +1,11 @@
 package org.br.ufpb.dcx.carlos.personalLibrary.model;
 
+import org.br.ufpb.dcx.carlos.personalLibrary.model.exceptions.BookNotFoundException;
+
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -37,27 +41,47 @@ class LibrarySystemTest {
 
     @org.junit.jupiter.api.Test
     void setBookList() {
-        //TODO
+        List<Book> bookList = new ArrayList<>();
+        Author author = new Author("John Bunyan", "Masculino", "Inglaterra");
+        Book book = new Book("O Peregrino", List.of(author), "Teologia", 200, "Sim", 2021);
+        bookList.add(book);
+        librarySystem.setBookList(bookList);
+        assertEquals(bookList.size(), librarySystem.getBookList().size());
+        assertEquals(bookList, librarySystem.getBookList());
     }
 
     @org.junit.jupiter.api.Test
     void getBookRecorder() {
-        //TODO
-    }
-
-    @org.junit.jupiter.api.Test
-    void loadAllBooks() {
-        //TODO
+        DataRecorder bookRecorder = librarySystem.getBookRecorder();
+        assertNotNull(bookRecorder);
     }
 
     @org.junit.jupiter.api.Test
     void findBookInList() {
-        //TODO
+        Author author = new Author("John Bunyan", "Masculino", "Inglaterra");
+        Book book = new Book("O Peregrino", List.of(author), "Teologia", 200, "Sim", 2021);
+        librarySystem.addBookToList(book);
+        Book foundBook;
+        try {
+            foundBook = librarySystem.findBookInList("O Peregrino");
+        } catch (BookNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+        assertNotNull(foundBook);
     }
 
     @org.junit.jupiter.api.Test
     void findBookByTitleAndAuthor() {
-        //TODO
+        Author author = new Author("John Bunyan", "Masculino", "Inglaterra");
+        Book book = new Book("O Peregrino", List.of(author), "Teologia", 200, "Sim", 2021);
+        librarySystem.addBookToList(book);
+        Book foundBook;
+        try {
+            foundBook = librarySystem.findBookByTitleAndAuthor("O Peregrino", "John Bunyan");
+        } catch (BookNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+        assertEquals(book, foundBook);
     }
 
     @org.junit.jupiter.api.Test
@@ -106,17 +130,31 @@ class LibrarySystemTest {
 
     @org.junit.jupiter.api.Test
     void sortBooksByAuthorsAlphabetically() {
-        //TODO
+        List<Book> bookList = librarySystem.getBookList();
+        bookList.sort((book1, book2) -> {
+            String authors1 = book1.getAuthor().stream().map(Author::getName).collect(Collectors.joining(", "));
+            String authors2 = book2.getAuthor().stream().map(Author::getName).collect(Collectors.joining(", "));
+            return authors1.compareTo(authors2);
+        });
+        List<Book> sortedList = librarySystem.sortBooksByAuthorsAlphabetically();
+        assertEquals(bookList, sortedList);
     }
+
 
     @org.junit.jupiter.api.Test
     void sortBooksByGenreAlphabetically() {
-        //TODO
+        List<Book> bookList = librarySystem.getBookList();
+        bookList.sort(Comparator.comparing(Book::getBookGenre));
+        List<Book> sortedList = librarySystem.sortBooksByGenreAlphabetically();
+        assertEquals(bookList, sortedList);
     }
 
     @org.junit.jupiter.api.Test
     void sortBooksByGenreAndAuthorsAlphabetically() {
-        //TODO
+        List<Book> bookList = librarySystem.getBookList();
+        bookList.sort(Comparator.comparing(Book::getBookGenre).thenComparing(book -> book.getAuthor().stream().map(Author::getName).collect(Collectors.joining(", "))));
+        List<Book> sortedList = librarySystem.sortBooksByGenreAndAuthorsAlphabetically();
+        assertEquals(bookList, sortedList);
     }
 
     @org.junit.jupiter.api.Test
@@ -171,8 +209,40 @@ class LibrarySystemTest {
 
     @org.junit.jupiter.api.Test
     void findBooksByAuthorsWithDifferentGenders() {
-        //TODO
+        Author author1 = new Author("Nome", "Masculino", "País");
+        Author author2 = new Author("Nome 2", "Feminino", "País 2");
+
+        List<Author> authorBook1 = List.of(author1, author2);
+
+        Book book1 = new Book("Livro 1", authorBook1, "Gênero 1", 424, "Sim", 2021);
+        librarySystem.addBookToList(book1);
+
+        List<Book> bookList = librarySystem.getBookList();
+        List<Book> result = new ArrayList<>();
+
+        for (Book book : bookList) {
+            List<Author> authors = book.getAuthor();
+
+            if (authors.size() > 1) {
+                String firstGender = authors.get(0).getAuthorGender();
+                boolean hasDifferentGenders = false;
+
+                for (int i = 1; i < authors.size(); i++) {
+                    if (!authors.get(i).getAuthorGender().equalsIgnoreCase(firstGender)) {
+                        hasDifferentGenders = true;
+                        break;
+                    }
+                }
+
+                if (hasDifferentGenders) {
+                    result.add(book);
+                }
+            }
+        }
+
+        assertEquals(1, result.size());
     }
+
 
     @org.junit.jupiter.api.Test
     void findBooksByAuthorCountry() {
