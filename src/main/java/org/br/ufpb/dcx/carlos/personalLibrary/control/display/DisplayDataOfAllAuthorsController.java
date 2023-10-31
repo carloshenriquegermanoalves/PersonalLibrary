@@ -4,7 +4,6 @@ import org.br.ufpb.dcx.carlos.personalLibrary.control.display.useful.UsefulDispl
 import org.br.ufpb.dcx.carlos.personalLibrary.control.display.useful.UsefulForDisplayAllAuthors;
 import org.br.ufpb.dcx.carlos.personalLibrary.control.display.useful.UsefulForDisplayBooksList;
 import org.br.ufpb.dcx.carlos.personalLibrary.model.Author;
-import org.br.ufpb.dcx.carlos.personalLibrary.model.Book;
 import org.br.ufpb.dcx.carlos.personalLibrary.model.LibrarySystem;
 
 import javax.swing.*;
@@ -38,9 +37,9 @@ public class DisplayDataOfAllAuthorsController implements ActionListener {
 
         switch (authorDisplayMenuOption) {
             case "1" -> displayAllAuthors();
-            case "2" -> displayAuthorsList(librarySystem.maleAuthorsList());
-            case "3" -> displayAuthorsList(librarySystem.femaleAuthorsList());
-            case "4" -> displayAuthorsList(librarySystem.otherGenderAuthorsList());
+            case "2" -> displayAuthorsByType(librarySystem.maleAuthorsList(), "autores");
+            case "3" -> displayAuthorsByType(librarySystem.femaleAuthorsList(), "autoras");
+            case "4" -> displayAuthorsByType(librarySystem.otherGenderAuthorsList(), "autores de outros gêneros");
             case "5" -> displayNumberOfBooksByAuthorGender("Masculino");
             case "6" -> displayNumberOfBooksByAuthorGender("Feminino");
             case "7" -> displayBooksByAuthorsWithDifferentGenders();
@@ -48,9 +47,27 @@ public class DisplayDataOfAllAuthorsController implements ActionListener {
         }
     }
 
+    private void displayAuthorsByType(List<Author> authors, String authorType) {
+        if (isThereAnyAuthors(authors)) {
+            JOptionPane.showMessageDialog(null, "Os " + authorType + " cadastrados são: ");
+            displayAuthorsList(authors);
+        } else {
+            JOptionPane.showMessageDialog(null, "Ainda não há " + authorType + "!");
+        }
+    }
+
+    private boolean isThereAnyAuthors(List<Author> authorsList) {
+        return !authorsList.isEmpty();
+    }
+
     private void displayAllAuthors() {
-        UsefulForDisplayAllAuthors allAuthorsDisplayer = new UsefulForDisplayAllAuthors(librarySystem);
-        allAuthorsDisplayer.displayAllAuthors();
+        if (isThereAnyAuthors(librarySystem.authorList())) {
+            JOptionPane.showMessageDialog(null, "Todos os autores cadastrados na biblioteca são: ");
+            UsefulForDisplayAllAuthors allAuthorsDisplayer = new UsefulForDisplayAllAuthors(librarySystem);
+            allAuthorsDisplayer.displayAllAuthors();
+        } else {
+            JOptionPane.showMessageDialog(null, "Ainda não há livros cadastrados na biblioteca!");
+        }
     }
 
     private void displayAuthorsList(List<Author> authors) {
@@ -60,13 +77,17 @@ public class DisplayDataOfAllAuthorsController implements ActionListener {
 
     private void displayNumberOfBooksByAuthorGender(String gender) {
         int numberOfBooks = librarySystem.findBooksByAuthorGender(gender).size();
-        JOptionPane.showMessageDialog(null, "O número de livros por autores do gênero " + gender + " são: " + numberOfBooks);
+        JOptionPane.showMessageDialog(null, "O número de livros por autores do gênero " + gender + " é: " + numberOfBooks);
     }
 
     private void displayBooksByAuthorsWithDifferentGenders() {
-        List<Book> books = librarySystem.findBooksByAuthorsWithDifferentGenders();
-        UsefulForDisplayBooksList booksDisplayer = new UsefulForDisplayBooksList(books);
-        booksDisplayer.displayBooksList();
+        if (!librarySystem.findBooksByAuthorsWithDifferentGenders().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Os livros escritos por autores de outros gêneros é: ");
+            UsefulForDisplayBooksList booksDisplayer = new UsefulForDisplayBooksList(librarySystem.findBooksByAuthorsWithDifferentGenders());
+            booksDisplayer.displayBooksList();
+        } else {
+            JOptionPane.showMessageDialog(null, "Ainda não há livros de autores de outros gêneros");
+        }
     }
 
     private boolean isThereAnyAuthorsInLibrary() {

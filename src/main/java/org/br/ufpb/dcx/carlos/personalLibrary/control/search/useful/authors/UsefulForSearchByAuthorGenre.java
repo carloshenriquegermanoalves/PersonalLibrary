@@ -26,7 +26,7 @@ public class UsefulForSearchByAuthorGenre {
     public void searchBooksByFemaleAuthors() {
         if (!LIBRARYSYSTEM.femaleAuthorsList().isEmpty()) {
             UsefulForDisplayBooksList displayBooksList = new UsefulForDisplayBooksList(LIBRARYSYSTEM.findBooksByAuthorGender("Feminino"));
-            JOptionPane.showMessageDialog(null, "Os Livros Escritos Por Autores são: ");
+            JOptionPane.showMessageDialog(null, "Os Livros Escritos Por Autoras são: ");
             displayBooksList.displayBooksList();
         } else {
             JOptionPane.showMessageDialog(null, "Não Há Livros Escritos por Autoras!");
