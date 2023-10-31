@@ -1,4 +1,4 @@
-1 - Melhorar a visualização do campo de edição
+1 - Melhorar a visualização do campo de edição (FEITO)
 2 - Colocar mais mensagens interativas para com o usuário (FEITO)
 3 - Colocar uma imagem no menu principal
 4 - Testar as demais funcionalidades (FEITO)

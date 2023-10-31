@@ -71,9 +71,24 @@ public class EditBookController implements ActionListener {
     }
 
     private int chooseFieldToEdit() {
-        String[] options = {"Título do livro", "Nome do autor", "Gênero do autor", "País de nascimento do autor", "Status do livro", "Ano de leitura", "Gênero do livro", "Número de Páginas"};
-        return JOptionPane.showOptionDialog(null, "Escolha o campo para editar:", "Edição:", JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, options, options[0]);
+        String[] options = {
+                "Título do livro",
+                "Nome do autor",
+                "Gênero do autor",
+                "País de nascimento do autor",
+                "Status do livro",
+                "Ano de leitura",
+                "Gênero do livro",
+                "Número de Páginas"
+        };
+
+        JList<String> list = new JList<>(options);
+        JOptionPane.showMessageDialog(null, new JScrollPane(list), "Escolha o campo para editar:", JOptionPane.PLAIN_MESSAGE);
+
+        int index = list.getSelectedIndex();
+        return index >= 0 ? index : -1;
     }
+
 
     private void editTitle(Book book) {
         String newTitle = JOptionPane.showInputDialog("Digite o novo título do livro: ");

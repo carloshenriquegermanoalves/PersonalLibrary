@@ -29,14 +29,14 @@ public class LibraryGUI extends JFrame {
         setSize(800, 800);
         setLocationRelativeTo(null);
         setResizable(false);
-        setBackground(WHITE);
-        getContentPane().setBackground(BLACK);
-        line1 = new JLabel("Sistema de Gerenciamento Pessoal de Livros");
-        line1.setForeground(YELLOW);
-        line1.setFont(new Font("Serif", Font.BOLD, 24));
-        setLayout(new GridLayout(3, 1));
-        add(line1);
-        add(new JLabel());
+
+        ImageIcon imageIcon = new ImageIcon("images/CarlosTeca.png");
+        JLabel backgroundLabel = new JLabel(imageIcon);
+
+        setLayout(new BorderLayout());
+        add(backgroundLabel, BorderLayout.CENTER);
+        backgroundLabel.setLayout(new GridLayout(30, 10));
+
         createMainMenu(createDisplaySection(), createManagementSection(), createSearchSection());
     }
 
