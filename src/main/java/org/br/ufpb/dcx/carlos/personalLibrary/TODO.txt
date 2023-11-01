@@ -8,3 +8,4 @@
 8 - Apagar códigos redundantes e métodos não usados
 9 - Gerar diagrama UML
 10 - Melhorar a exibição de livros com StringBuilder
+11 - Criar método para verificar se a quantidade de páginas é válida

@@ -292,23 +292,124 @@ class LibrarySystemTest {
 
     @org.junit.jupiter.api.Test
     void findBooksByMorePageCount() {
-        //TODO
+        Author author1 = new Author("Julio Verne", "Masculino", "França");
+        Author author2 = new Author("Lee Strobel", "Masculino", "Estados Unidos");
+
+        List<Author> authorBook1 = List.of(author1);
+        List<Author> authorBook2 = List.of(author2);
+
+        Book book1 = new Book("Da Terra a Lua", authorBook1, "Aventura", 192, "Sim", 2021);
+        Book book2 = new Book("Em Defesa de Cristo", authorBook2, "Teologia", 368, "Sim", 2023);
+
+        int pageLimit = 300;
+        List<Book> bookList = new ArrayList<>();
+        List<Book> result = new ArrayList<>();
+
+        bookList.add(book1);
+        bookList.add(book2);
+
+        for (Book book : bookList) {
+            if (book.getPageCount() >= pageLimit) {
+                result.add(book);
+            }
+        }
+
+        int expectedSize = 1;
+        assertEquals(expectedSize, result.size());
+
+        for (Book b : result) {
+            assertTrue(b.getPageCount() >= pageLimit);
+        }
     }
 
     @org.junit.jupiter.api.Test
     void findBooksByLessPageCount() {
-        //TODO
+        Author author1 = new Author("Julio Verne", "Masculino", "França");
+        Author author2 = new Author("Lee Strobel", "Masculino", "Estados Unidos");
+
+        List<Author> authorBook1 = List.of(author1);
+        List<Author> authorBook2 = List.of(author2);
+
+        Book book1 = new Book("Da Terra a Lua", authorBook1, "Aventura", 192, "Sim", 2021);
+        Book book2 = new Book("Em Defesa de Cristo", authorBook2, "Teologia", 368, "Sim", 2023);
+
+        int pageLimit = 300;
+        List<Book> bookList = new ArrayList<>();
+        List<Book> result = new ArrayList<>();
+
+        bookList.add(book1);
+        bookList.add(book2);
+
+        for (Book book : bookList) {
+            if (book.getPageCount() <= pageLimit) {
+                result.add(book);
+            }
+        }
+
+        int expectedSize = 1;
+        assertEquals(expectedSize, result.size());
+
+        for (Book b : result) {
+            assertTrue(b.getPageCount() <= pageLimit);
+        }
     }
 
     @org.junit.jupiter.api.Test
     void findBooksByYearOfReading() {
-        //TODO
+        Author author1 = new Author("Julio Verne", "Masculino", "França");
+        Author author2 = new Author("Lee Strobel", "Masculino", "Estados Unidos");
+
+        List<Author> authorBook1 = List.of(author1);
+        List<Author> authorBook2 = List.of(author2);
+
+        Book book1 = new Book("Da Terra a Lua", authorBook1, "Aventura", 192, "Sim", 2021);
+        Book book2 = new Book("Em Defesa de Cristo", authorBook2, "Teologia", 368, "Sim", 2023);
+
+        int yearOfReading = 2021;
+        List<Book> bookList = librarySystem.getBookList();
+        List<Book> result = new ArrayList<>();
+
+        bookList.add(book1);
+        bookList.add(book2);
+
+        for (Book book : bookList) {
+            if (book.getYearOfReading() == yearOfReading) {
+                result.add(book);
+            }
+        }
+
+        int expectedSize = 1;
+        assertEquals(expectedSize, result.size());
     }
+
 
     @org.junit.jupiter.api.Test
     void findUnreadBooks() {
-        //TODO
+        Author author1 = new Author("Julio Verne", "Masculino", "França");
+        Author author2 = new Author("Lee Strobel", "Masculino", "Estados Unidos");
+
+        List<Author> authorBook1 = List.of(author1);
+        List<Author> authorBook2 = List.of(author2);
+
+        Book book1 = new Book("Da Terra a Lua", authorBook1, "Aventura", 192, "Não", 0);
+        Book book2 = new Book("Em Defesa de Cristo", authorBook2, "Teologia", 368, "Sim", 2023);
+
+        List<Book> bookList = librarySystem.getBookList();
+        List<Book> result = new ArrayList<>();
+
+        bookList.add(book1);
+        bookList.add(book2);
+
+        for (Book book : bookList) {
+            if (book.getReadStatus().equalsIgnoreCase("não")) {
+                result.add(book);
+            }
+        }
+
+        int expectedSize = 1;
+        assertEquals(expectedSize, result.size());
     }
+
 
     @org.junit.jupiter.api.Test
     void authorList() {

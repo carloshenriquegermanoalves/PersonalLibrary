@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="09c854cf-8a0d-4328-b383-29b0bb14ec4a" name="Changes" comment="Implementing more tests." />
+    <list default="true" id="09c854cf-8a0d-4328-b383-29b0bb14ec4a" name="Changes" comment="Pushing the data file.">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/br/ufpb/dcx/carlos/personalLibrary/model/LibrarySystemTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/br/ufpb/dcx/carlos/personalLibrary/model/LibrarySystemTest.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -46,55 +49,24 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "main",
-    "last_opened_file_path": "C:/Users/Trabalho/PersonalLibrary",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "onboarding.tips.debug.path": "C:/Users/Trabalho/Desktop/Personal Library/src/main/java/org/example/Main.java",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Trabalho/PersonalLibrary&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;onboarding.tips.debug.path&quot;: &quot;C:/Users/Trabalho/Desktop/Personal Library/src/main/java/org/example/Main.java&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
-  <component name="RunManager" selected="JUnit.LibrarySystemTest">
-    <configuration name="LibrarySystemTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="PersonalLibrary" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="org.br.ufpb.dcx.carlos.personalLibrary.model.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="org.br.ufpb.dcx.carlos.personalLibrary.model" />
-      <option name="MAIN_CLASS_NAME" value="org.br.ufpb.dcx.carlos.personalLibrary.model.LibrarySystemTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="LibrarySystemTest.findBookByTitleAndAuthor" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="PersonalLibrary" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="org.br.ufpb.dcx.carlos.personalLibrary.model.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="org.br.ufpb.dcx.carlos.personalLibrary.model" />
-      <option name="MAIN_CLASS_NAME" value="org.br.ufpb.dcx.carlos.personalLibrary.model.LibrarySystemTest" />
-      <option name="METHOD_NAME" value="findBookByTitleAndAuthor" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+}</component>
+  <component name="RunManager" selected="JUnit.LibrarySystemTest.findUnreadBooks">
     <configuration name="LibrarySystemTest.findBooksByAuthorsWithDifferentGenders" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="PersonalLibrary" />
       <extension name="coverage">
@@ -111,7 +83,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="LibrarySystemTest.sortBooksByAuthorsAlphabetically" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="LibrarySystemTest.findBooksByLessPageCount" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="PersonalLibrary" />
       <extension name="coverage">
         <pattern>
@@ -121,13 +93,13 @@
       </extension>
       <option name="PACKAGE_NAME" value="org.br.ufpb.dcx.carlos.personalLibrary.model" />
       <option name="MAIN_CLASS_NAME" value="org.br.ufpb.dcx.carlos.personalLibrary.model.LibrarySystemTest" />
-      <option name="METHOD_NAME" value="sortBooksByAuthorsAlphabetically" />
+      <option name="METHOD_NAME" value="findBooksByLessPageCount" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="LibrarySystemTest.sortBooksByGenreAlphabetically" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="LibrarySystemTest.findBooksByMorePageCount" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="PersonalLibrary" />
       <extension name="coverage">
         <pattern>
@@ -137,7 +109,39 @@
       </extension>
       <option name="PACKAGE_NAME" value="org.br.ufpb.dcx.carlos.personalLibrary.model" />
       <option name="MAIN_CLASS_NAME" value="org.br.ufpb.dcx.carlos.personalLibrary.model.LibrarySystemTest" />
-      <option name="METHOD_NAME" value="sortBooksByGenreAlphabetically" />
+      <option name="METHOD_NAME" value="findBooksByMorePageCount" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="LibrarySystemTest.findBooksByYearOfReading" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="PersonalLibrary" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.br.ufpb.dcx.carlos.personalLibrary.model.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.br.ufpb.dcx.carlos.personalLibrary.model" />
+      <option name="MAIN_CLASS_NAME" value="org.br.ufpb.dcx.carlos.personalLibrary.model.LibrarySystemTest" />
+      <option name="METHOD_NAME" value="findBooksByYearOfReading" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="LibrarySystemTest.findUnreadBooks" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="PersonalLibrary" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.br.ufpb.dcx.carlos.personalLibrary.model.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.br.ufpb.dcx.carlos.personalLibrary.model" />
+      <option name="MAIN_CLASS_NAME" value="org.br.ufpb.dcx.carlos.personalLibrary.model.LibrarySystemTest" />
+      <option name="METHOD_NAME" value="findUnreadBooks" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -145,11 +149,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.LibrarySystemTest" />
+        <item itemvalue="JUnit.LibrarySystemTest.findUnreadBooks" />
+        <item itemvalue="JUnit.LibrarySystemTest.findBooksByYearOfReading" />
+        <item itemvalue="JUnit.LibrarySystemTest.findBooksByLessPageCount" />
+        <item itemvalue="JUnit.LibrarySystemTest.findBooksByMorePageCount" />
         <item itemvalue="JUnit.LibrarySystemTest.findBooksByAuthorsWithDifferentGenders" />
-        <item itemvalue="JUnit.LibrarySystemTest.sortBooksByGenreAlphabetically" />
-        <item itemvalue="JUnit.LibrarySystemTest.sortBooksByAuthorsAlphabetically" />
-        <item itemvalue="JUnit.LibrarySystemTest.findBookByTitleAndAuthor" />
       </list>
     </recent_temporary>
   </component>
@@ -171,7 +175,8 @@
       <workItem from="1698696022773" duration="2896000" />
       <workItem from="1698701967515" duration="178000" />
       <workItem from="1698706995125" duration="5469000" />
-      <workItem from="1698791446114" duration="4984000" />
+      <workItem from="1698791446114" duration="5103000" />
+      <workItem from="1698864274425" duration="1695000" />
     </task>
     <task id="LOCAL-00001" summary="View Implementation!">
       <option name="closed" value="true" />
@@ -243,7 +248,15 @@
       <option name="project" value="LOCAL" />
       <updated>1698796362182</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Pushing the data file.">
+      <option name="closed" value="true" />
+      <created>1698796599430</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1698796599431</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -260,7 +273,8 @@
     <MESSAGE value="Improving the interface part." />
     <MESSAGE value="Graphic interface implemented." />
     <MESSAGE value="Implementing more tests." />
-    <option name="LAST_COMMIT_MESSAGE" value="Implementing more tests." />
+    <MESSAGE value="Pushing the data file." />
+    <option name="LAST_COMMIT_MESSAGE" value="Pushing the data file." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
