@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="09c854cf-8a0d-4328-b383-29b0bb14ec4a" name="Changes" comment="Pushing the data file.">
+    <list default="true" id="09c854cf-8a0d-4328-b383-29b0bb14ec4a" name="Changes" comment="Implementing other tests.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/br/ufpb/dcx/carlos/personalLibrary/TODO.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/br/ufpb/dcx/carlos/personalLibrary/TODO.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/org/br/ufpb/dcx/carlos/personalLibrary/model/LibrarySystemTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/br/ufpb/dcx/carlos/personalLibrary/model/LibrarySystemTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -66,8 +67,8 @@
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
-  <component name="RunManager" selected="JUnit.LibrarySystemTest.findUnreadBooks">
-    <configuration name="LibrarySystemTest.findBooksByAuthorsWithDifferentGenders" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.LibrarySystemTest.sortBooksByGenreAndAuthorsAlphabetically">
+    <configuration name="LibrarySystemTest.addBookToList" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="PersonalLibrary" />
       <extension name="coverage">
         <pattern>
@@ -77,13 +78,13 @@
       </extension>
       <option name="PACKAGE_NAME" value="org.br.ufpb.dcx.carlos.personalLibrary.model" />
       <option name="MAIN_CLASS_NAME" value="org.br.ufpb.dcx.carlos.personalLibrary.model.LibrarySystemTest" />
-      <option name="METHOD_NAME" value="findBooksByAuthorsWithDifferentGenders" />
+      <option name="METHOD_NAME" value="addBookToList" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="LibrarySystemTest.findBooksByLessPageCount" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="LibrarySystemTest.removeBookFromList" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="PersonalLibrary" />
       <extension name="coverage">
         <pattern>
@@ -93,13 +94,13 @@
       </extension>
       <option name="PACKAGE_NAME" value="org.br.ufpb.dcx.carlos.personalLibrary.model" />
       <option name="MAIN_CLASS_NAME" value="org.br.ufpb.dcx.carlos.personalLibrary.model.LibrarySystemTest" />
-      <option name="METHOD_NAME" value="findBooksByLessPageCount" />
+      <option name="METHOD_NAME" value="removeBookFromList" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="LibrarySystemTest.findBooksByMorePageCount" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="LibrarySystemTest.sortBooksAlphabetically" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="PersonalLibrary" />
       <extension name="coverage">
         <pattern>
@@ -109,13 +110,13 @@
       </extension>
       <option name="PACKAGE_NAME" value="org.br.ufpb.dcx.carlos.personalLibrary.model" />
       <option name="MAIN_CLASS_NAME" value="org.br.ufpb.dcx.carlos.personalLibrary.model.LibrarySystemTest" />
-      <option name="METHOD_NAME" value="findBooksByMorePageCount" />
+      <option name="METHOD_NAME" value="sortBooksAlphabetically" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="LibrarySystemTest.findBooksByYearOfReading" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="LibrarySystemTest.sortBooksByAuthorsAlphabetically" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="PersonalLibrary" />
       <extension name="coverage">
         <pattern>
@@ -125,13 +126,13 @@
       </extension>
       <option name="PACKAGE_NAME" value="org.br.ufpb.dcx.carlos.personalLibrary.model" />
       <option name="MAIN_CLASS_NAME" value="org.br.ufpb.dcx.carlos.personalLibrary.model.LibrarySystemTest" />
-      <option name="METHOD_NAME" value="findBooksByYearOfReading" />
+      <option name="METHOD_NAME" value="sortBooksByAuthorsAlphabetically" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="LibrarySystemTest.findUnreadBooks" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="LibrarySystemTest.sortBooksByGenreAndAuthorsAlphabetically" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="PersonalLibrary" />
       <extension name="coverage">
         <pattern>
@@ -141,7 +142,7 @@
       </extension>
       <option name="PACKAGE_NAME" value="org.br.ufpb.dcx.carlos.personalLibrary.model" />
       <option name="MAIN_CLASS_NAME" value="org.br.ufpb.dcx.carlos.personalLibrary.model.LibrarySystemTest" />
-      <option name="METHOD_NAME" value="findUnreadBooks" />
+      <option name="METHOD_NAME" value="sortBooksByGenreAndAuthorsAlphabetically" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -149,11 +150,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.LibrarySystemTest.findUnreadBooks" />
-        <item itemvalue="JUnit.LibrarySystemTest.findBooksByYearOfReading" />
-        <item itemvalue="JUnit.LibrarySystemTest.findBooksByLessPageCount" />
-        <item itemvalue="JUnit.LibrarySystemTest.findBooksByMorePageCount" />
-        <item itemvalue="JUnit.LibrarySystemTest.findBooksByAuthorsWithDifferentGenders" />
+        <item itemvalue="JUnit.LibrarySystemTest.sortBooksByGenreAndAuthorsAlphabetically" />
+        <item itemvalue="JUnit.LibrarySystemTest.sortBooksAlphabetically" />
+        <item itemvalue="JUnit.LibrarySystemTest.sortBooksByAuthorsAlphabetically" />
+        <item itemvalue="JUnit.LibrarySystemTest.removeBookFromList" />
+        <item itemvalue="JUnit.LibrarySystemTest.addBookToList" />
       </list>
     </recent_temporary>
   </component>
@@ -176,7 +177,8 @@
       <workItem from="1698701967515" duration="178000" />
       <workItem from="1698706995125" duration="5469000" />
       <workItem from="1698791446114" duration="5103000" />
-      <workItem from="1698864274425" duration="1695000" />
+      <workItem from="1698864274425" duration="2925000" />
+      <workItem from="1698873363183" duration="2427000" />
     </task>
     <task id="LOCAL-00001" summary="View Implementation!">
       <option name="closed" value="true" />
@@ -256,7 +258,15 @@
       <option name="project" value="LOCAL" />
       <updated>1698796599431</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Implementing other tests.">
+      <option name="closed" value="true" />
+      <created>1698866115889</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1698866115889</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -274,7 +284,8 @@
     <MESSAGE value="Graphic interface implemented." />
     <MESSAGE value="Implementing more tests." />
     <MESSAGE value="Pushing the data file." />
-    <option name="LAST_COMMIT_MESSAGE" value="Pushing the data file." />
+    <MESSAGE value="Implementing other tests." />
+    <option name="LAST_COMMIT_MESSAGE" value="Implementing other tests." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

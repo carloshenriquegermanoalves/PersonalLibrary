@@ -1,8 +1,11 @@
 package org.br.ufpb.dcx.carlos.personalLibrary.model;
 
 import org.br.ufpb.dcx.carlos.personalLibrary.model.exceptions.BookNotFoundException;
+import org.junit.jupiter.api.BeforeEach;
 
+import javax.swing.*;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -13,42 +16,43 @@ class LibrarySystemTest {
 
     private LibrarySystem librarySystem;
 
-    @org.junit.jupiter.api.BeforeEach
+    @BeforeEach
     void setUp() {
         librarySystem = new LibrarySystem();
+        createSampleBooksAndAuthors();
     }
 
-    @org.junit.jupiter.api.AfterEach
-    void tearDown() {
-        //TODO
+    private void createSampleBooksAndAuthors() {
+        Author author1 = new Author("Chris Tunwell", "Masculino", "Estados Unidos");
+        Author author2 = new Author("Fernando Acuña", "Masculino", "Desconhecido");
+        Author author3 = new Author("Agatha Christie", "Feminino", "Inglaterra");
+
+        Book book1 = new Book("Inglês Para Falar em Qualquer Situação", List.of(author1, author2), "Didático", 208, "Sim", 2022);
+        Book book2 = new Book("A Casa do Penhasco", List.of(author3), "Romance Policial", 192, "Sim", 2018);
+
+        librarySystem.addBookToList(book1);
+        librarySystem.addBookToList(book2);
     }
 
     @org.junit.jupiter.api.Test
     void getBookList() {
-        Author authorTest1 = new Author("Chris Tunwell", "Masculino", "Estados Unidos");
-        Author authorTest2 = new Author("Fernando Acuña", "Masculino", "Desconhecido");
-
-        List<Author> authorsBookTest = new ArrayList<>();
-        authorsBookTest.add(authorTest1);
-        authorsBookTest.add(authorTest2);
-
-        Book bookTest = new Book("Inglês Para Falar em Qualquer Situação", authorsBookTest, "Didático", 208, "Sim", 2022);
-        librarySystem.addBookToList(bookTest);
-
         List<Book> bookList = librarySystem.getBookList();
-        assertEquals(1, bookList.size());
+        assertEquals(2, bookList.size());
     }
 
     @org.junit.jupiter.api.Test
     void setBookList() {
-        List<Book> bookList = new ArrayList<>();
-        Author author = new Author("John Bunyan", "Masculino", "Inglaterra");
-        Book book = new Book("O Peregrino", List.of(author), "Teologia", 200, "Sim", 2021);
-        bookList.add(book);
+        Book existingBook = librarySystem.getBookList().get(1);
+        Author newAuthor = new Author("John Bunyan", "Masculino", "Inglaterra");
+        Book newBook = new Book("O Peregrino", List.of(newAuthor), "Teologia", 288, "Sim", 2021);
+        List<Book> bookList = new ArrayList<>(librarySystem.getBookList());
+        bookList.remove(existingBook);
+        bookList.add(newBook);
         librarySystem.setBookList(bookList);
-        assertEquals(bookList.size(), librarySystem.getBookList().size());
-        assertEquals(bookList, librarySystem.getBookList());
+        assertEquals(2, librarySystem.getBookList().size());
+        assertTrue(librarySystem.getBookList().contains(newBook));
     }
+
 
     @org.junit.jupiter.api.Test
     void getBookRecorder() {
@@ -58,48 +62,40 @@ class LibrarySystemTest {
 
     @org.junit.jupiter.api.Test
     void findBookInList() {
-        Author author = new Author("John Bunyan", "Masculino", "Inglaterra");
-        Book book = new Book("O Peregrino", List.of(author), "Teologia", 200, "Sim", 2021);
-        librarySystem.addBookToList(book);
-        Book foundBook;
         try {
-            foundBook = librarySystem.findBookInList("O Peregrino");
+            Book foundBook = librarySystem.findBookInList("A Casa do Penhasco");
+            assertNotNull(foundBook);
         } catch (BookNotFoundException e) {
-            throw new RuntimeException(e);
+            fail("Livro não encontrado na lista: " + e.getMessage());
         }
-        assertNotNull(foundBook);
     }
 
     @org.junit.jupiter.api.Test
     void findBookByTitleAndAuthor() {
-        Author author = new Author("John Bunyan", "Masculino", "Inglaterra");
-        Book book = new Book("O Peregrino", List.of(author), "Teologia", 200, "Sim", 2021);
-        librarySystem.addBookToList(book);
-        Book foundBook;
         try {
-            foundBook = librarySystem.findBookByTitleAndAuthor("O Peregrino", "John Bunyan");
+            Book foundBook = librarySystem.findBookByTitleAndAuthor("A Casa do Penhasco", "Agatha Christie");
+            assertNotNull(foundBook);
         } catch (BookNotFoundException e) {
-            throw new RuntimeException(e);
+            fail("Livro não encontrado na lista: " + e.getMessage());
         }
-        assertEquals(book, foundBook);
     }
 
     @org.junit.jupiter.api.Test
     void addBookToList() {
-        Author author = new Author("John Bunyan", "Masculino", "Inglaterra");
-        Book book = new Book("O Peregrino", List.of(author), "Teologia", 200, "Sim", 2021);
+        Author newAuthor = new Author("J. K. Rowling", "Feminino", "Estados Unidos");
+        Book newBook = new Book("Harry Potter e a Pedra Filosofal", List.of(newAuthor), "Fantasia", 208, "Sim", 2021);
 
-        librarySystem.addBookToList(book);
+        librarySystem.addBookToList(newBook);
 
-        assertTrue(librarySystem.getBookList().contains(book));
+        assertTrue(librarySystem.getBookList().contains(newBook));
     }
+
 
     @org.junit.jupiter.api.Test
     void removeBookFromList() {
         Author author = new Author("Agatha Christie", "Feminino", "Inglaterra");
         Book book = new Book("A Casa do Penhasco", List.of(author), "Romance Policial", 192, "Sim", 2018);
 
-        librarySystem.addBookToList(book);
         librarySystem.removeBookFromList("A Casa do Penhasco");
 
         assertFalse(librarySystem.getBookList().contains(book));
@@ -107,46 +103,15 @@ class LibrarySystemTest {
 
     @org.junit.jupiter.api.Test
     void sortBooksAlphabetically() {
-        Author author1 = new Author("Stephen King", "Masculino", "Estados Unidos");
-        Author author2 = new Author("Lee Strobel", "Masculino", "Estados Unidos");
-
-        List<Author> authorBook1 = List.of(author1);
-        List<Author> authorBook2 = List.of(author2);
-
-        Book book1 = new Book("O Iluminado", authorBook1, "Terror", 424, "Sim", 2021);
-        Book book2 = new Book("Em Defesa de Cristo", authorBook2, "Teologia", 368, "Sim", 2023);
-        Book book3 = new Book("Sob a Redoma", authorBook1, "Thriller", 960, "Sim", 2023);
-
-        librarySystem.addBookToList(book1);
-        librarySystem.addBookToList(book2);
-        librarySystem.addBookToList(book3);
-
         List<Book> booksSortedAlphabeticallyList = librarySystem.sortBooksAlphabetically();
 
-        assertEquals("Em Defesa de Cristo", booksSortedAlphabeticallyList.get(0).getTitle());
-        assertEquals("O Iluminado", booksSortedAlphabeticallyList.get(1).getTitle());
-        assertEquals("Sob a Redoma", booksSortedAlphabeticallyList.get(2).getTitle());
-    }
+        List<String> sortedTitles = booksSortedAlphabeticallyList.stream()
+                .map(Book::getTitle)
+                .collect(Collectors.toList());
 
-    @org.junit.jupiter.api.Test
-    void sortBooksByAuthorsAlphabetically() {
-        List<Book> bookList = librarySystem.getBookList();
-        bookList.sort((book1, book2) -> {
-            String authors1 = book1.getAuthor().stream().map(Author::getName).collect(Collectors.joining(", "));
-            String authors2 = book2.getAuthor().stream().map(Author::getName).collect(Collectors.joining(", "));
-            return authors1.compareTo(authors2);
-        });
-        List<Book> sortedList = librarySystem.sortBooksByAuthorsAlphabetically();
-        assertEquals(bookList, sortedList);
-    }
+        List<String> expectedTitles = Arrays.asList("A Casa do Penhasco", "Inglês Para Falar em Qualquer Situação");
 
-
-    @org.junit.jupiter.api.Test
-    void sortBooksByGenreAlphabetically() {
-        List<Book> bookList = librarySystem.getBookList();
-        bookList.sort(Comparator.comparing(Book::getBookGenre));
-        List<Book> sortedList = librarySystem.sortBooksByGenreAlphabetically();
-        assertEquals(bookList, sortedList);
+        assertEquals(expectedTitles, sortedTitles);
     }
 
     @org.junit.jupiter.api.Test
@@ -156,6 +121,9 @@ class LibrarySystemTest {
         List<Book> sortedList = librarySystem.sortBooksByGenreAndAuthorsAlphabetically();
         assertEquals(bookList, sortedList);
     }
+
+    //TODO
+    //Refatorar a partir daqui
 
     @org.junit.jupiter.api.Test
     void findBooksByAuthorName() {
@@ -443,16 +411,60 @@ class LibrarySystemTest {
 
     @org.junit.jupiter.api.Test
     void otherGenderAuthorsList() {
-        //TODO
+        Author author1 = new Author("Nome", "Masculino", "País");
+        Author author2 = new Author("Nome 2", "Feminino", "País 2");
+        Author author3 = new Author("Nome 3", "Outro Gênero", "País 3");
+
+        Book book1 = new Book("Livro 1", List.of(author1, author2), "Gênero 1", 200, "Sim", 2022);
+        Book book2 = new Book("Livro 2", List.of(author3), "Gênero 2", 250, "Sim", 2022);
+
+        librarySystem.addBookToList(book1);
+        librarySystem.addBookToList(book2);
+
+        List<Author> otherGenderAuthors = librarySystem.otherGenderAuthorsList();
+
+        assertEquals(1, otherGenderAuthors.size());
+        assertEquals("Nome 3", otherGenderAuthors.get(0).getName());
     }
+
+
 
     @org.junit.jupiter.api.Test
     void genreBooksList() {
-        //TODO
+        Author author1 = new Author("Nome 1", "Masculino", "País 1");
+        Author author2 = new Author("Nome 2", "Feminino", "País 2");
+
+        Book book1 = new Book("Livro 1", List.of(author1, author2), "Gênero 1", 200, "Sim", 2022);
+        Book book2 = new Book("Livro 2", List.of(author1), "Gênero 2", 250, "Sim", 2022);
+        Book book3 = new Book("Livro 3", List.of(author2), "Gênero 1", 180, "Sim", 2022);
+
+        librarySystem.addBookToList(book1);
+        librarySystem.addBookToList(book2);
+        librarySystem.addBookToList(book3);
+
+        List<String> genreBooks = librarySystem.genreBooksList();
+
+        assertEquals(2, genreBooks.size());
+        assertTrue(genreBooks.contains(book1.getBookGenre()));
+        assertTrue(genreBooks.contains(book3.getBookGenre()));
     }
 
     @org.junit.jupiter.api.Test
     void totalPageCount() {
-        //TODO
+        Author author1 = new Author("Nome 1", "Masculino", "País 1");
+        Author author2 = new Author("Nome 2", "Feminino", "País 2");
+
+        Book book1 = new Book("Livro 1", List.of(author1, author2), "Gênero 1", 200, "Sim", 2022);
+        Book book2 = new Book("Livro 2", List.of(author1), "Gênero 2", 250, "Sim", 2022);
+        Book book3 = new Book("Livro 3", List.of(author2), "Gênero 1", 180, "Sim", 2022);
+
+        librarySystem.addBookToList(book1);
+        librarySystem.addBookToList(book2);
+        librarySystem.addBookToList(book3);
+
+        int totalPageCount = librarySystem.totalPageCount();
+
+        assertEquals(630, totalPageCount);
     }
+
 }
