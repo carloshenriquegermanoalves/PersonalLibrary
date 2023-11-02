@@ -6,7 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="09c854cf-8a0d-4328-b383-29b0bb14ec4a" name="Changes" comment="Implementing other tests.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/br/ufpb/dcx/carlos/personalLibrary/TODO.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/br/ufpb/dcx/carlos/personalLibrary/TODO.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/org/br/ufpb/dcx/carlos/personalLibrary/model/LibrarySystemTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/br/ufpb/dcx/carlos/personalLibrary/model/LibrarySystemTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -67,8 +66,8 @@
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
-  <component name="RunManager" selected="JUnit.LibrarySystemTest.sortBooksByGenreAndAuthorsAlphabetically">
-    <configuration name="LibrarySystemTest.addBookToList" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.LibrarySystemTest">
+    <configuration name="LibrarySystemTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="PersonalLibrary" />
       <extension name="coverage">
         <pattern>
@@ -78,13 +77,28 @@
       </extension>
       <option name="PACKAGE_NAME" value="org.br.ufpb.dcx.carlos.personalLibrary.model" />
       <option name="MAIN_CLASS_NAME" value="org.br.ufpb.dcx.carlos.personalLibrary.model.LibrarySystemTest" />
-      <option name="METHOD_NAME" value="addBookToList" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="LibrarySystemTest.genreBooksList" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="PersonalLibrary" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.br.ufpb.dcx.carlos.personalLibrary.model.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.br.ufpb.dcx.carlos.personalLibrary.model" />
+      <option name="MAIN_CLASS_NAME" value="org.br.ufpb.dcx.carlos.personalLibrary.model.LibrarySystemTest" />
+      <option name="METHOD_NAME" value="genreBooksList" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="LibrarySystemTest.removeBookFromList" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="LibrarySystemTest.maleAuthorsList" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="PersonalLibrary" />
       <extension name="coverage">
         <pattern>
@@ -94,13 +108,13 @@
       </extension>
       <option name="PACKAGE_NAME" value="org.br.ufpb.dcx.carlos.personalLibrary.model" />
       <option name="MAIN_CLASS_NAME" value="org.br.ufpb.dcx.carlos.personalLibrary.model.LibrarySystemTest" />
-      <option name="METHOD_NAME" value="removeBookFromList" />
+      <option name="METHOD_NAME" value="maleAuthorsList" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="LibrarySystemTest.sortBooksAlphabetically" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="LibrarySystemTest.otherGenderAuthorsList" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="PersonalLibrary" />
       <extension name="coverage">
         <pattern>
@@ -110,13 +124,13 @@
       </extension>
       <option name="PACKAGE_NAME" value="org.br.ufpb.dcx.carlos.personalLibrary.model" />
       <option name="MAIN_CLASS_NAME" value="org.br.ufpb.dcx.carlos.personalLibrary.model.LibrarySystemTest" />
-      <option name="METHOD_NAME" value="sortBooksAlphabetically" />
+      <option name="METHOD_NAME" value="otherGenderAuthorsList" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="LibrarySystemTest.sortBooksByAuthorsAlphabetically" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="LibrarySystemTest.totalPageCount" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="PersonalLibrary" />
       <extension name="coverage">
         <pattern>
@@ -126,23 +140,7 @@
       </extension>
       <option name="PACKAGE_NAME" value="org.br.ufpb.dcx.carlos.personalLibrary.model" />
       <option name="MAIN_CLASS_NAME" value="org.br.ufpb.dcx.carlos.personalLibrary.model.LibrarySystemTest" />
-      <option name="METHOD_NAME" value="sortBooksByAuthorsAlphabetically" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="LibrarySystemTest.sortBooksByGenreAndAuthorsAlphabetically" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="PersonalLibrary" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="org.br.ufpb.dcx.carlos.personalLibrary.model.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="org.br.ufpb.dcx.carlos.personalLibrary.model" />
-      <option name="MAIN_CLASS_NAME" value="org.br.ufpb.dcx.carlos.personalLibrary.model.LibrarySystemTest" />
-      <option name="METHOD_NAME" value="sortBooksByGenreAndAuthorsAlphabetically" />
+      <option name="METHOD_NAME" value="totalPageCount" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -150,11 +148,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.LibrarySystemTest.sortBooksByGenreAndAuthorsAlphabetically" />
-        <item itemvalue="JUnit.LibrarySystemTest.sortBooksAlphabetically" />
-        <item itemvalue="JUnit.LibrarySystemTest.sortBooksByAuthorsAlphabetically" />
-        <item itemvalue="JUnit.LibrarySystemTest.removeBookFromList" />
-        <item itemvalue="JUnit.LibrarySystemTest.addBookToList" />
+        <item itemvalue="JUnit.LibrarySystemTest" />
+        <item itemvalue="JUnit.LibrarySystemTest.totalPageCount" />
+        <item itemvalue="JUnit.LibrarySystemTest.genreBooksList" />
+        <item itemvalue="JUnit.LibrarySystemTest.otherGenderAuthorsList" />
+        <item itemvalue="JUnit.LibrarySystemTest.maleAuthorsList" />
       </list>
     </recent_temporary>
   </component>
@@ -179,6 +177,7 @@
       <workItem from="1698791446114" duration="5103000" />
       <workItem from="1698864274425" duration="2925000" />
       <workItem from="1698873363183" duration="2427000" />
+      <workItem from="1698932435081" duration="1641000" />
     </task>
     <task id="LOCAL-00001" summary="View Implementation!">
       <option name="closed" value="true" />
