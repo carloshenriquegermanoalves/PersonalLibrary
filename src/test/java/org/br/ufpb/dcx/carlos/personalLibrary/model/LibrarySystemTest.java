@@ -103,9 +103,7 @@ class LibrarySystemTest {
     void sortBooksAlphabetically() {
         List<Book> booksSortedAlphabeticallyList = librarySystem.sortBooksAlphabetically();
 
-        List<String> sortedTitles = booksSortedAlphabeticallyList.stream()
-                .map(Book::getTitle)
-                .collect(Collectors.toList());
+        List<String> sortedTitles = booksSortedAlphabeticallyList.stream().map(Book::getTitle).collect(Collectors.toList());
 
         List<String> expectedTitles = Arrays.asList("A Casa do Penhasco", "Inglês Para Falar em Qualquer Situação");
 
@@ -122,15 +120,9 @@ class LibrarySystemTest {
 
     @org.junit.jupiter.api.Test
     void findBooksByAuthorName() {
-        List<Book> booksByAuthor1 = librarySystem.getBookList().stream()
-                .filter(book -> book.getAuthor().stream()
-                        .anyMatch(author -> author.getName().equals("Stephen King")))
-                .toList();
+        List<Book> booksByAuthor1 = librarySystem.getBookList().stream().filter(book -> book.getAuthor().stream().anyMatch(author -> author.getName().equals("Stephen King"))).toList();
 
-        List<Book> booksByAuthor2 = librarySystem.getBookList().stream()
-                .filter(book -> book.getAuthor().stream()
-                        .anyMatch(author -> author.getName().equals("Agatha Christie")))
-                .toList();
+        List<Book> booksByAuthor2 = librarySystem.getBookList().stream().filter(book -> book.getAuthor().stream().anyMatch(author -> author.getName().equals("Agatha Christie"))).toList();
 
         assertEquals(0, booksByAuthor1.size());
         assertEquals(1, booksByAuthor2.size());
@@ -138,15 +130,9 @@ class LibrarySystemTest {
 
     @org.junit.jupiter.api.Test
     void findBooksByAuthorGender() {
-        List<Book> booksByMaleAuthors = librarySystem.getBookList().stream()
-                .filter(book -> book.getAuthor().stream()
-                        .anyMatch(author -> author.getAuthorGender().equals("Masculino")))
-                .toList();
+        List<Book> booksByMaleAuthors = librarySystem.getBookList().stream().filter(book -> book.getAuthor().stream().anyMatch(author -> author.getAuthorGender().equals("Masculino"))).toList();
 
-        List<Book> booksByFemaleAuthors = librarySystem.getBookList().stream()
-                .filter(book -> book.getAuthor().stream()
-                        .anyMatch(author -> author.getAuthorGender().equals("Feminino")))
-                .toList();
+        List<Book> booksByFemaleAuthors = librarySystem.getBookList().stream().filter(book -> book.getAuthor().stream().anyMatch(author -> author.getAuthorGender().equals("Feminino"))).toList();
 
         assertEquals(1, booksByMaleAuthors.size());
         assertEquals(1, booksByFemaleAuthors.size());
@@ -154,39 +140,30 @@ class LibrarySystemTest {
 
     @org.junit.jupiter.api.Test
     void findBooksByAuthorsWithDifferentGenders() {
-        List<Book> result = librarySystem.getBookList().stream()
-                .filter(book -> {
-                    List<Author> authors = book.getAuthor();
-                    if (authors.size() > 1) {
-                        String firstGender = authors.get(0).getAuthorGender();
-                        return authors.stream().anyMatch(author -> !author.getAuthorGender().equalsIgnoreCase(firstGender));
-                    }
-                    return false;
-                })
-                .toList();
+        List<Book> result = librarySystem.getBookList().stream().filter(book -> {
+            List<Author> authors = book.getAuthor();
+            if (authors.size() > 1) {
+                String firstGender = authors.get(0).getAuthorGender();
+                return authors.stream().anyMatch(author -> !author.getAuthorGender().equalsIgnoreCase(firstGender));
+            }
+            return false;
+        }).toList();
 
         assertEquals(0, result.size());
     }
 
     @org.junit.jupiter.api.Test
     void findBooksByAuthorCountry() {
-        List<Book> booksByAmericanAuthors = librarySystem.getBookList().stream()
-                .filter(book -> book.getAuthor().stream()
-                        .anyMatch(author -> author.getCountryOfBirth().equals("Estados Unidos")))
-                .toList();
+        List<Book> booksByAmericanAuthors = librarySystem.getBookList().stream().filter(book -> book.getAuthor().stream().anyMatch(author -> author.getCountryOfBirth().equals("Estados Unidos"))).toList();
 
         assertEquals(1, booksByAmericanAuthors.size());
     }
 
     @org.junit.jupiter.api.Test
     void findBooksByGenre() {
-        List<Book> detectiveBooks = librarySystem.getBookList().stream()
-                .filter(book -> book.getBookGenre().equals("Romance Policial"))
-                .toList();
+        List<Book> detectiveBooks = librarySystem.getBookList().stream().filter(book -> book.getBookGenre().equals("Romance Policial")).toList();
 
-        List<Book> studyingBooks = librarySystem.getBookList().stream()
-                .filter(book -> book.getBookGenre().equals("Didático"))
-                .toList();
+        List<Book> studyingBooks = librarySystem.getBookList().stream().filter(book -> book.getBookGenre().equals("Didático")).toList();
 
         assertEquals(1, detectiveBooks.size());
         assertEquals(1, studyingBooks.size());
@@ -195,9 +172,7 @@ class LibrarySystemTest {
     @org.junit.jupiter.api.Test
     void findBooksByMorePageCount() {
         int pageLimit = 150;
-        List<Book> result = librarySystem.getBookList().stream()
-                .filter(book -> book.getPageCount() >= pageLimit)
-                .toList();
+        List<Book> result = librarySystem.getBookList().stream().filter(book -> book.getPageCount() >= pageLimit).toList();
 
         int expectedSize = 2;
         assertEquals(expectedSize, result.size());
@@ -211,9 +186,7 @@ class LibrarySystemTest {
     @org.junit.jupiter.api.Test
     void findBooksByLessPageCount() {
         int pageLimit = 300;
-        List<Book> result = librarySystem.getBookList().stream()
-                .filter(book -> book.getPageCount() <= pageLimit)
-                .toList();
+        List<Book> result = librarySystem.getBookList().stream().filter(book -> book.getPageCount() <= pageLimit).toList();
 
         int expectedSize = 2;
         assertEquals(expectedSize, result.size());
@@ -224,9 +197,7 @@ class LibrarySystemTest {
     @org.junit.jupiter.api.Test
     void findBooksByYearOfReading() {
         int yearOfReading = 2018;
-        List<Book> result = librarySystem.getBookList().stream()
-                .filter(book -> book.getYearOfReading() == yearOfReading)
-                .toList();
+        List<Book> result = librarySystem.getBookList().stream().filter(book -> book.getYearOfReading() == yearOfReading).toList();
 
         int expectedSize = 1;
         assertEquals(expectedSize, result.size());
@@ -234,9 +205,7 @@ class LibrarySystemTest {
 
     @org.junit.jupiter.api.Test
     void findUnreadBooks() {
-        List<Book> result = librarySystem.getBookList().stream()
-                .filter(book -> book.getReadStatus().equalsIgnoreCase("não"))
-                .toList();
+        List<Book> result = librarySystem.getBookList().stream().filter(book -> book.getReadStatus().equalsIgnoreCase("não")).toList();
 
         int expectedSize = 0;
         assertEquals(expectedSize, result.size());
