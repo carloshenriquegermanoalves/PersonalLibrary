@@ -1,6 +1,5 @@
 package org.br.ufpb.dcx.carlos.personalLibrary.control.search.useful.authors;
 
-import org.br.ufpb.dcx.carlos.personalLibrary.control.display.useful.UsefulForDisplayBooksList;
 import org.br.ufpb.dcx.carlos.personalLibrary.model.Book;
 import org.br.ufpb.dcx.carlos.personalLibrary.model.LibrarySystem;
 
@@ -17,12 +16,22 @@ public class UsefulForSearchByAuthorCountry {
     public void searchBooksByAuthorNationality() {
         String authorNationalityForSearch = JOptionPane.showInputDialog("Digite o País de Nascimento do Autor: ");
         List<Book> booksByNationality = LIBRARYSYSTEM.findBooksByAuthorCountry(authorNationalityForSearch);
+        StringBuilder message = new StringBuilder();
+
         if (!booksByNationality.isEmpty()) {
-            UsefulForDisplayBooksList displayBooksList = new UsefulForDisplayBooksList(booksByNationality);
-            JOptionPane.showMessageDialog(null, "Os livros escritos por autores que nasceram em: " + authorNationalityForSearch + " sao: ");
-            displayBooksList.displayBooksList();
+            message.append("Os livros escritos por autores que nasceram em ").append(authorNationalityForSearch).append(" são: \n\n");
+
+            for (Book book : booksByNationality) {
+                message.append(book.getTitle()).append("\n");
+            }
         } else {
-            JOptionPane.showMessageDialog(null, "Não há livros escritos por autores que nasceram em: " + authorNationalityForSearch);
+            message.append("Não há livros escritos por autores que nasceram em: ").append(authorNationalityForSearch);
         }
+
+        showMessage(message.toString());
+    }
+
+    private void showMessage(String message) {
+        JOptionPane.showMessageDialog(null, message);
     }
 }

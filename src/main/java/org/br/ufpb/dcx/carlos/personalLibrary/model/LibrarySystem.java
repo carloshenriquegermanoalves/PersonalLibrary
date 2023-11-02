@@ -137,7 +137,7 @@ public class LibrarySystem implements LibrarySystemInterface {
 
     @Override
     public List<Book> findUnreadBooks() {
-        return bookList.stream().filter(book -> book.getReadStatus().equalsIgnoreCase("Não")).collect(ArrayList::new, ArrayList::add, ArrayList::addAll);
+        return bookList.stream().filter(book -> book.getReadStatus().equalsIgnoreCase("2")).collect(ArrayList::new, ArrayList::add, ArrayList::addAll);
     }
 
     @Override

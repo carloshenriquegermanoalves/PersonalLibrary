@@ -8,10 +8,10 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.List;
 
-public class DisplayBooksSortedAlphabetically implements ActionListener {
+public class DisplayBooksSortedAlphabeticallyByGenre implements ActionListener {
     private final LibrarySystem librarySystem;
 
-    public DisplayBooksSortedAlphabetically(LibrarySystem librarySystem) {
+    public DisplayBooksSortedAlphabeticallyByGenre(LibrarySystem librarySystem) {
         this.librarySystem = librarySystem;
     }
 
@@ -28,7 +28,7 @@ public class DisplayBooksSortedAlphabetically implements ActionListener {
             List<Book> sortedBooks = librarySystem.sortBooksAlphabetically();
 
             for (Book book : sortedBooks) {
-                message.append(book.getTitle()).append("\n");
+                message.append(book.getTitle()).append(" (").append(book.getBookGenre()).append(") \n");
             }
         } else {
             message.append("Ainda não há livros cadastrados na biblioteca!");

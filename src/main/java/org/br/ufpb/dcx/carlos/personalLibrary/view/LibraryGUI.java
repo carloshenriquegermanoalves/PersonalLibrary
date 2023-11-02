@@ -1,9 +1,6 @@
 package org.br.ufpb.dcx.carlos.personalLibrary.view;
 
-import org.br.ufpb.dcx.carlos.personalLibrary.control.display.DisplayAllBookGenresController;
-import org.br.ufpb.dcx.carlos.personalLibrary.control.display.DisplayAllBooksController;
-import org.br.ufpb.dcx.carlos.personalLibrary.control.display.DisplayBooksSortedAlphabetically;
-import org.br.ufpb.dcx.carlos.personalLibrary.control.display.DisplayDataOfAllAuthorsController;
+import org.br.ufpb.dcx.carlos.personalLibrary.control.display.*;
 import org.br.ufpb.dcx.carlos.personalLibrary.control.management.EditBookController;
 import org.br.ufpb.dcx.carlos.personalLibrary.control.management.RegisterBookController;
 import org.br.ufpb.dcx.carlos.personalLibrary.control.management.RemoveBookController;
@@ -14,8 +11,6 @@ import org.br.ufpb.dcx.carlos.personalLibrary.model.LibrarySystem;
 
 import javax.swing.*;
 import java.awt.*;
-
-import static java.awt.Color.*;
 
 public class LibraryGUI extends JFrame {
     LibrarySystem librarySystem = new LibrarySystem();
@@ -38,7 +33,6 @@ public class LibraryGUI extends JFrame {
         createMainMenu(createDisplaySection(), createManagementSection(), createSearchSection());
     }
 
-
     public JMenu createDisplaySection() {
         JMenu menuDisplay = new JMenu("Área de Exibição");
 
@@ -55,7 +49,7 @@ public class LibraryGUI extends JFrame {
         authorsList.addActionListener(new DisplayDataOfAllAuthorsController(librarySystem));
 
         JMenuItem alphabeticallySortedByGenres = new JMenuItem("Ordenados Alfabeticamente por Gêneros");
-        alphabeticallySortedByGenres.addActionListener(new DisplayBooksSortedAlphabetically(librarySystem));
+        alphabeticallySortedByGenres.addActionListener(new DisplayBooksSortedAlphabeticallyByGenre(librarySystem));
 
         menuDisplay.add(acquisitionOrder);
         menuDisplay.add(alphabeticalOrder);
@@ -110,5 +104,4 @@ public class LibraryGUI extends JFrame {
         menuBar.add(searchSection);
         setJMenuBar(menuBar);
     }
-
 }

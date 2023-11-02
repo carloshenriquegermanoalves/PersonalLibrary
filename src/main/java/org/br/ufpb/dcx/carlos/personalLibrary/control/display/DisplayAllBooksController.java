@@ -21,8 +21,7 @@ public class DisplayAllBooksController implements ActionListener {
     public void displayAllBooks() {
         StringBuilder sb = new StringBuilder();
         if (isThereAnyBooksInLibrary()) {
-            JOptionPane.showMessageDialog(null, "Os livros cadastrados na biblioteca são: \n");
-            sb.append("");
+            sb.append("Os livros cadastrados na biblioteca, em ordem de aquisição, são: \n\n");
             librarySystem.getBookList().forEach(book -> sb.append(book.getTitle()).append("\n"));
         } else {
             sb.append("Ainda não há livros cadastrados na biblioteca!");

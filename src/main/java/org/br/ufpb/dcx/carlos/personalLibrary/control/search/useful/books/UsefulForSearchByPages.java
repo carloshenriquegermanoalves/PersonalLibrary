@@ -1,6 +1,5 @@
 package org.br.ufpb.dcx.carlos.personalLibrary.control.search.useful.books;
 
-import org.br.ufpb.dcx.carlos.personalLibrary.control.display.useful.UsefulForDisplayBooksList;
 import org.br.ufpb.dcx.carlos.personalLibrary.model.Book;
 import org.br.ufpb.dcx.carlos.personalLibrary.model.LibrarySystem;
 
@@ -46,16 +45,23 @@ public class UsefulForSearchByPages {
 
     public void searchBooksByPageCount(int pageCountForSearch, int searchType) {
         List<Book> foundBooks = (searchType == 1) ? librarySystem.findBooksByMorePageCount(pageCountForSearch) : librarySystem.findBooksByLessPageCount(pageCountForSearch);
+        StringBuilder message = new StringBuilder();
 
+        String comparison = (searchType == 1) ? "ou mais" : "ou menos";
         if (!foundBooks.isEmpty()) {
-            UsefulForDisplayBooksList listBooksController = new UsefulForDisplayBooksList(foundBooks);
-            String comparison = (searchType == 1) ? "ou mais" : "ou menos";
-            JOptionPane.showMessageDialog(null, "Livros com " + pageCountForSearch + " " + comparison + " páginas são: ");
-            listBooksController.displayBooksList();
+            message.append("Livros com ").append(pageCountForSearch).append(" ").append(comparison).append(" páginas são: \n\n");
+
+            for (Book book : foundBooks) {
+                message.append(book.getTitle()).append("\n");
+            }
         } else {
-            String comparison = (searchType == 1) ? "ou mais" : "ou menos";
-            JOptionPane.showMessageDialog(null, "Não há livros com " + pageCountForSearch + " " + comparison + " páginas na biblioteca!!");
+            message.append("Não há livros com ").append(pageCountForSearch).append(" ").append(comparison).append(" páginas na biblioteca!!");
         }
+
+        showMessage(message.toString());
     }
 
+    private void showMessage(String message) {
+        JOptionPane.showMessageDialog(null, message);
+    }
 }
