@@ -16,25 +16,26 @@ import java.util.List;
 public class RegisterBookController implements ActionListener {
     private final List<Book> BOOKLIST;
     private final DataRecorder DATARECORDER;
-    UsefulForRegisterAuthor registerAuthor = new UsefulForRegisterAuthor();
-    UsefulForRegisterPages registerPages = new UsefulForRegisterPages();
-    UsefulForYearOfReading registerYearOfReading = new UsefulForYearOfReading();
+    private final UsefulForRegisterAuthor REGISTERAUTHOR;
+    private final UsefulForRegisterPages REGISTERPAGES = new UsefulForRegisterPages();
+    private final UsefulForYearOfReading REGISTERYEAROFREADING = new UsefulForYearOfReading();
 
     public RegisterBookController(List<Book> bookList, DataRecorder dataRecorder) {
         this.BOOKLIST = bookList;
         this.DATARECORDER = dataRecorder;
+        this.REGISTERAUTHOR = new UsefulForRegisterAuthor(BOOKLIST);
     }
 
     public void registerBook(List<Book> bookList) {
         String bookTitle = JOptionPane.showInputDialog("Digite o título do livro: ");
-        List<Author> authors = registerAuthor.registerAuthor();
+        List<Author> authors = REGISTERAUTHOR.registerAuthor();
         String bookGenre = JOptionPane.showInputDialog("Digite o gênero do livro: ");
         String bookSubGenre = JOptionPane.showInputDialog("Digite o subgênero do livro: ");
-        int pageCount = registerPages.enterPageCount();
+        int pageCount = REGISTERPAGES.enterPageCount();
         int yearOfReading = 0;
-        String bookHasRead = registerYearOfReading.getYearOfReadingChoice();
+        String bookHasRead = REGISTERYEAROFREADING.getYearOfReadingChoice();
         if (bookHasRead.equals("1")) {
-            yearOfReading = registerYearOfReading.enterYearOfReading();
+            yearOfReading = REGISTERYEAROFREADING.enterYearOfReading();
         }
 
         Book newBook = new Book(bookTitle, authors, bookGenre, bookSubGenre, pageCount, bookHasRead, yearOfReading);

@@ -46,7 +46,6 @@ public class DataRecorder {
             for (Book b : books) {
                 oos.writeObject(b);
             }
-            JOptionPane.showMessageDialog(null, "Dados salvos com sucesso!");
         } catch (IOException e) {
             JOptionPane.showMessageDialog(null, "Erro ao salvar os dados do sistema: " + e.getMessage());
         }
