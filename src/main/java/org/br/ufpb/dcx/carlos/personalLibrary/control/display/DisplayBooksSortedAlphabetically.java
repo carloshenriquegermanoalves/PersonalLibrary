@@ -21,24 +21,46 @@ public class DisplayBooksSortedAlphabetically implements ActionListener {
     }
 
     public void displayBooksSortedAlphabetically() {
-        StringBuilder message = new StringBuilder();
-
         if (isThereAnyBooksInLibrary()) {
-            message.append("Os livros cadastrados na biblioteca, em ordem alfabética, são: \n\n");
             List<Book> sortedBooks = LIBRARYSYSTEM.sortBooksAlphabetically();
+            displayList(sortedBooks);
 
-            for (Book book : sortedBooks) {
-                message.append(book.getTitle()).append("\n");
-            }
+            JScrollPane scrollPane = new JScrollPane(bookListDisplay);
+
+            bookListDisplay.addListSelectionListener(e -> {
+                if (!e.getValueIsAdjusting()) {
+                    int selectedIndex = bookListDisplay.getSelectedIndex();
+                    if (selectedIndex >= 0) {
+                        Book selectedBook = sortedBooks.get(selectedIndex);
+                        showBookInfo(selectedBook);
+                    }
+                }
+            });
+
+            JOptionPane.showMessageDialog(null, scrollPane, "Livros Cadastrados na Biblioteca", JOptionPane.PLAIN_MESSAGE);
         } else {
-            message.append("Ainda não há livros cadastrados na biblioteca!");
+            JOptionPane.showMessageDialog(null, "Ainda não há livros cadastrados na biblioteca!");
+        }
+    }
+
+    public static void displayList(List<Book> bookList) {
+        DefaultListModel<String> listModel = new DefaultListModel<>();
+
+        for (Book book : bookList) {
+            listModel.addElement(book.getTitle());
         }
 
-        JOptionPane.showMessageDialog(null, message.toString());
+        bookListDisplay = new JList<>(listModel);
+        bookListDisplay.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
     }
 
     private boolean isThereAnyBooksInLibrary() {
         return !LIBRARYSYSTEM.sortBooksAlphabetically().isEmpty();
     }
 
+    private void showBookInfo(Book book) {
+        JOptionPane.showMessageDialog(null, book.toString(), "Informações do Livro", JOptionPane.INFORMATION_MESSAGE);
+    }
+
+    private static JList<String> bookListDisplay;
 }
