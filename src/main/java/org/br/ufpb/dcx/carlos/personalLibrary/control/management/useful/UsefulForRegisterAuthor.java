@@ -33,7 +33,8 @@ public class UsefulForRegisterAuthor {
 
             String authorCountry;
             String knowNationality = getAuthorsNationalityChoice();
-            authorCountry = knowNationality.equals("1") ? JOptionPane.showInputDialog("Digite o país de nascimento do autor: ") : "Desconhecida";
+            authorCountry = knowNationality.equals("1") ? JOptionPane.showInputDialog("Digite o país de nascimento do autor: ")
+                    : "Desconhecida";
 
             Author author = new Author(authorName, authorGenre, authorCountry);
             authors.add(author);
@@ -46,7 +47,11 @@ public class UsefulForRegisterAuthor {
         String choice = "";
 
         while (!choice.equals("1") && !choice.equals("2")) {
-            choice = JOptionPane.showInputDialog("Você sabe a nacionalidade do autor?\n1.Sim\n2.Não");
+            choice = JOptionPane.showInputDialog("""
+                    Você sabe a nacionalidade do autor? +
+                    1.Sim
+                    2.Não
+                    """);
         }
 
         return choice;

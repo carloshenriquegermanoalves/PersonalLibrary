@@ -9,10 +9,10 @@ import java.awt.event.ActionListener;
 import java.util.List;
 
 public class DisplayBooksSortedAlphabeticallyByGenre implements ActionListener {
-    private final LibrarySystem librarySystem;
+    private final LibrarySystem LIBRARYSYSTEM;
 
     public DisplayBooksSortedAlphabeticallyByGenre(LibrarySystem librarySystem) {
-        this.librarySystem = librarySystem;
+        this.LIBRARYSYSTEM = librarySystem;
     }
 
     @Override
@@ -24,8 +24,8 @@ public class DisplayBooksSortedAlphabeticallyByGenre implements ActionListener {
         StringBuilder message = new StringBuilder();
 
         if (isThereAnyBooksInLibrary()) {
-            message.append("Os livros cadastrados na biblioteca, em ordem alfabética, são: \n\n");
-            List<Book> sortedBooks = librarySystem.sortBooksAlphabetically();
+            message.append("Os livros cadastrados na biblioteca, em ordem alfabética por gênero, são: \n\n");
+            List<Book> sortedBooks = LIBRARYSYSTEM.sortBooksAlphabetically();
 
             for (Book book : sortedBooks) {
                 message.append(book.getTitle()).append(" (").append(book.getBookGenre()).append(") \n");
@@ -38,7 +38,7 @@ public class DisplayBooksSortedAlphabeticallyByGenre implements ActionListener {
     }
 
     private boolean isThereAnyBooksInLibrary() {
-        return !librarySystem.sortBooksAlphabetically().isEmpty();
+        return !LIBRARYSYSTEM.sortBooksAlphabetically().isEmpty();
     }
 
 }

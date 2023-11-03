@@ -8,15 +8,14 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
-
 public class LibrarySystem implements LibrarySystemInterface {
 
-    private final DataRecorder bookRecorder;
+    private final DataRecorder BOOKRECORDER;
     private List<Book> bookList;
 
     public LibrarySystem() {
         this.bookList = new ArrayList<>();
-        this.bookRecorder = new DataRecorder();
+        this.BOOKRECORDER = new DataRecorder();
     }
 
     @Override
@@ -31,13 +30,13 @@ public class LibrarySystem implements LibrarySystemInterface {
 
     @Override
     public DataRecorder getBookRecorder() {
-        return bookRecorder;
+        return BOOKRECORDER;
     }
 
     @Override
     public void loadAllBooks() {
         try {
-            this.bookList = bookRecorder.retrieveBookData();
+            this.bookList = BOOKRECORDER.retrieveBookData();
         } catch (ClassNotFoundException | IOException e) {
             throw new RuntimeException(e);
         }
@@ -59,10 +58,9 @@ public class LibrarySystem implements LibrarySystemInterface {
         return foundBooks.get(0);
     }
 
-
     @Override
-    public boolean addBookToList(Book book) {
-        return bookList.add(book);
+    public void addBookToList(Book book) {
+        bookList.add(book);
     }
 
     @Override
@@ -76,22 +74,20 @@ public class LibrarySystem implements LibrarySystemInterface {
     }
 
     @Override
-    public List<Book> sortBooksByAuthorsAlphabetically() {
-        List<Book> sortedList = new ArrayList<>(bookList);
-        sortedList.sort((book1, book2) -> book1.getAuthor().getClass().getName().compareToIgnoreCase(book2.getAuthor().getClass().getName()));
-        return sortedList;
-    }
-
-    @Override
-    public List<Book> sortBooksByGenreAlphabetically() {
-        List<Book> sortedList = new ArrayList<>(bookList);
-        sortedList.sort((book1, book2) -> book1.getBookGenre().compareToIgnoreCase(book2.getBookGenre()));
-        return sortedList;
-    }
-
-    @Override
     public List<Book> sortBooksByGenreAndAuthorsAlphabetically() {
         return bookList.stream().sorted(Comparator.comparing(Book::getBookGenre).thenComparing(book -> book.getAuthor().getClass().getName().toLowerCase())).collect(ArrayList::new, ArrayList::add, ArrayList::addAll);
+    }
+
+    @Override
+    public List<Book> booksSortedAlphabeticallyByGenreAndSubgenre() {
+        List<Book> books = getBookList();
+        books.sort(Comparator.comparing(Book::getBookGenre).thenComparing(Book::getBookSubGenre).thenComparing(Book::getTitle));
+        return books;
+    }
+
+    @Override
+    public List<String> booksSubGenre() {
+        return bookList.stream().map(Book::getBookSubGenre).distinct().collect(ArrayList::new, ArrayList::add, ArrayList::addAll);
     }
 
     @Override
@@ -145,7 +141,6 @@ public class LibrarySystem implements LibrarySystemInterface {
         return bookList.stream().flatMap(book -> book.getAuthor().stream()).distinct().collect(ArrayList::new, ArrayList::add, ArrayList::addAll);
     }
 
-
     @Override
     public List<Author> femaleAuthorsList() {
         return authorList().stream().filter(author -> author.getAuthorGender().equalsIgnoreCase("feminino")).collect(ArrayList::new, ArrayList::add, ArrayList::addAll);
@@ -170,5 +165,4 @@ public class LibrarySystem implements LibrarySystemInterface {
     public int totalPageCount() {
         return bookList.stream().mapToInt(Book::getPageCount).sum();
     }
-
 }

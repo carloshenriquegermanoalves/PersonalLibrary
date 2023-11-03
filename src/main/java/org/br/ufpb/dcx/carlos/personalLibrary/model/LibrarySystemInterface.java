@@ -14,7 +14,7 @@ public interface LibrarySystemInterface {
 
     void loadAllBooks();
 
-    boolean addBookToList(Book book);
+    void addBookToList(Book book);
 
     boolean removeBookFromList(String title);
 
@@ -22,14 +22,12 @@ public interface LibrarySystemInterface {
 
     Book findBookByTitleAndAuthor(String titleToSearch, String authorNameToSearch) throws BookNotFoundException;
 
-
     List<Book> sortBooksAlphabetically();
-
-    List<Book> sortBooksByAuthorsAlphabetically();
-
-    List<Book> sortBooksByGenreAlphabetically();
-
     List<Book> sortBooksByGenreAndAuthorsAlphabetically();
+
+    List<Book> booksSortedAlphabeticallyByGenreAndSubgenre();
+
+    List<String> booksSubGenre();
 
     List<Book> findBooksByAuthorName(String authorToSearch);
 

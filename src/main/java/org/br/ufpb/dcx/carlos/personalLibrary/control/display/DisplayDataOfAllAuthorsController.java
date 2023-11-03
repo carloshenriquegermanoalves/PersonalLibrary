@@ -1,23 +1,23 @@
 package org.br.ufpb.dcx.carlos.personalLibrary.control.display;
 
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.util.List;
-import javax.swing.JOptionPane;
-
 import org.br.ufpb.dcx.carlos.personalLibrary.model.Author;
 import org.br.ufpb.dcx.carlos.personalLibrary.model.LibrarySystem;
 
+import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.List;
+
 public class DisplayDataOfAllAuthorsController implements ActionListener {
-    private final LibrarySystem librarySystem;
+    private final LibrarySystem LIBRARYSYSTEM;
 
     public DisplayDataOfAllAuthorsController(LibrarySystem librarySystem) {
-        this.librarySystem = librarySystem;
+        this.LIBRARYSYSTEM = librarySystem;
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if (!isThereAnyAuthorsInLibrary(librarySystem.authorList())) {
+        if (!isThereAnyAuthorsInLibrary(LIBRARYSYSTEM.authorList())) {
             showMessage("Ainda não há autores cadastrados na biblioteca!");
             return;
         }
@@ -34,9 +34,9 @@ public class DisplayDataOfAllAuthorsController implements ActionListener {
 
         switch (authorDisplayMenuOption) {
             case "1" -> displayAllAuthors();
-            case "2" -> displayAuthorsByType(librarySystem.maleAuthorsList(), "autores");
-            case "3" -> displayAuthorsByType(librarySystem.femaleAuthorsList(), "autores femininos");
-            case "4" -> displayAuthorsByType(librarySystem.otherGenderAuthorsList(), "autores de outros gêneros");
+            case "2" -> displayAuthorsByType(LIBRARYSYSTEM.maleAuthorsList(), "autores");
+            case "3" -> displayAuthorsByType(LIBRARYSYSTEM.femaleAuthorsList(), "autores femininos");
+            case "4" -> displayAuthorsByType(LIBRARYSYSTEM.otherGenderAuthorsList(), "autores de outros gêneros");
             case "5" -> displayNumberOfBooksByAuthorGender("Masculino");
             case "6" -> displayNumberOfBooksByAuthorGender("Feminino");
             case "7" -> displayNumberOfBooksByAuthorWithDifferentGender();
@@ -49,8 +49,8 @@ public class DisplayDataOfAllAuthorsController implements ActionListener {
     }
 
     private void displayAllAuthors() {
-        if (isThereAnyAuthorsInLibrary(librarySystem.authorList())) {
-            showAuthorsList(librarySystem.authorList(), "Todos os autores cadastrados na biblioteca são: \n\n");
+        if (isThereAnyAuthorsInLibrary(LIBRARYSYSTEM.authorList())) {
+            showAuthorsList(LIBRARYSYSTEM.authorList(), "Todos os autores cadastrados na biblioteca são: \n\n");
         } else {
             showMessage("Ainda não há livros cadastrados na biblioteca!");
         }
@@ -65,12 +65,12 @@ public class DisplayDataOfAllAuthorsController implements ActionListener {
     }
 
     private void displayNumberOfBooksByAuthorGender(String gender) {
-        int numberOfBooks = librarySystem.findBooksByAuthorGender(gender).size();
+        int numberOfBooks = LIBRARYSYSTEM.findBooksByAuthorGender(gender).size();
         showMessage("O número de livros por autores do gênero " + gender + " é: " + numberOfBooks);
     }
 
     private void displayNumberOfBooksByAuthorWithDifferentGender() {
-        int numberOfBooks = librarySystem.findBooksByAuthorsWithDifferentGenders().size();
+        int numberOfBooks = LIBRARYSYSTEM.findBooksByAuthorsWithDifferentGenders().size();
         showMessage("O número de livros por autores de outro gênero é: " + numberOfBooks);
     }
 

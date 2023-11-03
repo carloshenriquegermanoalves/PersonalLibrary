@@ -8,10 +8,10 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.List;
 
-public class SearchByDateControll implements ActionListener {
+public class SearchByDateController implements ActionListener {
     private final LibrarySystem LIBRARYSYSTEM;
 
-    public SearchByDateControll(LibrarySystem librarysystem) {
+    public SearchByDateController(LibrarySystem librarysystem) {
         LIBRARYSYSTEM = librarysystem;
     }
 

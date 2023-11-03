@@ -9,17 +9,17 @@ import java.awt.event.ActionListener;
 import java.io.IOException;
 
 public class RemoveBookController implements ActionListener {
-    private final LibrarySystem librarySystem;
-    private final DataRecorder bookRecorder;
+    private final LibrarySystem LIBRARYSYSTEM;
+    private final DataRecorder BOOKRECORDER;
 
     public RemoveBookController(LibrarySystem librarySystem, DataRecorder bookRecorder) {
-        this.librarySystem = librarySystem;
-        this.bookRecorder = bookRecorder;
+        this.LIBRARYSYSTEM = librarySystem;
+        this.BOOKRECORDER = bookRecorder;
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if (librarySystem.getBookList().isEmpty()) {
+        if (LIBRARYSYSTEM.getBookList().isEmpty()) {
             JOptionPane.showMessageDialog(null, "Ainda não há livros na biblioteca para serem removidos!");
             return;
         }
@@ -27,10 +27,10 @@ public class RemoveBookController implements ActionListener {
         String titleToRemove = JOptionPane.showInputDialog("Digite o Título do Livro para Remover: ");
 
         if (titleToRemove != null) {
-            boolean removed = librarySystem.removeBookFromList(titleToRemove);
+            boolean removed = LIBRARYSYSTEM.removeBookFromList(titleToRemove);
             if (removed) {
                 try {
-                    bookRecorder.saveBookList(librarySystem.getBookList());
+                    BOOKRECORDER.saveBookList(LIBRARYSYSTEM.getBookList());
                     JOptionPane.showMessageDialog(null, "Livro Removido com Sucesso.");
                 } catch (IOException ex) {
                     JOptionPane.showMessageDialog(null, "Não foi possível salvar os dados!");

@@ -6,17 +6,19 @@ import java.util.Objects;
 
 public class Book implements Comparable<Book>, Serializable {
 
+    private final List<Author> AUTHOR;
     private String title;
-    private List<Author> author;
     private String bookGenre;
+    private String bookSubGenre;
     private int pageCount;
     private String readStatus;
     private int yearOfReading;
 
-    public Book(String title, List<Author> author, String bookGenre, int pageCount, String readStatus, int yearOfReading) {
+    public Book(String title, List<Author> author, String bookGenre, String bookSubGenre, int pageCount, String readStatus, int yearOfReading) {
         this.title = title;
-        this.author = author;
+        this.AUTHOR = author;
         this.bookGenre = bookGenre;
+        this.bookSubGenre = bookSubGenre;
         this.pageCount = pageCount;
         this.readStatus = readStatus;
         this.yearOfReading = yearOfReading;
@@ -31,11 +33,7 @@ public class Book implements Comparable<Book>, Serializable {
     }
 
     public List<Author> getAuthor() {
-        return this.author;
-    }
-
-    public void setAuthor(List<Author> author) {
-        this.author = author;
+        return this.AUTHOR;
     }
 
     public String getBookGenre() {
@@ -44,6 +42,14 @@ public class Book implements Comparable<Book>, Serializable {
 
     public void setBookGenre(String bookGenre) {
         this.bookGenre = bookGenre;
+    }
+
+    public String getBookSubGenre() {
+        return bookSubGenre;
+    }
+
+    public void setBookSubGenre(String bookSubGenre) {
+        this.bookSubGenre = bookSubGenre;
     }
 
     public int getPageCount() {
@@ -73,9 +79,9 @@ public class Book implements Comparable<Book>, Serializable {
     @Override
     public String toString() {
         StringBuilder authorsString = new StringBuilder();
-        for (int i = 0; i < this.author.size(); i++) {
-            authorsString.append(this.author.get(i).getName());
-            if (i < this.author.size() - 1) {
+        for (int i = 0; i < this.AUTHOR.size(); i++) {
+            authorsString.append(this.AUTHOR.get(i).getName());
+            if (i < this.AUTHOR.size() - 1) {
                 authorsString.append(", ");
             }
         }
@@ -85,7 +91,7 @@ public class Book implements Comparable<Book>, Serializable {
 
     @Override
     public int hashCode() {
-        return Objects.hash(author, bookGenre, pageCount, title);
+        return Objects.hash(AUTHOR, bookGenre, pageCount, title);
     }
 
     @Override
@@ -94,7 +100,7 @@ public class Book implements Comparable<Book>, Serializable {
         if (obj == null) return false;
         if (getClass() != obj.getClass()) return false;
         Book other = (Book) obj;
-        return Objects.equals(author, other.author) && Objects.equals(bookGenre, other.bookGenre) && pageCount == other.pageCount && Objects.equals(title, other.title);
+        return Objects.equals(AUTHOR, other.AUTHOR) && Objects.equals(bookGenre, other.bookGenre) && pageCount == other.pageCount && Objects.equals(title, other.title);
     }
 
     @Override

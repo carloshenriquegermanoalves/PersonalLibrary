@@ -1,12 +1,8 @@
 package org.br.ufpb.dcx.carlos.personalLibrary.view;
 
 import org.br.ufpb.dcx.carlos.personalLibrary.control.display.*;
-import org.br.ufpb.dcx.carlos.personalLibrary.control.management.EditBookController;
-import org.br.ufpb.dcx.carlos.personalLibrary.control.management.RegisterBookController;
-import org.br.ufpb.dcx.carlos.personalLibrary.control.management.RemoveBookController;
-import org.br.ufpb.dcx.carlos.personalLibrary.control.search.SearchAuthorController;
-import org.br.ufpb.dcx.carlos.personalLibrary.control.search.SearchBookController;
-import org.br.ufpb.dcx.carlos.personalLibrary.control.search.SearchByDateControll;
+import org.br.ufpb.dcx.carlos.personalLibrary.control.management.*;
+import org.br.ufpb.dcx.carlos.personalLibrary.control.search.*;
 import org.br.ufpb.dcx.carlos.personalLibrary.model.LibrarySystem;
 
 import javax.swing.*;
@@ -22,14 +18,10 @@ public class LibraryGUI extends JFrame {
         setSize(800, 800);
         setLocationRelativeTo(null);
         setResizable(false);
-
         ImageIcon imageIcon = new ImageIcon("src/main/java/org/br/ufpb/dcx/carlos/personalLibrary/view/Images/CarlosTeca.png");
         JLabel backgroundLabel = new JLabel(imageIcon);
-
         backgroundLabel.setLayout(new BorderLayout());
-
         this.setContentPane(backgroundLabel);
-
         createMainMenu(createDisplaySection(), createManagementSection(), createSearchSection());
     }
 
@@ -45,17 +37,29 @@ public class LibraryGUI extends JFrame {
         JMenuItem genreList = new JMenuItem("Gêneros dos Livros");
         genreList.addActionListener(new DisplayAllBookGenresController(librarySystem));
 
+        JMenuItem subGenreList = new JMenuItem("Subgênero dos Livros");
+        subGenreList.addActionListener(new DisplayAllBooksSubGenres(librarySystem));
+
         JMenuItem authorsList = new JMenuItem("Lista de Autores dos Livros");
         authorsList.addActionListener(new DisplayDataOfAllAuthorsController(librarySystem));
 
         JMenuItem alphabeticallySortedByGenres = new JMenuItem("Ordenados Alfabeticamente por Gêneros");
         alphabeticallySortedByGenres.addActionListener(new DisplayBooksSortedAlphabeticallyByGenre(librarySystem));
 
+        JMenuItem alphabeticallySortedByGenresAndSubgenres = new JMenuItem("Ordenados Alfabeticamente por Gênero e Subgênero");
+        alphabeticallySortedByGenresAndSubgenres.addActionListener(new DisplayBooksSortedAlphabeticallyByGenreAndSubgenre(librarySystem));
+
+        JMenuItem allPageCount = new JMenuItem("Quantidade Total de Páginas");
+        allPageCount.addActionListener(new DisplayAllPagesCount(librarySystem));
+
         menuDisplay.add(acquisitionOrder);
         menuDisplay.add(alphabeticalOrder);
         menuDisplay.add(genreList);
+        menuDisplay.add(subGenreList);
         menuDisplay.add(authorsList);
         menuDisplay.add(alphabeticallySortedByGenres);
+        menuDisplay.add(alphabeticallySortedByGenresAndSubgenres);
+        menuDisplay.add(allPageCount);
 
         return menuDisplay;
     }
@@ -89,7 +93,7 @@ public class LibraryGUI extends JFrame {
         searchAuthor.addActionListener(new SearchAuthorController(librarySystem));
 
         JMenuItem searchYear = new JMenuItem("Pesquisar por data");
-        searchYear.addActionListener(new SearchByDateControll(librarySystem));
+        searchYear.addActionListener(new SearchByDateController(librarySystem));
 
         searchMenu.add(searchBook);
         searchMenu.add(searchAuthor);

@@ -32,10 +32,10 @@ public class SearchAuthorController implements ActionListener {
         UsefulForSearchByAuthorCountry searchByAuthorCountry = new UsefulForSearchByAuthorCountry(LIBRARYSYSTEM);
 
         String authorSearchMenuOption = JOptionPane.showInputDialog("""
-            1. Pesquisar Livros de Autores
-            2. Pesquisar Livros de Autoras
-            3. Pesquisar Livros de um Autor
-            4. Pesquisar por Nacionalidade do Autor""");
+                1. Pesquisar Livros de Autores
+                2. Pesquisar Livros de Autoras
+                3. Pesquisar Livros de um Autor
+                4. Pesquisar por Nacionalidade do Autor""");
 
         switch (authorSearchMenuOption) {
             case "1" -> searchByAuthorGenre.searchBooksByMaleAuthors();

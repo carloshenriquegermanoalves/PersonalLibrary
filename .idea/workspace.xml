@@ -4,22 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="09c854cf-8a0d-4328-b383-29b0bb14ec4a" name="Changes" comment="Tests implementeds.">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/br/ufpb/dcx/carlos/personalLibrary/control/display/DisplayBooksSortedAlphabeticallyByGenre.java" afterDir="false" />
+    <list default="true" id="09c854cf-8a0d-4328-b383-29b0bb14ec4a" name="Changes" comment="Better data view with StringBuilder implemented.">
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/br/ufpb/dcx/carlos/personalLibrary/control/display/DisplayAllBooksSubGenres.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/br/ufpb/dcx/carlos/personalLibrary/control/display/DisplayAllPagesCount.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/br/ufpb/dcx/carlos/personalLibrary/control/display/DisplayBooksSortedAlphabeticallyByGenreAndSubgenre.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/livros.dat" beforeDir="false" afterPath="$PROJECT_DIR$/livros.dat" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/br/ufpb/dcx/carlos/personalLibrary/TODO.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/br/ufpb/dcx/carlos/personalLibrary/TODO.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/br/ufpb/dcx/carlos/personalLibrary/control/display/DisplayAllBookGenresController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/br/ufpb/dcx/carlos/personalLibrary/control/display/DisplayAllBookGenresController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/br/ufpb/dcx/carlos/personalLibrary/control/display/DisplayAllBooksController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/br/ufpb/dcx/carlos/personalLibrary/control/display/DisplayAllBooksController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/br/ufpb/dcx/carlos/personalLibrary/control/display/DisplayBooksSortedAlphabetically.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/br/ufpb/dcx/carlos/personalLibrary/control/display/DisplayBooksSortedAlphabetically.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/br/ufpb/dcx/carlos/personalLibrary/control/display/DisplayDataOfAllAuthorsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/br/ufpb/dcx/carlos/personalLibrary/control/display/DisplayDataOfAllAuthorsController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/br/ufpb/dcx/carlos/personalLibrary/control/display/useful/UsefulForDisplayAllAuthors.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/br/ufpb/dcx/carlos/personalLibrary/control/display/useful/UsefulForDisplayAllAuthors.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/br/ufpb/dcx/carlos/personalLibrary/control/search/SearchByDateControll.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/br/ufpb/dcx/carlos/personalLibrary/control/search/SearchByDateControll.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/br/ufpb/dcx/carlos/personalLibrary/control/search/useful/authors/UsefulForSearchByAuthorCountry.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/br/ufpb/dcx/carlos/personalLibrary/control/search/useful/authors/UsefulForSearchByAuthorCountry.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/br/ufpb/dcx/carlos/personalLibrary/control/search/useful/authors/UsefulForSearchByAuthorGenre.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/br/ufpb/dcx/carlos/personalLibrary/control/search/useful/authors/UsefulForSearchByAuthorGenre.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/br/ufpb/dcx/carlos/personalLibrary/control/search/useful/authors/UsefulForSearchByAuthorName.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/br/ufpb/dcx/carlos/personalLibrary/control/search/useful/authors/UsefulForSearchByAuthorName.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/br/ufpb/dcx/carlos/personalLibrary/control/search/useful/books/UsefulForSearchByGenre.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/br/ufpb/dcx/carlos/personalLibrary/control/search/useful/books/UsefulForSearchByGenre.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/br/ufpb/dcx/carlos/personalLibrary/control/search/useful/books/UsefulForSearchByPages.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/br/ufpb/dcx/carlos/personalLibrary/control/search/useful/books/UsefulForSearchByPages.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/br/ufpb/dcx/carlos/personalLibrary/control/display/DisplayBooksSortedAlphabeticallyByGenre.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/br/ufpb/dcx/carlos/personalLibrary/control/display/DisplayBooksSortedAlphabeticallyByGenre.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/br/ufpb/dcx/carlos/personalLibrary/control/management/EditBookController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/br/ufpb/dcx/carlos/personalLibrary/control/management/EditBookController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/br/ufpb/dcx/carlos/personalLibrary/control/management/RegisterBookController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/br/ufpb/dcx/carlos/personalLibrary/control/management/RegisterBookController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/br/ufpb/dcx/carlos/personalLibrary/control/management/useful/UsefulForRegisterPages.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/br/ufpb/dcx/carlos/personalLibrary/control/management/useful/UsefulForRegisterPages.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/br/ufpb/dcx/carlos/personalLibrary/model/Book.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/br/ufpb/dcx/carlos/personalLibrary/model/Book.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/br/ufpb/dcx/carlos/personalLibrary/model/LibrarySystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/br/ufpb/dcx/carlos/personalLibrary/model/LibrarySystem.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/br/ufpb/dcx/carlos/personalLibrary/view/LibraryGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/br/ufpb/dcx/carlos/personalLibrary/view/LibraryGUI.java" afterDir="false" />
     </list>
@@ -64,23 +61,22 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Trabalho/PersonalLibrary&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;onboarding.tips.debug.path&quot;: &quot;C:/Users/Trabalho/Desktop/Personal Library/src/main/java/org/example/Main.java&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "C:/Users/Trabalho/PersonalLibrary",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "onboarding.tips.debug.path": "C:/Users/Trabalho/Desktop/Personal Library/src/main/java/org/example/Main.java",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RunManager" selected="Application.Main">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.br.ufpb.dcx.carlos.personalLibrary.Main" />
@@ -189,7 +185,9 @@
       <workItem from="1698791446114" duration="5103000" />
       <workItem from="1698864274425" duration="2925000" />
       <workItem from="1698873363183" duration="2427000" />
-      <workItem from="1698932435081" duration="8080000" />
+      <workItem from="1698932435081" duration="8495000" />
+      <workItem from="1698948709812" duration="182000" />
+      <workItem from="1698965393584" duration="2989000" />
     </task>
     <task id="LOCAL-00001" summary="View Implementation!">
       <option name="closed" value="true" />
@@ -293,7 +291,15 @@
       <option name="project" value="LOCAL" />
       <updated>1698934368268</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Better data view with StringBuilder implemented.">
+      <option name="closed" value="true" />
+      <created>1698940951420</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1698940951421</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -313,7 +319,8 @@
     <MESSAGE value="Pushing the data file." />
     <MESSAGE value="Implementing other tests." />
     <MESSAGE value="Tests implementeds." />
-    <option name="LAST_COMMIT_MESSAGE" value="Tests implementeds." />
+    <MESSAGE value="Better data view with StringBuilder implemented." />
+    <option name="LAST_COMMIT_MESSAGE" value="Better data view with StringBuilder implemented." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

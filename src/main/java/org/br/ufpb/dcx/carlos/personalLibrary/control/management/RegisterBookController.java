@@ -14,21 +14,22 @@ import java.io.IOException;
 import java.util.List;
 
 public class RegisterBookController implements ActionListener {
-    private final List<Book> bookList;
-    private final DataRecorder dataRecorder;
+    private final List<Book> BOOKLIST;
+    private final DataRecorder DATARECORDER;
     UsefulForRegisterAuthor registerAuthor = new UsefulForRegisterAuthor();
     UsefulForRegisterPages registerPages = new UsefulForRegisterPages();
     UsefulForYearOfReading registerYearOfReading = new UsefulForYearOfReading();
 
     public RegisterBookController(List<Book> bookList, DataRecorder dataRecorder) {
-        this.bookList = bookList;
-        this.dataRecorder = dataRecorder;
+        this.BOOKLIST = bookList;
+        this.DATARECORDER = dataRecorder;
     }
 
     public void registerBook(List<Book> bookList) {
         String bookTitle = JOptionPane.showInputDialog("Digite o título do livro: ");
         List<Author> authors = registerAuthor.registerAuthor();
         String bookGenre = JOptionPane.showInputDialog("Digite o gênero do livro: ");
+        String bookSubGenre = JOptionPane.showInputDialog("Digite o subgênero do livro: ");
         int pageCount = registerPages.enterPageCount();
         int yearOfReading = 0;
         String bookHasRead = registerYearOfReading.getYearOfReadingChoice();
@@ -36,13 +37,13 @@ public class RegisterBookController implements ActionListener {
             yearOfReading = registerYearOfReading.enterYearOfReading();
         }
 
-        Book newBook = new Book(bookTitle, authors, bookGenre, pageCount, bookHasRead, yearOfReading);
+        Book newBook = new Book(bookTitle, authors, bookGenre, bookSubGenre, pageCount, bookHasRead, yearOfReading);
         bookList.add(newBook);
 
         JOptionPane.showMessageDialog(null, "Livro registrado com sucesso!");
 
         try {
-            dataRecorder.saveBookData(newBook);
+            DATARECORDER.saveBookData(newBook);
         } catch (IOException e) {
             JOptionPane.showMessageDialog(null, "Erro ao salvar dados do livro: " + e.getMessage());
         }
@@ -50,6 +51,6 @@ public class RegisterBookController implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        registerBook(bookList);
+        registerBook(BOOKLIST);
     }
 }

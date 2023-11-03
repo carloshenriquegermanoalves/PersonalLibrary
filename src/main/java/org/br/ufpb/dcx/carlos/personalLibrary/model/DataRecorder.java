@@ -9,21 +9,6 @@ public class DataRecorder {
 
     private static final String MEMBER_FILE = "livros.dat";
 
-    public DataRecorder() {
-        createDataFileIfNotExists();
-    }
-
-    private void createDataFileIfNotExists() {
-        File file = new File(MEMBER_FILE);
-        if (!file.exists()) {
-            try {
-                boolean newFile = file.createNewFile();
-            } catch (IOException e) {
-                JOptionPane.showMessageDialog(null, "Erro ao criar o arquivo de dados: " + e.getMessage());
-            }
-        }
-    }
-
     public List<Book> retrieveBookData() throws IOException, ClassNotFoundException {
         List<Book> books = new ArrayList<>();
 

@@ -13,17 +13,17 @@ import java.io.IOException;
 import java.util.List;
 
 public class EditBookController implements ActionListener {
-    private final LibrarySystem librarySystem;
-    private final DataRecorder bookRecorder;
+    private final LibrarySystem LIBRARYSYSTEM;
+    private final DataRecorder BOOKRECORDER;
 
     public EditBookController(LibrarySystem librarySystem, DataRecorder bookRecorder) {
-        this.librarySystem = librarySystem;
-        this.bookRecorder = bookRecorder;
+        this.LIBRARYSYSTEM = librarySystem;
+        this.BOOKRECORDER = bookRecorder;
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if (librarySystem.getBookList().isEmpty()) {
+        if (LIBRARYSYSTEM.getBookList().isEmpty()) {
             JOptionPane.showMessageDialog(null, "Ainda não há livros na biblioteca para serem removidos!");
             return;
         }
@@ -45,7 +45,8 @@ public class EditBookController implements ActionListener {
                     case 4 -> editReadStatus(bookToEdit);
                     case 5 -> editYearOfReading(bookToEdit);
                     case 6 -> editGenre(bookToEdit);
-                    case 7 -> editPageCount(bookToEdit);
+                    case 7 -> editSubGenre(bookToEdit);
+                    case 8 -> editPageCount(bookToEdit);
                     default -> {
                         showInvalidChoiceMessage();
                         return;
@@ -63,7 +64,7 @@ public class EditBookController implements ActionListener {
 
     private Book findBookByTitleAndAuthor(String title, String authorName) {
         try {
-            return librarySystem.findBookByTitleAndAuthor(title, authorName);
+            return LIBRARYSYSTEM.findBookByTitleAndAuthor(title, authorName);
         } catch (BookNotFoundException e) {
             JOptionPane.showMessageDialog(null, "Não existe livro com esse título e autor! Tente novamente!");
             return null;
@@ -71,16 +72,17 @@ public class EditBookController implements ActionListener {
     }
 
     private int chooseFieldToEdit() {
-        String[] options = {
-                "Título do livro",
-                "Nome do autor",
-                "Gênero do autor",
-                "País de nascimento do autor",
-                "Status do livro",
-                "Ano de leitura",
-                "Gênero do livro",
-                "Número de Páginas"
-        };
+        String[] options = {"""
+            Título do livro
+            Nome do autor
+            Gênero do autor
+            País de nascimento do autor
+            Status do livro
+            Ano de leitura
+            Gênero do livro
+            Subgênero do livro
+            Número de Páginas
+            """};
 
         JList<String> list = new JList<>(options);
         JOptionPane.showMessageDialog(null, new JScrollPane(list), "Escolha o campo para editar:", JOptionPane.PLAIN_MESSAGE);
@@ -129,7 +131,7 @@ public class EditBookController implements ActionListener {
     }
 
     private void editReadStatus(Book book) {
-        String newReadStatus = JOptionPane.showInputDialog("Você já leu o livro? (Sim or Não)");
+        String newReadStatus = JOptionPane.showInputDialog("Você já leu o livro? (Sim ou Não)");
         book.setReadStatus(String.valueOf(newReadStatus.equalsIgnoreCase("Sim")));
         saveBookData(book);
     }
@@ -143,6 +145,12 @@ public class EditBookController implements ActionListener {
     private void editGenre(Book book) {
         String newGenre = JOptionPane.showInputDialog("Digite o novo gênero do livro: ");
         book.setBookGenre(newGenre);
+        saveBookData(book);
+    }
+
+    private void editSubGenre(Book book) {
+        String newSubGenre = JOptionPane.showInputDialog("Digite o novo subgênero do livro: ");
+        book.setBookSubGenre(newSubGenre);
         saveBookData(book);
     }
 
@@ -166,7 +174,7 @@ public class EditBookController implements ActionListener {
 
     private void saveBookData(Book book) {
         try {
-            bookRecorder.saveBookData(book);
+            BOOKRECORDER.saveBookData(book);
         } catch (IOException e) {
             JOptionPane.showMessageDialog(null, "Erro ao salvar dados do livro: " + e.getMessage());
         }

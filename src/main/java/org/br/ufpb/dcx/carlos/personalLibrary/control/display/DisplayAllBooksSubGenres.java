@@ -7,27 +7,27 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.List;
 
-public class DisplayAllBookGenresController implements ActionListener {
+public class DisplayAllBooksSubGenres implements ActionListener {
     private final LibrarySystem LIBRARYSYSTEM;
 
-    public DisplayAllBookGenresController(LibrarySystem librarySystem) {
-        this.LIBRARYSYSTEM = librarySystem;
+    public DisplayAllBooksSubGenres(LibrarySystem librarysystem) {
+        LIBRARYSYSTEM = librarysystem;
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        displayAllGenres();
+        displaySubGenre();
     }
 
-    public void displayAllGenres() {
+    private void displaySubGenre() {
         StringBuilder message = new StringBuilder();
 
-        if (isThereGenresInLibrary()) {
+        if (!isThereGenresInLibrary()) {
             message.append("Os gêneros dos livros cadastrados na biblioteca são:\n\n");
 
-            List<String> genres = LIBRARYSYSTEM.genreBooksList();
-            for (String genre : genres) {
-                message.append(genre).append("\n");
+            List<String> subGenres = LIBRARYSYSTEM.booksSubGenre();
+            for (String subGenre : subGenres) {
+                message.append(subGenre).append("\n");
             }
         } else {
             message.append("Ainda não há gêneros de livros cadastrados na biblioteca!");
@@ -37,7 +37,7 @@ public class DisplayAllBookGenresController implements ActionListener {
     }
 
     private boolean isThereGenresInLibrary() {
-        return !LIBRARYSYSTEM.genreBooksList().isEmpty();
+        return LIBRARYSYSTEM.getBookList().isEmpty();
     }
 
 }

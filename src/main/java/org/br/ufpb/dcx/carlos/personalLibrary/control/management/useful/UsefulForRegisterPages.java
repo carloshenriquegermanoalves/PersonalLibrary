@@ -12,7 +12,11 @@ public class UsefulForRegisterPages {
             try {
                 String pageCountString = JOptionPane.showInputDialog("Digite o número de páginas do livro: ");
                 pageCount = Integer.parseInt(pageCountString);
-                validInput = true;
+                if (pageCount > 0 && pageCount < 3000) {
+                    validInput = true;
+                } else {
+                    JOptionPane.showMessageDialog(null, "Para a quantidade de páginas digite números entre 1 e 3000");
+                }
             } catch (NumberFormatException exception) {
                 JOptionPane.showMessageDialog(null, "Digite números válidos para a quantidade de páginas do livro");
             }

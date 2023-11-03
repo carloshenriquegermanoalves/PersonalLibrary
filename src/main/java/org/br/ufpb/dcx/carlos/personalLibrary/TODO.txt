@@ -4,9 +4,9 @@
 4 - Testar as demais funcionalidades (FEITO)
 5 - Criar classe de testes (FEITO)
 6 - Code review
-7 - Adicionar campo de subgênero na classe Livro
-8 - Apagar códigos redundantes e métodos não usados
+7 - Adicionar campo de subgênero na classe Livro (FEITO)
+8 - Apagar códigos redundantes e métodos não usados (FEITO)
 9 - Gerar diagrama UML
 10 - Melhorar a exibição de livros com StringBuilder (FEITO)
-11 - Criar método para verificar se a quantidade de páginas é válida
-12 - Adicionar a funcionalidade de ver a quantidade total de páginas do livro
+11 - Criar método para verificar se a quantidade de páginas é válida (FEITO)
+12 - Adicionar a funcionalidade de ver a quantidade total de páginas do livro (FEITO)

@@ -17,6 +17,7 @@ public class UsefulForYearOfReading {
                 JOptionPane.showMessageDialog(null, "Digite números válidos para o ano de leitura.");
             }
         }
+
         return yearOfReading;
     }
 
@@ -24,7 +25,11 @@ public class UsefulForYearOfReading {
         String choice = "";
 
         while (!choice.equals("1") && !choice.equals("2")) {
-            choice = JOptionPane.showInputDialog("Você já leu este livro?\n1.Sim\n2.Não");
+            choice = JOptionPane.showInputDialog("""
+                            Você já leu este livro?
+                            1.Sim
+                            2.Não
+                            """);
         }
 
         return choice;
