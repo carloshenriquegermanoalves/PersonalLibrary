@@ -46,5 +46,4 @@ public class SearchAuthorController implements ActionListener {
         }
     }
 
-
 }

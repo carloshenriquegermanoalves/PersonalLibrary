@@ -24,34 +24,44 @@ public class DisplayBooksSortedAlphabetically implements ActionListener {
         if (isThereAnyBooksInLibrary()) {
             List<Book> sortedBooks = LIBRARYSYSTEM.sortBooksAlphabetically();
             displayList(sortedBooks);
-
-            JScrollPane scrollPane = new JScrollPane(bookListDisplay);
-
-            bookListDisplay.addListSelectionListener(e -> {
-                if (!e.getValueIsAdjusting()) {
-                    int selectedIndex = bookListDisplay.getSelectedIndex();
-                    if (selectedIndex >= 0) {
-                        Book selectedBook = sortedBooks.get(selectedIndex);
-                        showBookInfo(selectedBook);
-                    }
-                }
-            });
-
-            JOptionPane.showMessageDialog(null, scrollPane, "Livros Cadastrados na Biblioteca", JOptionPane.PLAIN_MESSAGE);
         } else {
             JOptionPane.showMessageDialog(null, "Ainda não há livros cadastrados na biblioteca!");
         }
     }
 
-    public static void displayList(List<Book> bookList) {
+    public void displayList(List<Book> bookList) {
+        JScrollPane scrollPane = getjScrollPane(bookList);
+
+        JDialog bookListDialog = new JDialog();
+        bookListDialog.setTitle("Livros Cadastrados na Biblioteca");
+        displayJPane(scrollPane, bookListDialog);
+    }
+
+    static void displayJPane(JScrollPane scrollPane, JDialog bookListDialog) {
+        DisplayBooksSortedAlphabeticallyByGenre.displayList(scrollPane, bookListDialog);
+    }
+
+    private JScrollPane getjScrollPane(List<Book> bookList) {
         DefaultListModel<String> listModel = new DefaultListModel<>();
 
         for (Book book : bookList) {
             listModel.addElement(book.getTitle());
         }
 
-        bookListDisplay = new JList<>(listModel);
+        var bookListDisplay = new JList<>(listModel);
         bookListDisplay.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+
+        bookListDisplay.addListSelectionListener(e -> {
+            if (!e.getValueIsAdjusting()) {
+                int selectedIndex = bookListDisplay.getSelectedIndex();
+                if (selectedIndex >= 0) {
+                    Book selectedBook = bookList.get(selectedIndex);
+                    showBookInfo(selectedBook);
+                }
+            }
+        });
+
+        return new JScrollPane(bookListDisplay);
     }
 
     private boolean isThereAnyBooksInLibrary() {
@@ -61,6 +71,4 @@ public class DisplayBooksSortedAlphabetically implements ActionListener {
     private void showBookInfo(Book book) {
         JOptionPane.showMessageDialog(null, book.toString(), "Informações do Livro", JOptionPane.INFORMATION_MESSAGE);
     }
-
-    private static JList<String> bookListDisplay;
 }

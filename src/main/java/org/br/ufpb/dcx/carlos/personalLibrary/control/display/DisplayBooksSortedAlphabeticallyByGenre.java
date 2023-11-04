@@ -21,24 +21,36 @@ public class DisplayBooksSortedAlphabeticallyByGenre implements ActionListener {
     }
 
     public void displayBooksSortedAlphabetically() {
-        StringBuilder message = new StringBuilder();
-
         if (isThereAnyBooksInLibrary()) {
-            message.append("Os livros cadastrados na biblioteca, em ordem alfabética por gênero, são: \n\n");
             List<Book> sortedBooks = LIBRARYSYSTEM.sortBooksAlphabetically();
-
-            for (Book book : sortedBooks) {
-                message.append(book.getTitle()).append(" (").append(book.getBookGenre()).append(") \n");
-            }
+            displayList(sortedBooks);
         } else {
-            message.append("Ainda não há livros cadastrados na biblioteca!");
+            JOptionPane.showMessageDialog(null, "Ainda não há livros cadastrados na biblioteca!");
+        }
+    }
+
+    public void displayList(List<Book> bookList) {
+        DefaultListModel<String> listModel = new DefaultListModel<>();
+
+        for (Book book : bookList) {
+            listModel.addElement(book.getTitle() + " (" + book.getBookGenre() + ")");
         }
 
-        JOptionPane.showMessageDialog(null, message.toString());
+        JList<String> bookListDisplay = new JList<>(listModel);
+        bookListDisplay.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+
+        JScrollPane scrollPane = new JScrollPane(bookListDisplay);
+
+        JDialog bookListDialog = new JDialog();
+        bookListDialog.setTitle("Livros Cadastrados na Biblioteca (Ordenados por Gênero)");
+        displayList(scrollPane, bookListDialog);
+    }
+
+    static void displayList(JScrollPane scrollPane, JDialog bookListDialog) {
+        DisplayBooksSortedAlphabeticallyByGenreAndSubgenre.displayList(scrollPane, bookListDialog);
     }
 
     private boolean isThereAnyBooksInLibrary() {
         return !LIBRARYSYSTEM.sortBooksAlphabetically().isEmpty();
     }
-
 }

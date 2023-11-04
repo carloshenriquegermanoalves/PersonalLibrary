@@ -37,19 +37,17 @@ public class DisplayAllBooksController implements ActionListener {
             listModel.addElement(book.getTitle());
         }
 
-        JPanel panel = getjPanel(bookList, listModel);
+        JList<String> bookListDisplay = getjList(bookList, listModel);
 
-        JDialog dialog = new JDialog();
-        dialog.setTitle(title);
-        dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
-        dialog.add(panel);
-        dialog.setPreferredSize(new Dimension(400, 400));
-        dialog.pack();
-        dialog.setLocationRelativeTo(null);
-        dialog.setVisible(true);
+        JScrollPane scrollPane = new JScrollPane(bookListDisplay);
+
+        JPanel panel = new JPanel(new BorderLayout());
+        panel.add(scrollPane, BorderLayout.CENTER);
+
+        getJPanel(title, panel);
     }
 
-    private static JPanel getjPanel(List<Book> bookList, DefaultListModel<String> listModel) {
+    private static JList<String> getjList(List<Book> bookList, DefaultListModel<String> listModel) {
         JList<String> bookListDisplay = new JList<>(listModel);
         bookListDisplay.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 
@@ -62,14 +60,19 @@ public class DisplayAllBooksController implements ActionListener {
                 }
             }
         });
-
-        JScrollPane scrollPane = new JScrollPane(bookListDisplay);
-
-        JPanel panel = new JPanel(new BorderLayout());
-        panel.add(scrollPane, BorderLayout.CENTER);
-        return panel;
+        return bookListDisplay;
     }
 
+    static void getJPanel(String title, JPanel panel) {
+        JDialog dialog = new JDialog();
+        dialog.setTitle(title);
+        dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
+        dialog.add(panel);
+        dialog.setPreferredSize(new Dimension(400, 400));
+        dialog.pack();
+        dialog.setLocationRelativeTo(null);
+        dialog.setVisible(true);
+    }
 
     private boolean isThereAnyBooksInLibrary() {
         return !LIBRARYSYSTEM.getBookList().isEmpty();

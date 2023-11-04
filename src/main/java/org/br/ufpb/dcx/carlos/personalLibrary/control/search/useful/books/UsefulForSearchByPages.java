@@ -1,5 +1,6 @@
 package org.br.ufpb.dcx.carlos.personalLibrary.control.search.useful.books;
 
+import org.br.ufpb.dcx.carlos.personalLibrary.control.search.useful.DisplayList;
 import org.br.ufpb.dcx.carlos.personalLibrary.model.Book;
 import org.br.ufpb.dcx.carlos.personalLibrary.model.LibrarySystem;
 
@@ -45,23 +46,29 @@ public class UsefulForSearchByPages {
 
     public void searchBooksByPageCount(int pageCountForSearch, int searchType) {
         List<Book> foundBooks = (searchType == 1) ? librarySystem.findBooksByMorePageCount(pageCountForSearch) : librarySystem.findBooksByLessPageCount(pageCountForSearch);
-        StringBuilder message = new StringBuilder();
 
-        String comparison = (searchType == 1) ? "ou mais" : "ou menos";
-        if (!foundBooks.isEmpty()) {
-            message.append("Livros com ").append(pageCountForSearch).append(" ").append(comparison).append(" páginas são: \n\n");
+        JScrollPane scrollPane = getjScrollPane(pageCountForSearch, searchType, foundBooks);
 
-            for (Book book : foundBooks) {
-                message.append(book.getTitle()).append("\n");
-            }
-        } else {
-            message.append("Não há livros com ").append(pageCountForSearch).append(" ").append(comparison).append(" páginas na biblioteca!!");
-        }
-
-        showMessage(message.toString());
+        JDialog resultDialog = new JDialog();
+        resultDialog.setTitle("Resultados da Pesquisa");
+        DisplayList.getPanel(scrollPane, resultDialog);
     }
 
-    private void showMessage(String message) {
-        JOptionPane.showMessageDialog(null, message);
+    private static JScrollPane getjScrollPane(int pageCountForSearch, int searchType, List<Book> foundBooks) {
+        DefaultListModel<String> listModel = new DefaultListModel<>();
+        String comparison = (searchType == 1) ? "ou mais" : "ou menos";
+
+        if (!foundBooks.isEmpty()) {
+            for (Book book : foundBooks) {
+                listModel.addElement(book.getTitle());
+            }
+        } else {
+            listModel.addElement("Não há livros com " + pageCountForSearch + " " + comparison + " páginas na biblioteca!!");
+        }
+
+        JList<String> resultList = new JList<>(listModel);
+        resultList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+
+        return new JScrollPane(resultList);
     }
 }

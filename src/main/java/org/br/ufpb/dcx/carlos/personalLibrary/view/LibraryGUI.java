@@ -38,7 +38,7 @@ public class LibraryGUI extends JFrame {
         genreList.addActionListener(new DisplayAllBookGenresController(librarySystem));
 
         JMenuItem subGenreList = new JMenuItem("Subgênero dos Livros");
-        subGenreList.addActionListener(new DisplayAllBooksSubGenres(librarySystem));
+        subGenreList.addActionListener(new DisplayAllBooksSubGenresController(librarySystem));
 
         JMenuItem authorsList = new JMenuItem("Lista de Autores dos Livros");
         authorsList.addActionListener(new DisplayDataOfAllAuthorsController(librarySystem));
@@ -52,6 +52,9 @@ public class LibraryGUI extends JFrame {
         JMenuItem allPageCount = new JMenuItem("Quantidade Total de Páginas");
         allPageCount.addActionListener(new DisplayAllPagesCount(librarySystem));
 
+        JMenuItem allBooksCount = new JMenuItem("Quantidade de Livros");
+        allBooksCount.addActionListener(new DisplayAllBooksCount(librarySystem));
+
         menuDisplay.add(acquisitionOrder);
         menuDisplay.add(alphabeticalOrder);
         menuDisplay.add(genreList);
@@ -60,6 +63,7 @@ public class LibraryGUI extends JFrame {
         menuDisplay.add(alphabeticallySortedByGenres);
         menuDisplay.add(alphabeticallySortedByGenresAndSubgenres);
         menuDisplay.add(allPageCount);
+        menuDisplay.add(allBooksCount);
 
         return menuDisplay;
     }

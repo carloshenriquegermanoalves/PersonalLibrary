@@ -6,11 +6,11 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class DisplayAllPagesCount implements ActionListener {
+public class DisplayAllBooksCount implements ActionListener {
     private final LibrarySystem LIBRARYSYSTEM;
 
-    public DisplayAllPagesCount(LibrarySystem librarysystem) {
-        this.LIBRARYSYSTEM = librarysystem;
+    public DisplayAllBooksCount(LibrarySystem librarysystem) {
+        LIBRARYSYSTEM = librarysystem;
     }
 
     @Override
@@ -19,6 +19,6 @@ public class DisplayAllPagesCount implements ActionListener {
     }
 
     private void allPagesCount() {
-        JOptionPane.showMessageDialog(null, "A quantidade total de páginas é: " + LIBRARYSYSTEM.totalPageCount());
+        JOptionPane.showMessageDialog(null, "A quantidade total de páginas é: " + LIBRARYSYSTEM.getBookList().size());
     }
 }

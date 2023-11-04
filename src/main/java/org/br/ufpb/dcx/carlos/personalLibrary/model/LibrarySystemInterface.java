@@ -5,7 +5,6 @@ import org.br.ufpb.dcx.carlos.personalLibrary.model.exceptions.BookNotFoundExcep
 import java.util.List;
 
 public interface LibrarySystemInterface {
-
     List<Book> getBookList();
 
     void setBookList(List<Book> bookList);
@@ -46,6 +45,7 @@ public interface LibrarySystemInterface {
     List<Book> findBooksByYearOfReading(int yearOfReading);
 
     List<Book> findUnreadBooks();
+    List<List<Book>> findBooksBySubGenre();
 
     List<Author> authorList();
 

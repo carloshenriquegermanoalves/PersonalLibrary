@@ -85,7 +85,6 @@ public class Book implements Comparable<Book>, Serializable {
                 authorsString.append(", ");
             }
         }
-
         return "O Título do Livro é: " + this.title + "\nO(s) Autor(es) do Livro é: " + authorsString + "\nO Gênero do Livro é: " + this.bookGenre + "\nO Número de Páginas é: " + this.pageCount;
     }
 

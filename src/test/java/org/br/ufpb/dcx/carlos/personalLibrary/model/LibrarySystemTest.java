@@ -25,8 +25,8 @@ class LibrarySystemTest {
         Author author2 = new Author("Fernando Acuña", "Masculino", "Desconhecido");
         Author author3 = new Author("Agatha Christie", "Feminino", "Inglaterra");
 
-        Book book1 = new Book("Inglês Para Falar em Qualquer Situação", List.of(author1, author2), "Didático", 208, "Sim", 2022);
-        Book book2 = new Book("A Casa do Penhasco", List.of(author3), "Romance Policial", 192, "Sim", 2018);
+        Book book1 = new Book("Inglês Para Falar em Qualquer Situação", List.of(author1, author2), "Didático", "Idiomas", 208, "Sim", 2022);
+        Book book2 = new Book("A Casa do Penhasco", List.of(author3), "Romance Policial", "Detetive", 192, "Sim", 2018);
 
         librarySystem.addBookToList(book1);
         librarySystem.addBookToList(book2);
@@ -42,7 +42,7 @@ class LibrarySystemTest {
     void setBookList() {
         Book existingBook = librarySystem.getBookList().get(1);
         Author newAuthor = new Author("John Bunyan", "Masculino", "Inglaterra");
-        Book newBook = new Book("O Peregrino", List.of(newAuthor), "Teologia", 288, "Sim", 2021);
+        Book newBook = new Book("O Peregrino", List.of(newAuthor), "Teologia", "Alegoria Cristã",288, "Sim", 2021);
         List<Book> bookList = new ArrayList<>(librarySystem.getBookList());
         bookList.remove(existingBook);
         bookList.add(newBook);
@@ -81,7 +81,7 @@ class LibrarySystemTest {
     @org.junit.jupiter.api.Test
     void addBookToList() {
         Author newAuthor = new Author("J. K. Rowling", "Feminino", "Estados Unidos");
-        Book newBook = new Book("Harry Potter e a Pedra Filosofal", List.of(newAuthor), "Fantasia", 208, "Sim", 2021);
+        Book newBook = new Book("Harry Potter e a Pedra Filosofal", List.of(newAuthor), "Fantasia", "Harry Potter", 208, "Sim", 2021);
 
         librarySystem.addBookToList(newBook);
 
@@ -92,7 +92,7 @@ class LibrarySystemTest {
     @org.junit.jupiter.api.Test
     void removeBookFromList() {
         Author author = new Author("Agatha Christie", "Feminino", "Inglaterra");
-        Book book = new Book("A Casa do Penhasco", List.of(author), "Romance Policial", 192, "Sim", 2018);
+        Book book = new Book("A Casa do Penhasco", List.of(author), "Romance Policial", "Detetive", 192, "Sim", 2018);
 
         librarySystem.removeBookFromList("A Casa do Penhasco");
 

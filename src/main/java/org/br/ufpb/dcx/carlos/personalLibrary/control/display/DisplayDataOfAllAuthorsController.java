@@ -4,6 +4,7 @@ import org.br.ufpb.dcx.carlos.personalLibrary.model.Author;
 import org.br.ufpb.dcx.carlos.personalLibrary.model.LibrarySystem;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.List;
@@ -50,15 +51,15 @@ public class DisplayDataOfAllAuthorsController implements ActionListener {
 
     private void displayAllAuthors() {
         if (isThereAnyAuthorsInLibrary(LIBRARYSYSTEM.authorList())) {
-            showAuthorsList(LIBRARYSYSTEM.authorList(), "Todos os autores cadastrados na biblioteca são: \n\n");
+            displayList(LIBRARYSYSTEM.authorList(), "Todos os autores cadastrados na biblioteca são:");
         } else {
-            showMessage("Ainda não há livros cadastrados na biblioteca!");
+            showMessage("Ainda não há autores cadastrados na biblioteca!");
         }
     }
 
     private void displayAuthorsByType(List<Author> authors, String authorType) {
         if (isThereAnyAuthorsInLibrary(authors)) {
-            showAuthorsList(authors, "Os " + authorType + " cadastrados são: \n\n");
+            displayList(authors, "Os " + authorType + " cadastrados são:");
         } else {
             showMessage("Ainda não há " + authorType + "!");
         }
@@ -74,12 +75,34 @@ public class DisplayDataOfAllAuthorsController implements ActionListener {
         showMessage("O número de livros por autores de outro gênero é: " + numberOfBooks);
     }
 
-    private void showAuthorsList(List<Author> authors, String message) {
-        StringBuilder builder = new StringBuilder(message);
+    private void displayList(List<Author> authors, String message) {
+        DefaultListModel<String> listModel = new DefaultListModel<>();
+
         for (Author author : authors) {
-            builder.append(author.getName()).append("\n");
+            listModel.addElement(author.getName());
         }
-        showMessage(builder.toString());
+
+        JList<String> authorList = new JList<>(listModel);
+        authorList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+
+        JScrollPane scrollPane = new JScrollPane(authorList);
+
+        JDialog authorDialog = new JDialog();
+        authorDialog.setTitle(message);
+        displayJPane(scrollPane, authorDialog);
+    }
+
+    private void displayJPane(JScrollPane scrollPane, JDialog authorDialog) {
+        authorDialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
+
+        JPanel panel = new JPanel(new BorderLayout());
+        panel.add(scrollPane, BorderLayout.CENTER);
+
+        authorDialog.add(panel);
+        authorDialog.setPreferredSize(new Dimension(300, 300));
+        authorDialog.pack();
+        authorDialog.setLocationRelativeTo(null);
+        authorDialog.setVisible(true);
     }
 
     private void showMessage(String message) {

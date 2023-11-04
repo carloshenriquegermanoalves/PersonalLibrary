@@ -91,7 +91,6 @@ public class EditBookController implements ActionListener {
         return index >= 0 ? index : -1;
     }
 
-
     private void editTitle(Book book) {
         String newTitle = JOptionPane.showInputDialog("Digite o novo título do livro: ");
         book.setTitle(newTitle);

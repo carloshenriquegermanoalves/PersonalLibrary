@@ -50,11 +50,7 @@ public class LibrarySystem implements LibrarySystemInterface {
     @Override
     public Book findBookByTitleAndAuthor(String title, String authorName) throws BookNotFoundException {
         List<Book> foundBooks = bookList.stream().filter(book -> book.getTitle().equalsIgnoreCase(title)).filter(book -> book.getAuthor().stream().anyMatch(author -> author.getName().equalsIgnoreCase(authorName))).toList();
-
-        if (foundBooks.isEmpty()) {
-            throw new BookNotFoundException("Livro não encontrado com título: " + title + " e autor: " + authorName);
-        }
-
+        if (foundBooks.isEmpty()) {throw new BookNotFoundException("Livro não encontrado com título: " + title + " e autor: " + authorName);}
         return foundBooks.get(0);
     }
 
@@ -95,7 +91,6 @@ public class LibrarySystem implements LibrarySystemInterface {
         return bookList.stream().filter(book -> book.getAuthor().stream().anyMatch(author -> author.getName().equalsIgnoreCase(nameToSearch))).collect(Collectors.toList());
     }
 
-
     @Override
     public List<Book> findBooksByAuthorGender(String genderToSearch) {
         return bookList.stream().filter(book -> book.getAuthor().stream().anyMatch(author -> author.getAuthorGender().equalsIgnoreCase(genderToSearch))).collect(ArrayList::new, ArrayList::add, ArrayList::addAll);
@@ -134,6 +129,12 @@ public class LibrarySystem implements LibrarySystemInterface {
     @Override
     public List<Book> findUnreadBooks() {
         return bookList.stream().filter(book -> book.getReadStatus().equalsIgnoreCase("2")).collect(ArrayList::new, ArrayList::add, ArrayList::addAll);
+    }
+
+    @Override
+    public List<List<Book>> findBooksBySubGenre() {
+        List<String> uniqueSubGenres = bookList.stream().map(Book::getBookSubGenre).distinct().toList();
+        return uniqueSubGenres.stream().map(subGenre -> bookList.stream().filter(book -> subGenre.equals(book.getBookSubGenre())).collect(Collectors.toList())).toList();
     }
 
     @Override

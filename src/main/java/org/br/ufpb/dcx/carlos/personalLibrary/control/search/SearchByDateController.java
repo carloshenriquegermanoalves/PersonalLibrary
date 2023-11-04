@@ -1,5 +1,6 @@
 package org.br.ufpb.dcx.carlos.personalLibrary.control.search;
 
+import org.br.ufpb.dcx.carlos.personalLibrary.control.search.useful.DisplayList;
 import org.br.ufpb.dcx.carlos.personalLibrary.model.Book;
 import org.br.ufpb.dcx.carlos.personalLibrary.model.LibrarySystem;
 
@@ -10,6 +11,7 @@ import java.util.List;
 
 public class SearchByDateController implements ActionListener {
     private final LibrarySystem LIBRARYSYSTEM;
+    private final DisplayList DISPLAYLIST = new DisplayList();
 
     public SearchByDateController(LibrarySystem librarysystem) {
         LIBRARYSYSTEM = librarysystem;
@@ -20,9 +22,7 @@ public class SearchByDateController implements ActionListener {
             showMessage("Ainda não há livros na biblioteca para pesquisa!");
             return;
         }
-
         String dateSearchMenuOption = JOptionPane.showInputDialog("1. Pesquisar por Livros lidos em um determinado ano\n2. Pesquisar por Livros não lidos");
-
         switch (dateSearchMenuOption) {
             case "1" -> searchBooksReadInYear();
             case "2" -> searchUnreadBooks();
@@ -31,28 +31,10 @@ public class SearchByDateController implements ActionListener {
     }
 
     private void searchBooksReadInYear() {
-        boolean yearOfReadingIsNumeric = false;
-        int yearOfReadingToSearch = 0;
-
-        while (!yearOfReadingIsNumeric) {
-            try {
-                String yearOfReadingString = JOptionPane.showInputDialog("Digite o ano de leitura: ");
-                yearOfReadingToSearch = Integer.parseInt(yearOfReadingString);
-                yearOfReadingIsNumeric = true;
-            } catch (NumberFormatException exception) {
-                showMessage("Digite apenas valores numéricos para o ano de leitura.");
-            }
-        }
-
+        int yearOfReadingToSearch = getInputForYearOfReading();
         List<Book> booksReadInYear = LIBRARYSYSTEM.findBooksByYearOfReading(yearOfReadingToSearch);
-
         if (!booksReadInYear.isEmpty()) {
-            StringBuilder message = new StringBuilder();
-            message.append("Os Livros Lidos em ").append(yearOfReadingToSearch).append(" são:\n\n");
-            for (Book book : booksReadInYear) {
-                message.append(book.getTitle()).append("\n");
-            }
-            showMessage(message.toString());
+            DISPLAYLIST.displayList("Livros Lidos em " + yearOfReadingToSearch, booksReadInYear);
         } else {
             showMessage("Não Há Livros Lidos em " + yearOfReadingToSearch);
         }
@@ -60,14 +42,8 @@ public class SearchByDateController implements ActionListener {
 
     private void searchUnreadBooks() {
         List<Book> unreadBooks = LIBRARYSYSTEM.findUnreadBooks();
-
         if (!unreadBooks.isEmpty()) {
-            StringBuilder message = new StringBuilder();
-            message.append("Os Livros que Ainda Não Foram Lidos são:\n\n");
-            for (Book book : unreadBooks) {
-                message.append(book.getTitle()).append("\n");
-            }
-            showMessage(message.toString());
+            DISPLAYLIST.displayList("Livros que Ainda Não Foram Lidos", unreadBooks);
         } else {
             showMessage("Parabéns! Não há livros não lidos! Você Leu Todos os seus Livros!");
         }
@@ -81,4 +57,19 @@ public class SearchByDateController implements ActionListener {
     private void showMessage(String message) {
         JOptionPane.showMessageDialog(null, message);
     }
+
+    private int getInputForYearOfReading() {
+        int yearOfReadingToSearch;
+        while (true) {
+            try {
+                String yearOfReadingString = JOptionPane.showInputDialog("Digite o ano de leitura: ");
+                yearOfReadingToSearch = Integer.parseInt(yearOfReadingString);
+                break;
+            } catch (NumberFormatException exception) {
+                showMessage("Digite apenas valores numéricos para o ano de leitura.");
+            }
+        }
+        return yearOfReadingToSearch;
+    }
+
 }
