@@ -1,0 +1,13 @@
+O objetivo deste arquivo é conduzir uma análise imparcial do resultado do primeiro sprint do projeto implementado. O primeiro sprint representou a entrega funcional do projeto, e, como tal, esperava-se melhorias tanto na refatoração do código quanto na adição, remoção ou alteração de funcionalidades e da interface gráfica.
+
+A análise do design de programação orientada a objetos (POO) deste aplicativo desktop em Java baseia-se no conceito de "Code Smells" descrito no livro "Refactoring: Improving the Design of Existing Code" de Martin Fowler e em materiais relacionados igualmente relevantes.
+
+Após uma análise abrangente do código, identificamos os seguintes pontos de melhoria ou "Code Smells" (sinais de que algo no código pode ser aprimorado, sem necessariamente indicar um problema de lógica ou funcionalidade, mas sugerindo que a refatoração pode ser uma opção para melhorar o trecho de código):
+
+- **Alto acoplamento (dependência elevada) entre as classes nos pacotes "control" e "model":** Este problema surge devido à inexperiência do desenvolvedor no controle de eventos e na comunicação entre a parte frontal (front-end) e a parte de lógica (back-end). Isso ocorre devido à falta de planejamento adequado sobre como as classes em cada pacote deveriam se relacionar, o que levou a confusões.
+
+- **Particionamento excessivo:** Em vez de utilizar métodos privados, o código optou por criar classes auxiliares que contêm esses métodos, evitando o desgaste de memória constante e a redução da quantidade de linhas de código para otimização. No entanto, após uma análise mais aprofundada, foi percebido que, em termos de design, teria sido mais apropriado comprimir muitas dessas classes auxiliares em métodos privados. Isso permitiria um melhor relacionamento entre as classes e seus métodos. Assim, a principal razão para o alto acoplamento entre as classes foi o particionamento excessivo, que, embora tenha otimizado o software, deixou a desejar em termos de design POO.
+
+No entanto, é importante notar que nem tudo é negativo. Houve um destaque positivo em relação à alta coesão entre as classes no pacote "model". Cada uma dessas classes apresentou uma das melhores cardinalidades possíveis e não precisou interagir com as classes responsáveis pela interface gráfica.
+
+Após a conclusão deste sprint e a entrega funcional do projeto para a disciplina de POO, ficou evidente a importância da prática para uma melhor compreensão e ganho de experiência na aplicação dos conceitos de programação orientada a objetos e de eventos. Isso destaca a necessidade contínua de aprimorar as habilidades e aprofundar o conhecimento nessas áreas.

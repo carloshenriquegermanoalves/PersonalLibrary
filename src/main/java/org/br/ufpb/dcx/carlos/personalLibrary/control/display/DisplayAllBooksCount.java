@@ -19,6 +19,6 @@ public class DisplayAllBooksCount implements ActionListener {
     }
 
     private void allPagesCount() {
-        JOptionPane.showMessageDialog(null, "A quantidade total de páginas é: " + LIBRARYSYSTEM.getBookList().size());
+        JOptionPane.showMessageDialog(null, "A quantidade total de livros é: " + LIBRARYSYSTEM.getBookList().size());
     }
 }

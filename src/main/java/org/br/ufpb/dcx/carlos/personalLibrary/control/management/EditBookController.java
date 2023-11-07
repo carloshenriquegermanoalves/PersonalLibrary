@@ -32,7 +32,7 @@ public class EditBookController implements ActionListener {
             String titleToEdit = JOptionPane.showInputDialog("Digite o título do livro que você quer editar: ");
             String authorNameToEdit = JOptionPane.showInputDialog("Digite o nome do autor do livro que você quer editar: ");
 
-            Book bookToEdit = findBookByTitleAndAuthor(titleToEdit, authorNameToEdit);
+            Book bookToEdit = tryFindBookByTitle(titleToEdit);
 
             if (bookToEdit != null) {
                 int fieldChoice = chooseFieldToEdit();
@@ -62,33 +62,42 @@ public class EditBookController implements ActionListener {
         }
     }
 
-    private Book findBookByTitleAndAuthor(String title, String authorName) {
+    private Book tryFindBookByTitle(String title) {
         try {
-            return LIBRARYSYSTEM.findBookByTitleAndAuthor(title, authorName);
+            return LIBRARYSYSTEM.findBookInList(title);
         } catch (BookNotFoundException e) {
-            JOptionPane.showMessageDialog(null, "Não existe livro com esse título e autor! Tente novamente!");
+            JOptionPane.showMessageDialog(null, "Não existe livro com esse título! Tente novamente!");
             return null;
         }
     }
 
     private int chooseFieldToEdit() {
-        String[] options = {"""
-            Título do livro
-            Nome do autor
-            Gênero do autor
-            País de nascimento do autor
-            Status do livro
-            Ano de leitura
-            Gênero do livro
-            Subgênero do livro
-            Número de Páginas
-            """};
+        String[] options = {
+                "Título do livro",
+                "Nome do autor",
+                "Gênero do autor",
+                "País de nascimento do autor",
+                "Status do livro",
+                "Ano de leitura",
+                "Gênero do livro",
+                "Subgênero do livro",
+                "Número de Páginas"
+        };
 
         JList<String> list = new JList<>(options);
-        JOptionPane.showMessageDialog(null, new JScrollPane(list), "Escolha o campo para editar:", JOptionPane.PLAIN_MESSAGE);
+        list.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+        list.setSelectedIndex(0);
 
-        int index = list.getSelectedIndex();
-        return index >= 0 ? index : -1;
+        return JOptionPane.showOptionDialog(
+                null,
+                new JScrollPane(list),
+                "Escolha o campo para editar:",
+                JOptionPane.YES_NO_OPTION,
+                JOptionPane.QUESTION_MESSAGE,
+                null,
+                null,
+                null
+        );
     }
 
     private void editTitle(Book book) {
